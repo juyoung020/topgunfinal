@@ -210,7 +210,7 @@ def traj(tag, out: Path, episodes: int = 3):
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--tag", default="final_sp")
+    ap.add_argument("--tag", default=__import__("os").environ.get("FINAL_SP_TAG", "final_sp"))
     ap.add_argument("--compare", nargs="*", default=[],
                     help="곡선에 같이 겹쳐 그릴 예전 태그")
     ap.add_argument("--out", default=None)

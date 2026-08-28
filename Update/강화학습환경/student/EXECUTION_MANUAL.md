@@ -34,6 +34,15 @@ powershell -File tools\launch.ps1 dashboard
    ```
 3. Start → 판정은 **화면 HP 바**. 진영 교대(접속 순서 바꿔)로 2판. 매판 뷰어 재시작.
 
+## 3-1. 새 라운드(새 태그) 시작
+
+```
+powershell -File tools\launch.ps1 sidecar -Tag <새태그>
+powershell -File tools\launch.ps1 round2  -Tag <새태그>      # 출발 체크포인트는 launch_final_round2.bat 의 ROUND2_FROM (기본 final_sp iter_1400)
+```
+- 새 태그 폴더의 `live_tune.json`(보상 = 코드값) 과 `snapshots/snap_0000`(출발 사본) 은 미리 만들어 둔다 — preflight 가 없으면 FAIL.
+- 이어받기는 `launch.ps1 resume -Tag <태그>`. 대시보드는 태그 무관(모든 run 표시).
+
 ## 4. 창·프로세스 정리 (반드시 이 스크립트로)
 
 ```

@@ -3,3 +3,4 @@ __pycache__/
 # GitHub 100 MB 제한 초과 — 릴리스 자산(BattleServer zip)으로 보관
 BattleServer_V1.2_VeryLow/DogFightViewer/Content/Paks/DogFightViewer-Windows.ucas
 BattleServer_V1.2_VeryLow/DogFightViewer/Binaries/Win64/DogFightViewer-Win64-Shipping.exe
+*.lock

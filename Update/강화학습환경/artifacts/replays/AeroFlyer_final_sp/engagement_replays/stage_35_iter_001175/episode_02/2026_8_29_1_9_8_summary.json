@@ -1,0 +1,7 @@
+{
+  "end_condition": "ownship destroyed",
+  "outcome": "loss",
+  "opponent": "frozen_snap_1001",
+  "ownship_health": -0.07379253457058293,
+  "target_health": -0.07379253457058293
+}

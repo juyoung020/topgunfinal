@@ -1,0 +1,118 @@
+{
+  "target_pool": [
+    {
+      "weight": 1.4,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0822_hp1x\\stage_34_turnalt_gunnery\\snapshots\\snap_2081",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.7,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0822_hp1x\\stage_34_turnalt_gunnery\\snapshots\\snap_1780",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -1400.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.7,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0822_hp1x\\stage_34_turnalt_gunnery\\snapshots\\snap_0980",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -2600.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 1.4,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\models\\AeroFlyer\\sub_cand_peak3100",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.7,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\models\\AeroFlyer\\sub_cand_snap13280",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -2000.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.7,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\models\\AeroFlyer\\sub_cand_snap13280",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -3000.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "loss_reward": -1500.0,
+    "far_start_m": 1800.0,
+    "far_ramp_m": 400.0,
+    "w_far": 0.45,
+    "win_reward": 1500.0,
+    "w_deck": 20.0,
+    "deck_ft": 2000.0,
+    "win_time_bonus": 200.0,
+    "w_damage": 300.0,
+    "w_damage_taken": 300.0,
+    "w_sink": 0.0,
+    "sink_free_mps": 30.0,
+    "w_alt": 0.0,
+    "w_overspeed": 0.0,
+    "w_tti": 0.0,
+    "crash_reward": -1700.0
+  }
+}

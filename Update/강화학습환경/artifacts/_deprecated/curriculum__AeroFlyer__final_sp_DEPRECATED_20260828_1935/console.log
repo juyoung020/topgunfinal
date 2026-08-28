@@ -1,0 +1,1192 @@
+[JSB][CreateBattleSpace] enter Space@00000001803EE598 SpaceMutex@00000001803DE000
+[JSB][CreateBattleSpace] before newspace
+[JSB][CreateBattleSpace] newspace=000001C8A7098A00 use_count=1
+[JSB][CreateBattleSpace] before lock
+[JSB][CreateBattleSpace] after lock size=0
+[JSB][CreateBattleSpace] insert id=1 success=1 final_size=1 stored=000001C8A7098A00
+init ID:1 Lat37.92355643001773 Lon128.18188127777776 Alt(meter)7000.0785355893395 Speed(m/sec)300.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+
+
+     JSBSim Flight Dynamics Model v1.0.0 May 29 2026 15:35:39
+            [JSBSim-ML v2.0]
+
+JSBSim startup beginning ...
+
+[JSB][Init] after new AIP_FDMExec ptr=000001C8D73D4F00
+[JSB][Init] before Init_FDM ptr=000001C8D73D4F00
+[JSB][Init] after Init_FDM ptr=000001C8D73D4F00
+[JSB][Init] before Exec_FDM ptr=000001C8D73D4F00
+[JSB][Init] after Exec_FDM ptr=000001C8D73D4F00
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C8D73D4F00
+[JSB][Init] after InsertFighter FighterID=1
+init ID:1 Lat37.96855377446113 Lon128.18188127777776 Alt(meter)7002.8272734023885 Speed(m/sec)300.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C8D73D4AE0
+[JSB][Init] before Init_FDM ptr=000001C8D73D4AE0
+[JSB][Init] after Init_FDM ptr=000001C8D73D4AE0
+[JSB][Init] before Exec_FDM ptr=000001C8D73D4AE0
+[JSB][Init] after Exec_FDM ptr=000001C8D73D4AE0
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C8D73D4AE0
+[JSB][Init] after InsertFighter FighterID=2
+[JSB][RemoveSpace] enter BattleSpace=1
+[JSB][RemoveSpace] after lock found=1 size=1
+[JSB][RemoveSpace] FighterPtr=000001C8A7098A00 fighter_count_before=2
+[JSB][RemoveSpace] fighter_count_after=0
+Remove Space Complete.
+[JSB][RemoveSpace] exit after_size=0
+2026-08-28 19:17:42,030	INFO worker.py:2013 -- Started a local Ray instance.
+C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py:2052: FutureWarning: Tip: In future versions of Ray, Ray will no longer override accelerator visible devices env var if num_gpus=0 or num_gpus=None (default). To enable this behavior and turn off this error message, set RAY_ACCEL_ENV_VAR_OVERRIDE_ON_ZERO=0
+  warnings.warn(
+[Stage 0] Skipped by --start-stage.
+[Stage 1] Skipped by --start-stage.
+[Stage 2] Skipped by --start-stage.
+[Stage 3] Skipped by --start-stage.
+[Stage 4] Skipped by --start-stage.
+[Stage 5] Skipped by --start-stage.
+[Stage 6] Skipped by --start-stage.
+[Stage 7] Skipped by --start-stage.
+[Stage 8] Skipped by --start-stage.
+[Stage 9] Skipped by --start-stage.
+[Stage 10] Skipped by --start-stage.
+[Stage 11] Skipped by --start-stage.
+[Stage 12] Skipped by --start-stage.
+[Stage 13] Skipped by --start-stage.
+[Stage 14] Skipped by --start-stage.
+[Stage 15] Skipped by --start-stage.
+[Stage 16] Skipped by --start-stage.
+[Stage 17] Skipped by --start-stage.
+[Stage 18] Skipped by --start-stage.
+[Stage 19] Skipped by --start-stage.
+[Stage 20] Skipped by --start-stage.
+[Stage 21] Skipped by --start-stage.
+[Stage 22] Skipped by --start-stage.
+[Stage 23] Skipped by --start-stage.
+[Stage 24] Skipped by --start-stage.
+[Stage 25] Skipped by --start-stage.
+[Stage 26] Skipped by --start-stage.
+[Stage 27] Skipped by --start-stage.
+[Stage 28] Skipped by --start-stage.
+[Stage 29] Skipped by --start-stage.
+[Stage 30] Skipped by --start-stage.
+[Stage 31] Skipped by --start-stage.
+[Stage 32] Skipped by --start-stage.
+[Stage 33] Skipped by --start-stage.
+[Stage 34] Skipped by --start-stage.
+
+============================================================
+  Stage 35: selfplay_final
+  [본선] 자가대전 한 칸 — v2(ladder5220) 보상, 상대 = 우리 성장 스냅샷 3슬롯(Elo-PFSP), 스폰 = 정면 2000ft. 승급 없음.
+  target_mode=fixed  max_iter=30000  resume_from=0
+============================================================
+2026-08-28 19:17:45,304	WARNING algorithm_config.py:5131 -- You are running PPO on the new API stack! This is the new default behavior for this algorithm. If you don't want to use the new API stack, set `config.api_stack(enable_rl_module_and_learner=False,enable_env_runner_and_connector_v2=False)`. For a detailed migration guide, see here: https://docs.ray.io/en/master/rllib/new-api-stack-migration-guide.html
+C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\algorithms\algorithm.py:527: RayDeprecationWarning: This API is deprecated and may be removed in future Ray releases. You could suppress this warning by setting env variable PYTHONWARNINGS="ignore::DeprecationWarning"
+`UnifiedLogger` will be removed in Ray 2.7.
+  return UnifiedLogger(config, logdir, loggers=None)
+C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\tune\logger\unified.py:53: RayDeprecationWarning: This API is deprecated and may be removed in future Ray releases. You could suppress this warning by setting env variable PYTHONWARNINGS="ignore::DeprecationWarning"
+The `JsonLogger interface is deprecated in favor of the `ray.tune.json.JsonLoggerCallback` interface and will be removed in Ray 2.7.
+  self._loggers.append(cls(self.config, self.logdir, self.trial))
+C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\tune\logger\unified.py:53: RayDeprecationWarning: This API is deprecated and may be removed in future Ray releases. You could suppress this warning by setting env variable PYTHONWARNINGS="ignore::DeprecationWarning"
+The `CSVLogger interface is deprecated in favor of the `ray.tune.csv.CSVLoggerCallback` interface and will be removed in Ray 2.7.
+  self._loggers.append(cls(self.config, self.logdir, self.trial))
+C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\tune\logger\unified.py:53: RayDeprecationWarning: This API is deprecated and may be removed in future Ray releases. You could suppress this warning by setting env variable PYTHONWARNINGS="ignore::DeprecationWarning"
+The `TBXLogger interface is deprecated in favor of the `ray.tune.tensorboardx.TBXLoggerCallback` interface and will be removed in Ray 2.7.
+  self._loggers.append(cls(self.config, self.logdir, self.trial))
+[2026-08-28 19:17:45,397 E 58996 47984] core_worker.cc:2232: Actor with class name: 'SingleAgentEnvRunner' and ID: 'dc85c1240e69c0613a31628a01000000' has constructor arguments in the object store and max_restarts > 0. If the arguments in the object store go out of scope or are lost, the actor restart will fail. See https://github.com/ray-project/ray/issues/53727 for more details.
+[33m(raylet)[0m Stack (most recent call first):
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 625 in job_logging_config
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 2800 in disconnect
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 2132 in shutdown
+[33m(raylet)[0m   File "  File C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 2132"C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py in shutdown", line 
+[33m(raylet)[0m   File 1144 in wrapper
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\client_mode_hook.py", line 104 in wrapper
+[33m(raylet)[0m "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 1144 in wrapper
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 1144 in Windows fatal exception: wrapper
+[33m(raylet)[0m access violation
+[33m(raylet)[0m 
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py  File ", line 625"C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\client_mode_hook.py", line 104 in  in job_logging_config
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py"wrapper
+[33m(raylet)[0m , line 2800 in disconnect
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][CreateBattleSpace] enter Space@00000001803EE598 SpaceMutex@00000001803DE000
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][CreateBattleSpace] before newspace
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][CreateBattleSpace] newspace=000001FA8CFC36C0 use_count=1
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][CreateBattleSpace] before lock
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][CreateBattleSpace] after lock size=0
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][CreateBattleSpace] insert id=1 success=1 final_size=1 stored=000001FA8CFC36C0
+[36m(SingleAgentEnvRunner pid=35988)[0m init ID:1 Lat37.92003070998819 Lon128.18188127777776 Alt(meter)4572.029042862364 Speed(m/sec)200.0
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] registry size=1
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before new AIP_FDMExec
+[36m(SingleAgentEnvRunner pid=35988)[0m 
+[36m(SingleAgentEnvRunner pid=35988)[0m 
+[36m(SingleAgentEnvRunner pid=35988)[0m      JSBSim Flight Dynamics Model v1.0.0 May 29 2026 15:35:39
+[36m(SingleAgentEnvRunner pid=35988)[0m             [JSBSim-ML v2.0]
+[36m(SingleAgentEnvRunner pid=35988)[0m 
+[36m(SingleAgentEnvRunner pid=35988)[0m JSBSim startup beginning ...
+[36m(SingleAgentEnvRunner pid=35988)[0m 
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after new AIP_FDMExec ptr=000001FA8F0F5B00
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Init_FDM ptr=000001FA8F0F5B00
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Init_FDM ptr=000001FA8F0F5B00
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Exec_FDM ptr=000001FA8F0F5B00
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Exec_FDM ptr=000001FA8F0F5B00
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001FA8F0F5B00
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after InsertFighter FighterID=1
+[36m(SingleAgentEnvRunner pid=35988)[0m init ID:1 Lat37.91455691666667 Lon128.18188127777776 Alt(meter)4572.000000000235 Speed(m/sec)200.0
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] registry size=1
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before new AIP_FDMExec
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after new AIP_FDMExec ptr=000001FA8F0F50B0
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Init_FDM ptr=000001FA8F0F50B0
+[36m(SingleAgentEnvRunner pid=26032)[0m 
+[36m(SingleAgentEnvRunner pid=26032)[0m 
+[36m(SingleAgentEnvRunner pid=26032)[0m 
+[36m(SingleAgentEnvRunner pid=26032)[0m 
+[36m(SingleAgentEnvRunner pid=46048)[0m 
+[36m(SingleAgentEnvRunner pid=46048)[0m 
+[36m(SingleAgentEnvRunner pid=46048)[0m 
+[36m(SingleAgentEnvRunner pid=46048)[0m 
+[36m(SingleAgentEnvRunner pid=35988)[0m DeprecationWarning: `RLModule(config=[RLModuleConfig object])` has been deprecated. Use `RLModule(observation_space=.., action_space=.., inference_only=.., model_config=.., catalog_class=..)` instead. This will raise an error in the future!
+[33m(raylet)[0m Stack (most recent call first):[32m [repeated 15x across cluster] (Ray deduplicates logs by default. Set RAY_DEDUP_LOGS=0 to disable log deduplication, or see https://docs.ray.io/en/master/ray-observability/user-guides/configure-logging.html#log-deduplication for more options.)[0m
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 625 in job_logging_config[32m [repeated 14x across cluster][0m
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 2800 in disconnect[32m [repeated 14x across cluster][0m
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 2132 in shutdown[32m [repeated 14x across cluster][0m
+[33m(raylet)[0m   File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\client_mode_hook.py", line 104 in wrapper[32m [repeated 27x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m 
+[36m(SingleAgentEnvRunner pid=40676)[0m 
+[36m(SingleAgentEnvRunner pid=40676)[0m 
+[36m(SingleAgentEnvRunner pid=40676)[0m 
+[36m(SingleAgentEnvRunner pid=57568)[0m 
+[36m(SingleAgentEnvRunner pid=57568)[0m 
+[36m(SingleAgentEnvRunner pid=57568)[0m 
+[36m(SingleAgentEnvRunner pid=57568)[0m 
+[36m(SingleAgentEnvRunner pid=61360)[0m 
+[36m(SingleAgentEnvRunner pid=61360)[0m 
+[36m(SingleAgentEnvRunner pid=61360)[0m 
+[36m(SingleAgentEnvRunner pid=61360)[0m 
+[36m(SingleAgentEnvRunner pid=60196)[0m 
+[36m(SingleAgentEnvRunner pid=60196)[0m 
+[36m(SingleAgentEnvRunner pid=60196)[0m 
+[36m(SingleAgentEnvRunner pid=60196)[0m 
+[36m(SingleAgentEnvRunner pid=44572)[0m 
+[36m(SingleAgentEnvRunner pid=44572)[0m 
+[36m(SingleAgentEnvRunner pid=44572)[0m 
+[36m(SingleAgentEnvRunner pid=44572)[0m 
+[36m(SingleAgentEnvRunner pid=38548)[0m 
+[36m(SingleAgentEnvRunner pid=38548)[0m 
+[36m(SingleAgentEnvRunner pid=38548)[0m 
+[36m(SingleAgentEnvRunner pid=38548)[0m 
+[36m(SingleAgentEnvRunner pid=63072)[0m 
+[36m(SingleAgentEnvRunner pid=63072)[0m 
+[36m(SingleAgentEnvRunner pid=63072)[0m 
+[36m(SingleAgentEnvRunner pid=63072)[0m 
+[36m(SingleAgentEnvRunner pid=63296)[0m 
+[36m(SingleAgentEnvRunner pid=63296)[0m 
+[36m(SingleAgentEnvRunner pid=63296)[0m 
+[36m(SingleAgentEnvRunner pid=63296)[0m 
+[36m(SingleAgentEnvRunner pid=33028)[0m 
+[36m(SingleAgentEnvRunner pid=33028)[0m 
+[36m(SingleAgentEnvRunner pid=33028)[0m 
+[36m(SingleAgentEnvRunner pid=33028)[0m 
+[36m(SingleAgentEnvRunner pid=54600)[0m 
+[36m(SingleAgentEnvRunner pid=54600)[0m 
+[36m(SingleAgentEnvRunner pid=54600)[0m 
+[36m(SingleAgentEnvRunner pid=54600)[0m 
+[36m(SingleAgentEnvRunner pid=60608)[0m 
+[36m(SingleAgentEnvRunner pid=60608)[0m 
+[36m(SingleAgentEnvRunner pid=60608)[0m 
+[36m(SingleAgentEnvRunner pid=60608)[0m 
+[36m(SingleAgentEnvRunner pid=25100)[0m 
+[36m(SingleAgentEnvRunner pid=25100)[0m 
+[36m(SingleAgentEnvRunner pid=25100)[0m 
+[36m(SingleAgentEnvRunner pid=25100)[0m 
+[36m(SingleAgentEnvRunner pid=34008)[0m 
+[36m(SingleAgentEnvRunner pid=34008)[0m 
+[36m(SingleAgentEnvRunner pid=34008)[0m 
+[36m(SingleAgentEnvRunner pid=34008)[0m 
+2026-08-28 19:17:53,232	WARNING rl_module.py:463 -- DeprecationWarning: `RLModule(config=[RLModuleConfig object])` has been deprecated. Use `RLModule(observation_space=.., action_space=.., inference_only=.., model_config=.., catalog_class=..)` instead. This will raise an error in the future!
+2026-08-28 19:17:54,251	WARNING util.py:62 -- Install gputil for GPU system monitoring.
+  [Restore] Explicit native checkpoint -> C:\Users\USERON~1\Desktop\TOPGUN~2\Update\강화학~1\artifacts\curriculum\AeroFlyer\0824_r48\stage_48_ladder_12241_c2\checkpoints\iter_1120
+2026-08-28 19:17:54,582	INFO trainable.py:578 -- Restored on 127.0.0.1 from checkpoint: Checkpoint(filesystem=local, path=C:\Users\USERON~1\Desktop\TOPGUN~2\Update\강화학~1\artifacts\curriculum\AeroFlyer\0824_r48\stage_48_ladder_12241_c2\checkpoints\iter_1120)
+  [Restore] [OK] Explicit checkpoint restored successfully.
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] FighterPtr=000002950CCBCAE0 fighter_count_before=2
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1
+[36m(SingleAgentEnvRunner pid=46048)[0m DeprecationWarning: `ray.rllib.algorithms.ppo.torch.ppo_torch_rl_module.PPOTorchRLModule` has been deprecated. Use `ray.rllib.algorithms.ppo.torch.default_ppo_torch_rl_module.DefaultPPOTorchRLModule` instead. This will raise an error in the future!
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[250] | total rewards=[-942.0449] | termination= [ownship destroyed]
+[36m(SingleAgentEnvRunner pid=40676)[0m runner:4/env:0	num_steps=[253] | total rewards=[2241.6315] | termination= [target destroyed]
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][CreateBattleSpace] enter Space@00000001803EE598 SpaceMutex@00000001803DE000[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][CreateBattleSpace] before newspace[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][CreateBattleSpace] newspace=000002EE0CCCAB50 use_count=1[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][CreateBattleSpace] before lock[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][CreateBattleSpace] after lock size=0[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][CreateBattleSpace] insert id=1 success=1 final_size=1 stored=000002EE0CCCAB50[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m init ID:1 Lat37.91455691666667 Lon128.18188127777776 Alt(meter)4572.000000000235 Speed(m/sec)200.0[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] registry size=1[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m      JSBSim Flight Dynamics Model v1.0.0 May 29 2026 15:35:39[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m             [JSBSim-ML v2.0][32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m JSBSim startup beginning ...[32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after new AIP_FDMExec ptr=0000018091BF71B0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before Init_FDM ptr=0000018091BF71B0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Init_FDM ptr=000001CE91862660[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before Exec_FDM ptr=000001CE91862660[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Exec_FDM ptr=000001CE91862660[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001CE91862660[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 42x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 42x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 84x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m total: 2[32m [repeated 42x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Reset] exit after_size=1[32m [repeated 42x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[259] | total rewards=[-967.8682] | termination= [ownship destroyed][32m [repeated 25x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m runner:7/env:0	num_steps=[423] | total rewards=[2224.6873] | termination= [target destroyed][32m [repeated 10x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 78x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] registry size=1[32m [repeated 78x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 78x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CED7B0B210[32m [repeated 78x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Init_FDM ptr=000001CED7B0B210[32m [repeated 78x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after Init_FDM ptr=000001CED7B0B210[32m [repeated 79x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Exec_FDM ptr=000001CED7B0B210[32m [repeated 79x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after Exec_FDM ptr=000001CED7B0B210[32m [repeated 79x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001CED7B0B210[32m [repeated 79x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 79x across cluster][0m
+[DogFightEnv][PolicyProbe] iter=0 ramp:a=[-0.819,-0.985,0.300,0.217] s=22.454 | target_ahead:a=[0.885,-0.499,-0.954,-0.333] s=18.835 | target_left:a=[-0.755,-1.715,1.066,0.025] s=21.144 | zero_hold:a=[-0.099,-0.283,-0.149,1.162] s=12.615
+[JSB][CreateBattleSpace] enter Space@00000001803EE598 SpaceMutex@00000001803DE000
+[JSB][CreateBattleSpace] before newspace
+[JSB][CreateBattleSpace] newspace=000001C89334EC20 use_count=1
+[JSB][CreateBattleSpace] before lock
+[JSB][CreateBattleSpace] after lock size=0
+[JSB][CreateBattleSpace] insert id=1 success=1 final_size=1 stored=000001C89334EC20
+init ID:1 Lat37.92003070998819 Lon128.18188127777776 Alt(meter)4572.029042862364 Speed(m/sec)200.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D48730
+[JSB][Init] before Init_FDM ptr=000001C898D48730
+[JSB][Init] after Init_FDM ptr=000001C898D48730
+[JSB][Init] before Exec_FDM ptr=000001C898D48730
+[JSB][Init] after Exec_FDM ptr=000001C898D48730
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D48730
+[JSB][Init] after InsertFighter FighterID=1
+init ID:1 Lat37.91455691666667 Lon128.18188127777776 Alt(meter)4572.000000000235 Speed(m/sec)200.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D48B50
+[JSB][Init] before Init_FDM ptr=000001C898D48B50
+[JSB][Init] after Init_FDM ptr=000001C898D48B50
+[JSB][Init] before Exec_FDM ptr=000001C898D48B50
+[JSB][Init] after Exec_FDM ptr=000001C898D48B50
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D48B50
+[JSB][Init] after InsertFighter FighterID=2
+[JSB][Reset] enter BattleSpace=1
+[JSB][Reset] after lock found=1 size=1
+[JSB][Reset] FighterPtr=000001C89334EC20 fighter_count_before=2
+total: 2
+[JSB][Reset] fighter_count_after=0
+[JSB][Reset] exit after_size=1
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D474A0
+[JSB][Init] before Init_FDM ptr=000001C898D474A0
+[JSB][Init] after Init_FDM ptr=000001C898D474A0
+[JSB][Init] before Exec_FDM ptr=000001C898D474A0
+[JSB][Init] after Exec_FDM ptr=000001C898D474A0
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D474A0
+[JSB][Init] after InsertFighter FighterID=1
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D49390
+[JSB][Init] before Init_FDM ptr=000001C898D49390
+[JSB][Init] after Init_FDM ptr=000001C898D49390
+[JSB][Init] before Exec_FDM ptr=000001C898D49390
+[JSB][Init] after Exec_FDM ptr=000001C898D49390
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D49390
+[JSB][Init] after InsertFighter FighterID=2
+2026-08-28 19:18:05,620	WARNING ppo_torch_rl_module.py:8 -- DeprecationWarning: `ray.rllib.algorithms.ppo.torch.ppo_torch_rl_module.PPOTorchRLModule` has been deprecated. Use `ray.rllib.algorithms.ppo.torch.default_ppo_torch_rl_module.DefaultPPOTorchRLModule` instead. This will raise an error in the future!
+runner:engagement_replay/env:0	num_steps=[424] | total rewards=[2158.9621] | termination= [target destroyed]
+[JSB][RemoveSpace] enter BattleSpace=1
+[JSB][RemoveSpace] after lock found=1 size=1
+[JSB][RemoveSpace] FighterPtr=000001C89334EC20 fighter_count_before=2
+[JSB][RemoveSpace] fighter_count_after=0
+Remove Space Complete.
+[JSB][RemoveSpace] exit after_size=0
+[JSB][CreateBattleSpace] enter Space@00000001803EE598 SpaceMutex@00000001803DE000
+[JSB][CreateBattleSpace] before newspace
+[JSB][CreateBattleSpace] newspace=000001C8910DAD00 use_count=1
+[JSB][CreateBattleSpace] before lock
+[JSB][CreateBattleSpace] after lock size=0
+[JSB][CreateBattleSpace] insert id=1 success=1 final_size=1 stored=000001C8910DAD00
+init ID:1 Lat37.92003070998819 Lon128.18188127777776 Alt(meter)4572.029042862364 Speed(m/sec)200.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D48B50
+[JSB][Init] before Init_FDM ptr=000001C898D48B50
+[JSB][Init] after Init_FDM ptr=000001C898D48B50
+[JSB][Init] before Exec_FDM ptr=000001C898D48B50
+[JSB][Init] after Exec_FDM ptr=000001C898D48B50
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D48B50
+[JSB][Init] after InsertFighter FighterID=1
+init ID:1 Lat37.91455691666667 Lon128.18188127777776 Alt(meter)4572.000000000235 Speed(m/sec)200.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D48D60
+[JSB][Init] before Init_FDM ptr=000001C898D48D60
+[JSB][Init] after Init_FDM ptr=000001C898D48D60
+[JSB][Init] before Exec_FDM ptr=000001C898D48D60
+[JSB][Init] after Exec_FDM ptr=000001C898D48D60
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D48D60
+[JSB][Init] after InsertFighter FighterID=2
+[JSB][Reset] enter BattleSpace=1
+[JSB][Reset] after lock found=1 size=1
+[JSB][Reset] FighterPtr=000001C8910DAD00 fighter_count_before=2
+total: 2
+[JSB][Reset] fighter_count_after=0
+[JSB][Reset] exit after_size=1
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D49DE0
+[JSB][Init] before Init_FDM ptr=000001C898D49DE0
+[JSB][Init] after Init_FDM ptr=000001C898D49DE0
+[JSB][Init] before Exec_FDM ptr=000001C898D49DE0
+[JSB][Init] after Exec_FDM ptr=000001C898D49DE0
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D49DE0
+[JSB][Init] after InsertFighter FighterID=1
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D474A0
+[JSB][Init] before Init_FDM ptr=000001C898D474A0
+[JSB][Init] after Init_FDM ptr=000001C898D474A0
+[JSB][Init] before Exec_FDM ptr=000001C898D474A0
+[JSB][Init] after Exec_FDM ptr=000001C898D474A0
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D474A0
+[JSB][Init] after InsertFighter FighterID=2
+runner:engagement_replay/env:0	num_steps=[257] | total rewards=[-977.4554] | termination= [ownship destroyed]
+[JSB][RemoveSpace] enter BattleSpace=1
+[JSB][RemoveSpace] after lock found=1 size=1
+[JSB][RemoveSpace] FighterPtr=000001C8910DAD00 fighter_count_before=2
+[JSB][RemoveSpace] fighter_count_after=0
+Remove Space Complete.
+[JSB][RemoveSpace] exit after_size=0
+[JSB][CreateBattleSpace] enter Space@00000001803EE598 SpaceMutex@00000001803DE000
+[JSB][CreateBattleSpace] before newspace
+[JSB][CreateBattleSpace] newspace=000001C8910DA8E0 use_count=1
+[JSB][CreateBattleSpace] before lock
+[JSB][CreateBattleSpace] after lock size=0
+[JSB][CreateBattleSpace] insert id=1 success=1 final_size=1 stored=000001C8910DA8E0
+init ID:1 Lat37.92003070998819 Lon128.18188127777776 Alt(meter)4572.029042862364 Speed(m/sec)200.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D47CE0
+[JSB][Init] before Init_FDM ptr=000001C898D47CE0
+[JSB][Init] after Init_FDM ptr=000001C898D47CE0
+[JSB][Init] before Exec_FDM ptr=000001C898D47CE0
+[JSB][Init] after Exec_FDM ptr=000001C898D47CE0
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D47CE0
+[JSB][Init] after InsertFighter FighterID=1
+init ID:1 Lat37.91455691666667 Lon128.18188127777776 Alt(meter)4572.000000000235 Speed(m/sec)200.0
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D48B50
+[JSB][Init] before Init_FDM ptr=000001C898D48B50
+[JSB][Init] after Init_FDM ptr=000001C898D48B50
+[JSB][Init] before Exec_FDM ptr=000001C898D48B50
+[JSB][Init] after Exec_FDM ptr=000001C898D48B50
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D48B50
+[JSB][Init] after InsertFighter FighterID=2
+[JSB][Reset] enter BattleSpace=1
+[JSB][Reset] after lock found=1 size=1
+[JSB][Reset] FighterPtr=000001C8910DA8E0 fighter_count_before=2
+total: 2
+[JSB][Reset] fighter_count_after=0
+[JSB][Reset] exit after_size=1
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D49DE0
+[JSB][Init] before Init_FDM ptr=000001C898D49DE0
+[JSB][Init] after Init_FDM ptr=000001C898D49DE0
+[JSB][Init] before Exec_FDM ptr=000001C898D49DE0
+[JSB][Init] after Exec_FDM ptr=000001C898D49DE0
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D49DE0
+[JSB][Init] after InsertFighter FighterID=1
+[JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667
+[JSB][Init] registry size=1
+[JSB][Init] before new AIP_FDMExec
+[JSB][Init] after new AIP_FDMExec ptr=000001C898D474A0
+[JSB][Init] before Init_FDM ptr=000001C898D474A0
+[JSB][Init] after Init_FDM ptr=000001C898D474A0
+[JSB][Init] before Exec_FDM ptr=000001C898D474A0
+[JSB][Init] after Exec_FDM ptr=000001C898D474A0
+[JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C898D474A0
+[JSB][Init] after InsertFighter FighterID=2
+runner:engagement_replay/env:0	num_steps=[260] | total rewards=[-985.5330] | termination= [ownship destroyed]
+[JSB][RemoveSpace] enter BattleSpace=1
+[JSB][RemoveSpace] after lock found=1 size=1
+[JSB][RemoveSpace] FighterPtr=000001C8910DA8E0 fighter_count_before=2
+[JSB][RemoveSpace] fighter_count_after=0
+Remove Space Complete.
+[JSB][RemoveSpace] exit after_size=0
+[DogFightEnv][EngagementReplay] iter=0 ep=0 steps=424 outcome=win min_dist=59.93 | ep=1 steps=257 outcome=loss min_dist=205.72 | ep=2 steps=260 outcome=loss min_dist=204.59
+stage=35 | iter_in_stage=0 | total_iter=0 | reward_mean=-175.86 | win_rate=0.260 | crash_rate=0.000 | ep_wez_steps=23.2 | episodes_this_iter=64498 | entropy=-3.547 | vf_loss=215.370
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 56x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m total: 2[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Reset] exit after_size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m runner:9/env:0	num_steps=[264] | total rewards=[-939.3935] | termination= [ownship destroyed][32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m runner:11/env:0	num_steps=[257] | total rewards=[2211.1178] | termination= [target destroyed][32m [repeated 4x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] registry size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after new AIP_FDMExec ptr=0000024D11D79BF0[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before Init_FDM ptr=0000024D11D79BF0[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after Init_FDM ptr=0000024D11D79BF0[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before Exec_FDM ptr=0000024D11D79BF0[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after Exec_FDM ptr=0000024D11D79BF0[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000024D11D79BF0[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m runner:6/env:0	num_steps=[1040] | total rewards=[-1373.6498] | termination= [ownship altitude below min]
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 76x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[245] | total rewards=[-1019.7794] | termination= [ownship destroyed][32m [repeated 22x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[249] | total rewards=[2190.4827] | termination= [target destroyed][32m [repeated 14x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 76x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] registry size=1[32m [repeated 76x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 76x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after new AIP_FDMExec ptr=000001FA91FF9A50[32m [repeated 76x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Init_FDM ptr=000001FA91FF9A50[32m [repeated 76x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Init_FDM ptr=000001FA91FF9E70[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Exec_FDM ptr=000001FA91FF9E70[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Exec_FDM ptr=000001FA91FF9E70[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001FA91FF9E70[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 74x across cluster][0m
+stage=35 | iter_in_stage=1 | total_iter=1 | reward_mean=133.81 | win_rate=0.361 | crash_rate=0.031 | ep_wez_steps=23.6 | episodes_this_iter=62 | entropy=-3.558 | vf_loss=234.245
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 25x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 25x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m total: 2[32m [repeated 25x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] exit after_size=1[32m [repeated 25x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m runner:10/env:0	num_steps=[250] | total rewards=[-990.5184] | termination= [ownship destroyed][32m [repeated 16x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[255] | total rewards=[2181.7000] | termination= [target destroyed][32m [repeated 9x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] registry size=1[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after new AIP_FDMExec ptr=0000018911F399F0[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before Init_FDM ptr=0000018911F399F0[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after Init_FDM ptr=0000018911F399F0[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before Exec_FDM ptr=0000018911F399F0[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after Exec_FDM ptr=0000018911F399F0[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000018911F399F0[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 34x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 34x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m total: 2[32m [repeated 34x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] exit after_size=1[32m [repeated 34x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m runner:11/env:0	num_steps=[256] | total rewards=[-984.0444] | termination= [ownship destroyed][32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m runner:16/env:0	num_steps=[247] | total rewards=[2141.7929] | termination= [target destroyed][32m [repeated 10x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] registry size=1[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after new AIP_FDMExec ptr=00000118554C3630[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before Init_FDM ptr=00000118554C3630[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Init_FDM ptr=00000118554C06C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before Exec_FDM ptr=00000118554C06C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Exec_FDM ptr=00000118554C06C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000118554C06C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 68x across cluster][0m
+stage=35 | iter_in_stage=2 | total_iter=2 | reward_mean=-57.68 | win_rate=0.297 | crash_rate=0.000 | ep_wez_steps=23.2 | episodes_this_iter=64 | entropy=-3.573 | vf_loss=186.923
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m total: 2[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] exit after_size=1[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m runner:11/env:0	num_steps=[254] | total rewards=[-1135.1439] | termination= [ownship destroyed][32m [repeated 21x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[270] | total rewards=[2205.7821] | termination= [target destroyed][32m [repeated 8x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] registry size=1[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] after new AIP_FDMExec ptr=0000025E0F43EE50[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before Init_FDM ptr=0000025E0F43EE50[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Init_FDM ptr=00000118554C25B0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before Exec_FDM ptr=00000118554C25B0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Exec_FDM ptr=00000118554C25B0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000118554C25B0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m total: 2[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] exit after_size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[250] | total rewards=[-1160.6101] | termination= [ownship destroyed][32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m runner:13/env:0	num_steps=[253] | total rewards=[2147.6175] | termination= [target destroyed][32m [repeated 9x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] registry size=1[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] after new AIP_FDMExec ptr=0000025E0F43DFE0[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before Init_FDM ptr=0000025E0F43DFE0[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] after Init_FDM ptr=0000025E0F43DFE0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before Exec_FDM ptr=0000025E0F43DFE0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] after Exec_FDM ptr=0000025E0F43DFE0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000025E0F43DFE0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 68x across cluster][0m
+stage=35 | iter_in_stage=3 | total_iter=3 | reward_mean=-176.85 | win_rate=0.266 | crash_rate=0.000 | ep_wez_steps=23.1 | episodes_this_iter=64 | entropy=-3.579 | vf_loss=229.166
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m total: 2[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] exit after_size=1[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[252] | total rewards=[-1009.1230] | termination= [ownship destroyed][32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[261] | total rewards=[2221.2818] | termination= [target destroyed][32m [repeated 8x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] registry size=1[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after new AIP_FDMExec ptr=000001FA91F56980[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Init_FDM ptr=000001FA91F56980[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after Init_FDM ptr=0000018091C63800[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before Exec_FDM ptr=0000018091C63800[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after Exec_FDM ptr=0000018091C63800[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000018091C63800[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m total: 2[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] exit after_size=1[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m runner:10/env:0	num_steps=[257] | total rewards=[-1001.7209] | termination= [ownship destroyed][32m [repeated 20x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m runner:4/env:0	num_steps=[247] | total rewards=[2174.4970] | termination= [target destroyed][32m [repeated 10x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 61x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] registry size=1[32m [repeated 61x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 61x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after new AIP_FDMExec ptr=0000018911F3BAF0[32m [repeated 61x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before Init_FDM ptr=0000018911F3BAF0[32m [repeated 61x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after Init_FDM ptr=0000018911F3BAF0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before Exec_FDM ptr=0000018911F3BAF0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after Exec_FDM ptr=0000018911F3BAF0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000018911F3BAF0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 62x across cluster][0m
+stage=35 | iter_in_stage=4 | total_iter=4 | reward_mean=43.51 | win_rate=0.328 | crash_rate=0.000 | ep_wez_steps=23.7 | episodes_this_iter=61 | entropy=-3.607 | vf_loss=357.899
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m total: 2[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] exit after_size=1[32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m runner:9/env:0	num_steps=[253] | total rewards=[-962.4689] | termination= [ownship destroyed][32m [repeated 21x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m runner:10/env:0	num_steps=[251] | total rewards=[2149.3960] | termination= [target destroyed][32m [repeated 9x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] registry size=1[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after new AIP_FDMExec ptr=0000018911F3B8E0[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before Init_FDM ptr=0000018911F3B8E0[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Init] after Init_FDM ptr=000001C091D86BE0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Init] before Exec_FDM ptr=000001C091D86BE0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Init] after Exec_FDM ptr=000001C091D86BE0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001C091D86BE0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m total: 2[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] exit after_size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m runner:12/env:0	num_steps=[260] | total rewards=[-947.3835] | termination= [ownship destroyed][32m [repeated 27x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[252] | total rewards=[2185.1351] | termination= [target destroyed][32m [repeated 6x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] registry size=1[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after new AIP_FDMExec ptr=00000295116F81C0[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Init_FDM ptr=00000295116F81C0[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Init_FDM ptr=00000295116F81C0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Exec_FDM ptr=00000295116F81C0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Exec_FDM ptr=00000295116F81C0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000295116F81C0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 66x across cluster][0m
+stage=35 | iter_in_stage=5 | total_iter=5 | reward_mean=64.45 | win_rate=0.339 | crash_rate=0.000 | ep_wez_steps=24.0 | episodes_this_iter=59 | entropy=-3.639 | vf_loss=218.282
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m total: 2[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Reset] exit after_size=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m runner:10/env:0	num_steps=[258] | total rewards=[-998.1335] | termination= [ownship destroyed][32m [repeated 14x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m runner:11/env:0	num_steps=[257] | total rewards=[2190.5421] | termination= [target destroyed][32m [repeated 12x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] registry size=1[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after new AIP_FDMExec ptr=0000018911F3D5C0[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before Init_FDM ptr=0000018911F3D5C0[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after Init_FDM ptr=0000018911F3C540[32m [repeated 53x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before Exec_FDM ptr=0000018911F3C540[32m [repeated 53x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after Exec_FDM ptr=0000018911F3C540[32m [repeated 53x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000018911F3C540[32m [repeated 53x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 53x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 72x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m total: 2[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] exit after_size=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[257] | total rewards=[-1032.6311] | termination= [ownship destroyed][32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m runner:13/env:0	num_steps=[260] | total rewards=[2143.6322] | termination= [target destroyed][32m [repeated 5x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] registry size=1[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] after new AIP_FDMExec ptr=00000198915DA880[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] before Init_FDM ptr=00000198915DA880[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Init_FDM ptr=000001FA91F68A40[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Exec_FDM ptr=000001FA91F68A40[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Exec_FDM ptr=000001FA91F68A40[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001FA91F68A40[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 69x across cluster][0m
+stage=35 | iter_in_stage=6 | total_iter=6 | reward_mean=-127.47 | win_rate=0.276 | crash_rate=0.000 | ep_wez_steps=23.9 | episodes_this_iter=63 | entropy=-3.640 | vf_loss=369.623
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 56x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m total: 2[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] exit after_size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[255] | total rewards=[-961.5078] | termination= [ownship destroyed][32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m runner:12/env:0	num_steps=[251] | total rewards=[2135.4277] | termination= [target destroyed][32m [repeated 13x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] registry size=1[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after new AIP_FDMExec ptr=000001F211F228C0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Init_FDM ptr=000001F211F228C0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Init_FDM ptr=000001F211F23F70[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Exec_FDM ptr=000001F211F23F70[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Exec_FDM ptr=000001F211F23F70[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001F211F23F70[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[261] | total rewards=[-1027.2766] | termination= [ownship destroyed][32m [repeated 20x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[253] | total rewards=[2173.2037] | termination= [target destroyed][32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] registry size=1[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after new AIP_FDMExec ptr=0000029511D190B0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Init_FDM ptr=0000029511D190B0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after Init_FDM ptr=0000021057A44470[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before Exec_FDM ptr=0000021057A44470[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after Exec_FDM ptr=0000021057A44470[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000021057A44470[32m [repeated 65x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 65x across cluster][0m
+stage=35 | iter_in_stage=7 | total_iter=7 | reward_mean=133.95 | win_rate=0.359 | crash_rate=0.000 | ep_wez_steps=23.9 | episodes_this_iter=59 | entropy=-3.625 | vf_loss=263.947
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m total: 2[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] exit after_size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m runner:12/env:0	num_steps=[254] | total rewards=[-1085.3355] | termination= [ownship destroyed][32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m runner:8/env:0	num_steps=[255] | total rewards=[2160.6770] | termination= [target destroyed][32m [repeated 5x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] registry size=1[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after new AIP_FDMExec ptr=000001FA921D1280[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Init_FDM ptr=000001FA921D1280[32m [repeated 50x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Init_FDM ptr=000001FA921D1280[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Exec_FDM ptr=000001FA921D1280[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Exec_FDM ptr=000001FA921D1280[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001FA921D1280[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 72x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[253] | total rewards=[-1047.6545] | termination= [ownship destroyed][32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m runner:15/env:0	num_steps=[252] | total rewards=[2127.2421] | termination= [target destroyed][32m [repeated 12x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] registry size=1[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CE921CD5C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before Init_FDM ptr=000001CE921CD5C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Init_FDM ptr=000001CE921CEC70[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before Exec_FDM ptr=000001CE921CEC70[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Exec_FDM ptr=000001CE921CEC70[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001CE921CEC70[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 67x across cluster][0m
+stage=35 | iter_in_stage=8 | total_iter=8 | reward_mean=172.84 | win_rate=0.371 | crash_rate=0.000 | ep_wez_steps=23.6 | episodes_this_iter=64 | entropy=-3.609 | vf_loss=275.354
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 56x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=44572)[0m runner:9/env:0	num_steps=[252] | total rewards=[-1037.1891] | termination= [ownship destroyed][32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[426] | total rewards=[2183.6607] | termination= [target destroyed][32m [repeated 13x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] registry size=1[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after new AIP_FDMExec ptr=0000029511BF3AB0[32m [repeated 61x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Init_FDM ptr=0000029511BF3AB0[32m [repeated 61x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Init_FDM ptr=0000029511BF3AB0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Exec_FDM ptr=0000029511BF3AB0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Exec_FDM ptr=0000029511BF3AB0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000029511BF3AB0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m total: 2[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Reset] exit after_size=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m runner:6/env:0	num_steps=[251] | total rewards=[-1223.2428] | termination= [ownship destroyed][32m [repeated 25x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m runner:14/env:0	num_steps=[254] | total rewards=[2180.8746] | termination= [target destroyed][32m [repeated 12x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] registry size=1[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] after new AIP_FDMExec ptr=0000026791CA3BF0[32m [repeated 75x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] before Init_FDM ptr=0000026791CA3BF0[32m [repeated 75x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] after Init_FDM ptr=0000026791CA1AF0[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] before Exec_FDM ptr=0000026791CA1AF0[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] after Exec_FDM ptr=0000026791CA1AF0[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000026791CA1AF0[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 73x across cluster][0m
+stage=35 | iter_in_stage=9 | total_iter=9 | reward_mean=100.47 | win_rate=0.344 | crash_rate=0.000 | ep_wez_steps=23.6 | episodes_this_iter=61 | entropy=-3.597 | vf_loss=200.377
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m runner:15/env:0	num_steps=[261] | total rewards=[-913.6515] | termination= [ownship destroyed][32m [repeated 16x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[253] | total rewards=[2202.8522] | termination= [target destroyed][32m [repeated 8x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 46x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] registry size=1[32m [repeated 46x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 46x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after new AIP_FDMExec ptr=0000024D12103E40[32m [repeated 46x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before Init_FDM ptr=0000024D12103E40[32m [repeated 46x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after Init_FDM ptr=0000024D12103E40[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before Exec_FDM ptr=0000024D12103E40[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after Exec_FDM ptr=0000024D12103E40[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000024D12103E40[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m total: 2[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] exit after_size=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[258] | total rewards=[-1017.4356] | termination= [ownship destroyed][32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m runner:4/env:0	num_steps=[252] | total rewards=[2149.8352] | termination= [target destroyed][32m [repeated 11x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] registry size=1[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CE921CD7D0[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before Init_FDM ptr=000001CE921CD7D0[32m [repeated 73x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Init_FDM ptr=000001F211F2C160[32m [repeated 72x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Exec_FDM ptr=000001F211F2C160[32m [repeated 72x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Exec_FDM ptr=000001F211F2C160[32m [repeated 72x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001F211F2C160[32m [repeated 72x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 72x across cluster][0m
+stage=35 | iter_in_stage=10 | total_iter=10 | reward_mean=-72.51 | win_rate=0.292 | crash_rate=0.000 | ep_wez_steps=23.6 | episodes_this_iter=63 | entropy=-3.622 | vf_loss=302.651
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[263] | total rewards=[-958.8598] | termination= [ownship destroyed][32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[257] | total rewards=[2185.7641] | termination= [target destroyed][32m [repeated 7x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] registry size=1[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after new AIP_FDMExec ptr=00000295116DF3B0[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Init_FDM ptr=00000295116DF3B0[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Init_FDM ptr=00000295116DF5C0[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Exec_FDM ptr=00000295116DF5C0[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Exec_FDM ptr=00000295116DF5C0[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000295116DF5C0[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m total: 2[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] exit after_size=1[32m [repeated 35x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m runner:12/env:0	num_steps=[260] | total rewards=[-978.8816] | termination= [ownship destroyed][32m [repeated 27x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m runner:13/env:0	num_steps=[258] | total rewards=[2165.1838] | termination= [target destroyed][32m [repeated 8x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] registry size=1[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CE921CD3B0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before Init_FDM ptr=000001CE921CD3B0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Init_FDM ptr=000001CE921CD3B0[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before Exec_FDM ptr=000001CE921CD3B0[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Exec_FDM ptr=000001CE921CD3B0[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001CE921CD3B0[32m [repeated 69x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 69x across cluster][0m
+stage=35 | iter_in_stage=11 | total_iter=11 | reward_mean=-99.11 | win_rate=0.281 | crash_rate=0.000 | ep_wez_steps=23.5 | episodes_this_iter=64 | entropy=-3.630 | vf_loss=176.016
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m total: 2[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] exit after_size=1[32m [repeated 29x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[256] | total rewards=[-1160.8333] | termination= [ownship destroyed][32m [repeated 20x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m runner:15/env:0	num_steps=[253] | total rewards=[2147.5730] | termination= [target destroyed][32m [repeated 9x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] registry size=1[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after new AIP_FDMExec ptr=000001808F3C8CB0[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before Init_FDM ptr=000001808F3C8CB0[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after Init_FDM ptr=000001808F3C5B30[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before Exec_FDM ptr=000001808F3C5B30[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after Exec_FDM ptr=000001808F3C5B30[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001808F3C5B30[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m total: 2[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] exit after_size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[272] | total rewards=[-1056.5149] | termination= [ownship destroyed][32m [repeated 21x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m runner:4/env:0	num_steps=[255] | total rewards=[2171.2939] | termination= [target destroyed][32m [repeated 12x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] registry size=1[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after new AIP_FDMExec ptr=000001808F3C94F0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before Init_FDM ptr=000001808F3C94F0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after Init_FDM ptr=000001808F3C8470[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before Exec_FDM ptr=000001808F3C8470[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after Exec_FDM ptr=000001808F3C8470[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001808F3C8470[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 66x across cluster][0m
+stage=35 | iter_in_stage=12 | total_iter=12 | reward_mean=80.98 | win_rate=0.349 | crash_rate=0.000 | ep_wez_steps=23.8 | episodes_this_iter=53 | entropy=-3.596 | vf_loss=161.941
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m total: 2[32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Reset] exit after_size=1[32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m runner:15/env:0	num_steps=[252] | total rewards=[-1045.4641] | termination= [ownship destroyed][32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[249] | total rewards=[2104.5543] | termination= [target destroyed][32m [repeated 5x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] registry size=1[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after new AIP_FDMExec ptr=0000024D121033F0[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before Init_FDM ptr=0000024D121033F0[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after Init_FDM ptr=0000024D121033F0[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before Exec_FDM ptr=0000024D121033F0[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after Exec_FDM ptr=0000024D121033F0[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000024D121033F0[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m runner:12/env:0	num_steps=[884] | total rewards=[-1204.0357] | termination= [ownship altitude below min]
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m total: 2[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] exit after_size=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m runner:6/env:0	num_steps=[259] | total rewards=[-992.8913] | termination= [ownship destroyed][32m [repeated 22x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[441] | total rewards=[2183.9734] | termination= [target destroyed][32m [repeated 6x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] registry size=1[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] after new AIP_FDMExec ptr=0000026791C81960[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m [JSB][Init] before Init_FDM ptr=0000026791C81960[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Init_FDM ptr=000001F211D10F10[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Exec_FDM ptr=000001F211D10F10[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Exec_FDM ptr=000001F211D10F10[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001F211D10F10[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m runner:6/env:0	num_steps=[845] | total rewards=[-1229.1099] | termination= [ownship altitude below min]
+stage=35 | iter_in_stage=13 | total_iter=13 | reward_mean=90.49 | win_rate=0.356 | crash_rate=0.050 | ep_wez_steps=24.6 | episodes_this_iter=48 | entropy=-3.601 | vf_loss=322.738
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 18x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 18x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m total: 2[32m [repeated 18x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] exit after_size=1[32m [repeated 18x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[256] | total rewards=[-1024.1992] | termination= [ownship destroyed][32m [repeated 10x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m runner:7/env:0	num_steps=[422] | total rewards=[2199.7124] | termination= [target destroyed][32m [repeated 8x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] registry size=1[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] after new AIP_FDMExec ptr=000001988F787940[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] before Init_FDM ptr=000001988F787940[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after Init_FDM ptr=0000021057AA78A0[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before Exec_FDM ptr=0000021057AA78A0[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after Exec_FDM ptr=0000021057AA78A0[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000021057AA78A0[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m runner:16/env:0	num_steps=[1404] | total rewards=[-1457.3227] | termination= [ownship altitude below min]
+[36m(SingleAgentEnvRunner pid=40676)[0m runner:4/env:0	num_steps=[750] | total rewards=[402.6523] | termination= [target altitude below min]
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m total: 2[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] exit after_size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[263] | total rewards=[-1024.2457] | termination= [ownship destroyed][32m [repeated 17x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m runner:16/env:0	num_steps=[257] | total rewards=[2141.0671] | termination= [target destroyed][32m [repeated 14x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] registry size=1[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after new AIP_FDMExec ptr=000001FA926B62C0[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Init_FDM ptr=000001FA926B62C0[32m [repeated 67x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Init_FDM ptr=000001FA926B62C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before Exec_FDM ptr=000001FA926B62C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after Exec_FDM ptr=000001FA926B62C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001FA926B62C0[32m [repeated 68x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 68x across cluster][0m
+stage=35 | iter_in_stage=14 | total_iter=14 | reward_mean=11.73 | win_rate=0.344 | crash_rate=0.022 | ep_wez_steps=23.4 | episodes_this_iter=53 | entropy=-3.603 | vf_loss=285.994
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 20x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 20x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 40x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m total: 2[32m [repeated 20x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Reset] exit after_size=1[32m [repeated 20x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m runner:7/env:0	num_steps=[254] | total rewards=[-1079.9466] | termination= [ownship destroyed][32m [repeated 17x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[252] | total rewards=[2124.1638] | termination= [target destroyed][32m [repeated 3x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] registry size=1[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after new AIP_FDMExec ptr=0000021057AA7CC0[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before Init_FDM ptr=0000021057AA7CC0[32m [repeated 39x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Init_FDM ptr=000001F211D11F90[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Exec_FDM ptr=000001F211D11F90[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Exec_FDM ptr=000001F211D11F90[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001F211D11F90[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 38x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m total: 2[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] exit after_size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[251] | total rewards=[-1019.3838] | termination= [ownship destroyed][32m [repeated 23x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m runner:11/env:0	num_steps=[247] | total rewards=[2109.1615] | termination= [target destroyed][32m [repeated 10x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] registry size=1[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CED7F96E80[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Init_FDM ptr=000001CED7F96E80[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after Init_FDM ptr=000001CED7F96220[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Exec_FDM ptr=000001CED7F96220[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after Exec_FDM ptr=000001CED7F96220[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001CED7F96220[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[1895] | total rewards=[-1085.0676] | termination= [ownship altitude below min]
+stage=35 | iter_in_stage=15 | total_iter=15 | reward_mean=-84.10 | win_rate=0.304 | crash_rate=0.031 | ep_wez_steps=23.8 | episodes_this_iter=59 | entropy=-3.571 | vf_loss=313.128
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 52x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m total: 2[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Reset] exit after_size=1[32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m runner:7/env:0	num_steps=[256] | total rewards=[-1091.9937] | termination= [ownship destroyed][32m [repeated 17x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[258] | total rewards=[2154.3205] | termination= [target destroyed][32m [repeated 8x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] registry size=1[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after new AIP_FDMExec ptr=0000021057AA4930[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before Init_FDM ptr=0000021057AA4930[32m [repeated 54x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after Init_FDM ptr=0000021057AA4930[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before Exec_FDM ptr=0000021057AA4930[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after Exec_FDM ptr=0000021057AA4930[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000021057AA4930[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63072)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 55x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m total: 2[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] exit after_size=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[255] | total rewards=[-1085.1649] | termination= [ownship destroyed][32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m runner:8/env:0	num_steps=[255] | total rewards=[2114.7641] | termination= [target destroyed][32m [repeated 5x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] registry size=1[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after new AIP_FDMExec ptr=00000295116E8A40[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Init_FDM ptr=00000295116E8A40[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Init_FDM ptr=00000295116E8A40[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Exec_FDM ptr=00000295116E8A40[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Exec_FDM ptr=00000295116E8A40[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000295116E8A40[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m runner:15/env:0	num_steps=[791] | total rewards=[-1374.2625] | termination= [ownship altitude below min]
+stage=35 | iter_in_stage=16 | total_iter=16 | reward_mean=-297.46 | win_rate=0.239 | crash_rate=0.033 | ep_wez_steps=23.1 | episodes_this_iter=52 | entropy=-3.561 | vf_loss=350.901
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 21x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 21x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 42x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m total: 2[32m [repeated 21x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] exit after_size=1[32m [repeated 21x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m runner:10/env:0	num_steps=[253] | total rewards=[-1056.9770] | termination= [ownship destroyed][32m [repeated 14x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m runner:8/env:0	num_steps=[436] | total rewards=[2157.7214] | termination= [target destroyed][32m [repeated 6x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 44x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] registry size=1[32m [repeated 44x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 44x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CED7F7D200[32m [repeated 44x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Init_FDM ptr=000001CED7F7D200[32m [repeated 44x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after Init_FDM ptr=000001CED7F7BF70[32m [repeated 43x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Exec_FDM ptr=000001CED7F7BF70[32m [repeated 43x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after Exec_FDM ptr=000001CED7F7BF70[32m [repeated 43x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001CED7F7BF70[32m [repeated 43x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 43x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[1299] | total rewards=[-1154.2336] | termination= [ownship altitude below min]
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 72x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m total: 2[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Reset] exit after_size=1[32m [repeated 36x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m runner:5/env:0	num_steps=[258] | total rewards=[-1093.0485] | termination= [ownship destroyed][32m [repeated 26x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[263] | total rewards=[2124.0621] | termination= [target destroyed][32m [repeated 9x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 71x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] registry size=1[32m [repeated 71x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 71x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] after new AIP_FDMExec ptr=000001808F3C9700[32m [repeated 71x across cluster][0m
+[36m(SingleAgentEnvRunner pid=57568)[0m [JSB][Init] before Init_FDM ptr=000001808F3C9700[32m [repeated 71x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] after Init_FDM ptr=0000023F11814B30[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] before Exec_FDM ptr=0000023F11814B30[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] after Exec_FDM ptr=0000023F11814B30[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000023F11814B30[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 70x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m runner:16/env:0	num_steps=[834] | total rewards=[-1196.0262] | termination= [ownship altitude below min]
+stage=35 | iter_in_stage=17 | total_iter=17 | reward_mean=-366.81 | win_rate=0.219 | crash_rate=0.078 | ep_wez_steps=23.3 | episodes_this_iter=60 | entropy=-3.585 | vf_loss=197.045
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m total: 2[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] exit after_size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m runner:8/env:0	num_steps=[256] | total rewards=[-1020.2096] | termination= [ownship destroyed][32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m runner:11/env:0	num_steps=[253] | total rewards=[2120.9075] | termination= [target destroyed][32m [repeated 4x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 47x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] registry size=1[32m [repeated 47x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 47x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after new AIP_FDMExec ptr=00000118554C1530[32m [repeated 47x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before Init_FDM ptr=00000118554C1530[32m [repeated 47x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Init_FDM ptr=00000118554C1530[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before Exec_FDM ptr=00000118554C1530[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Exec_FDM ptr=00000118554C1530[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000118554C1530[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m total: 2[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Reset] exit after_size=1[32m [repeated 37x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m runner:2/env:0	num_steps=[255] | total rewards=[-1095.5363] | termination= [ownship destroyed][32m [repeated 30x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m runner:3/env:0	num_steps=[431] | total rewards=[2151.8740] | termination= [target destroyed][32m [repeated 7x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] registry size=1[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] after new AIP_FDMExec ptr=0000023F118161E0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] before Init_FDM ptr=0000023F118161E0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] after Init_FDM ptr=0000023F118161E0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] before Exec_FDM ptr=0000023F118161E0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] after Exec_FDM ptr=0000023F118161E0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000023F118161E0[32m [repeated 74x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 74x across cluster][0m
+stage=35 | iter_in_stage=18 | total_iter=18 | reward_mean=-559.08 | win_rate=0.151 | crash_rate=0.000 | ep_wez_steps=23.3 | episodes_this_iter=61 | entropy=-3.610 | vf_loss=299.254
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m total: 2[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] exit after_size=1[32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m runner:8/env:0	num_steps=[263] | total rewards=[-1027.6890] | termination= [ownship destroyed][32m [repeated 22x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m runner:8/env:0	num_steps=[251] | total rewards=[2116.7604] | termination= [target destroyed][32m [repeated 2x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] registry size=1[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CED7B000B0[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Init_FDM ptr=000001CED7B000B0[32m [repeated 49x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] after Init_FDM ptr=00000198915D1610[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] before Exec_FDM ptr=00000198915D1610[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] after Exec_FDM ptr=00000198915D1610[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000198915D1610[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=46048)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 66x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m total: 2[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m [JSB][Reset] exit after_size=1[32m [repeated 33x across cluster][0m
+[36m(SingleAgentEnvRunner pid=35988)[0m runner:1/env:0	num_steps=[255] | total rewards=[-1036.8160] | termination= [ownship destroyed][32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m runner:12/env:0	num_steps=[251] | total rewards=[2171.1431] | termination= [target destroyed][32m [repeated 9x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] registry size=1[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] after new AIP_FDMExec ptr=0000025E0F438B50[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Init] before Init_FDM ptr=0000025E0F438B50[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Init_FDM ptr=0000029511D72DD0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before Exec_FDM ptr=0000029511D72DD0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after Exec_FDM ptr=0000029511D72DD0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=0000029511D72DD0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=26032)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 64x across cluster][0m
+  [Checkpoint] Saved iter 20 -> C:\Users\user one\Desktop\topgun_본선\Update\강화학습환경\artifacts\curriculum\AeroFlyer\final_sp\stage_35_selfplay_final\checkpoints\iter_0020
+stage=35 | iter_in_stage=19 | total_iter=19 | reward_mean=-35.50 | win_rate=0.312 | crash_rate=0.000 | ep_wez_steps=24.2 | episodes_this_iter=56 | entropy=-3.579 | vf_loss=207.234
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 23x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 23x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 46x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m total: 2[32m [repeated 23x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Reset] exit after_size=1[32m [repeated 23x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m runner:4/env:0	num_steps=[261] | total rewards=[-1106.3817] | termination= [ownship destroyed][32m [repeated 15x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m runner:12/env:0	num_steps=[251] | total rewards=[2142.0403] | termination= [target destroyed][32m [repeated 8x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] registry size=1[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after new AIP_FDMExec ptr=000001F211F22AD0[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Init_FDM ptr=000001F211F22AD0[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Init_FDM ptr=000001CE8F8EC350[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before Exec_FDM ptr=000001CE8F8EC350[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after Exec_FDM ptr=000001CE8F8EC350[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001CE8F8EC350[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=40676)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 48x across cluster][0m
+[36m(SingleAgentEnvRunner pid=33028)[0m runner:14/env:0	num_steps=[1344] | total rewards=[-1136.9791] | termination= [ownship altitude below min]
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m total: 2[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m [JSB][Reset] exit after_size=1[32m [repeated 32x across cluster][0m
+[36m(SingleAgentEnvRunner pid=54600)[0m runner:13/env:0	num_steps=[257] | total rewards=[-1007.2561] | termination= [ownship destroyed][32m [repeated 24x across cluster][0m
+[36m(SingleAgentEnvRunner pid=63296)[0m runner:6/env:0	num_steps=[259] | total rewards=[2186.8184] | termination= [target destroyed][32m [repeated 7x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] registry size=1[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after new AIP_FDMExec ptr=000001F211E614F0[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Init_FDM ptr=000001F211E614F0[32m [repeated 63x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Init_FDM ptr=000001F211E614F0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before Exec_FDM ptr=000001F211E614F0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after Exec_FDM ptr=000001F211E614F0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000001F211E614F0[32m [repeated 64x across cluster][0m
+[36m(SingleAgentEnvRunner pid=38548)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 64x across cluster][0m
+stage=35 | iter_in_stage=20 | total_iter=20 | reward_mean=-161.21 | win_rate=0.276 | crash_rate=0.021 | ep_wez_steps=23.4 | episodes_this_iter=60 | entropy=-3.577 | vf_loss=271.038
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 56x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m total: 2[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Reset] exit after_size=1[32m [repeated 28x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m runner:16/env:0	num_steps=[254] | total rewards=[-1095.0124] | termination= [ownship destroyed][32m [repeated 19x across cluster][0m
+[36m(SingleAgentEnvRunner pid=34008)[0m runner:10/env:0	num_steps=[248] | total rewards=[2120.7948] | termination= [target destroyed][32m [repeated 9x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=2 Delta=0.0166667[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] registry size=1[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] after new AIP_FDMExec ptr=000002EFD79DA930[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] before Init_FDM ptr=000002EFD79DA930[32m [repeated 58x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] after Init_FDM ptr=000002EFD79DBFE0[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] before Exec_FDM ptr=000002EFD79DBFE0[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] after Exec_FDM ptr=000002EFD79DBFE0[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=000002EFD79DBFE0[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=25100)[0m [JSB][Init] after InsertFighter FighterID=1[32m [repeated 57x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] enter BattleSpace=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] after lock found=1 size=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] fighter_count_after=0[32m [repeated 62x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m total: 2[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Reset] exit after_size=1[32m [repeated 31x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60608)[0m runner:15/env:0	num_steps=[262] | total rewards=[-977.0526] | termination= [ownship destroyed][32m [repeated 18x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m runner:8/env:0	num_steps=[259] | total rewards=[2135.0836] | termination= [target destroyed][32m [repeated 13x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] enter BattleSpace=1 Type=1 ForceSide=1 Delta=0.0166667[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] registry size=1[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before new AIP_FDMExec[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] after new AIP_FDMExec ptr=000001CED75E2ED0[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=61360)[0m [JSB][Init] before Init_FDM ptr=000001CED75E2ED0[32m [repeated 60x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Init_FDM ptr=00000118553D5730[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before Exec_FDM ptr=00000118553D5730[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after Exec_FDM ptr=00000118553D5730[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] before InsertFighter BattleSpace=1 ptr=00000118553D5730[32m [repeated 59x across cluster][0m
+[36m(SingleAgentEnvRunner pid=60196)[0m [JSB][Init] after InsertFighter FighterID=2[32m [repeated 59x across cluster][0m

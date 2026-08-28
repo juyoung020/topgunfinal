@@ -1,0 +1,13 @@
+{
+  "scenario": "web_log_viewer_pitch_rotation_validation",
+  "description": "Blue flies north through level, +30 deg climb, level, -30 deg dive, and level phases. Red flies south and level as a heading reference.",
+  "end_condition": "pitch_rotation_validation_complete",
+  "outcome": "manual_visual_check",
+  "checkpoints": [
+    {"time_s": 2, "blue_pitch_deg": 0, "expected": "northbound and level"},
+    {"time_s": 7, "blue_pitch_deg": 30, "expected": "northbound and nose-up"},
+    {"time_s": 12, "blue_pitch_deg": 0, "expected": "northbound and level at 1250 m"},
+    {"time_s": 17, "blue_pitch_deg": -30, "expected": "northbound and nose-down"},
+    {"time_s": 22, "blue_pitch_deg": 0, "expected": "northbound and level at 1000 m"}
+  ]
+}

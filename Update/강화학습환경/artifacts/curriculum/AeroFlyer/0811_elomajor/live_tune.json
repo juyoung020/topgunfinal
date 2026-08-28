@@ -1,0 +1,84 @@
+{
+  "target_pool": [
+    {
+      "weight": 1.5,
+      "mode": "policy",
+      "bundle": "C:\\topgun\\Update\\강화학습환경\\artifacts\\league\\league250_elo1667",
+      "spawn": {
+        "target": [
+          537.4011537017761,
+          537.4011537017761,
+          -7000.0,
+          0.0,
+          0.0,
+          225.0,
+          250.0
+        ]
+      }
+    },
+    {
+      "weight": 1.0,
+      "mode": "policy",
+      "bundle": "C:\\topgun\\Update\\강화학습환경\\artifacts\\league\\league250_elo1667",
+      "spawn": {
+        "target": [
+          2155.2614690565965,
+          2155.2614690565965,
+          -7000.0,
+          0.0,
+          0.0,
+          225.0,
+          250.0
+        ]
+      }
+    },
+    {
+      "weight": 0.75,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0811_elomajor\\stage_26_elo_major\\snapshots\\snap_3580",
+      "spawn": {
+        "target": [
+          537.4011537017761,
+          537.4011537017761,
+          -7000.0,
+          0.0,
+          0.0,
+          225.0,
+          250.0
+        ]
+      }
+    },
+    {
+      "weight": 0.5,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0811_elomajor\\stage_26_elo_major\\snapshots\\snap_3561",
+      "spawn": {
+        "target": [
+          353.5533905932737,
+          353.5533905932737,
+          -7000.0,
+          0.0,
+          0.0,
+          225.0,
+          250.0
+        ]
+      }
+    },
+    {
+      "weight": 0.25,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0811_elomajor\\stage_26_elo_major\\snapshots\\snap_3541",
+      "spawn": {
+        "target": [
+          2155.2614690565965,
+          2155.2614690565965,
+          -7000.0,
+          0.0,
+          0.0,
+          225.0,
+          250.0
+        ]
+      }
+    }
+  ]
+}

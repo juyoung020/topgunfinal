@@ -1,0 +1,47 @@
+OSError: Unknown error
+
+Traceback (most recent call last):
+  File "C:\Users\USERON~1\Desktop\topgun\Update\강화학~1\train_curriculum.py", line 962, in _run_stage
+    result = algorithm.train()
+             ^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\tune\trainable\trainable.py", line 331, in train
+    raise skipped from exception_cause(skipped)
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\tune\trainable\trainable.py", line 328, in train
+    result = self.step()
+             ^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\algorithms\algorithm.py", line 1266, in step
+    train_results, train_iter_ctx = self._run_one_training_iteration()
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\algorithms\algorithm.py", line 3715, in _run_one_training_iteration
+    training_step_return_value = self.training_step()
+                                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\algorithms\ppo\ppo.py", line 410, in training_step
+    episodes, env_runner_results = synchronous_parallel_sample(
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\execution\rollout_ops.py", line 107, in synchronous_parallel_sample
+    sampled_data = worker_set.foreach_env_runner(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\env\env_runner_group.py", line 876, in foreach_env_runner
+    remote_results = self._worker_manager.foreach_actor(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\utils\actor_manager.py", line 484, in foreach_actor
+    _, remote_results = self._fetch_result(
+                        ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\rllib\utils\actor_manager.py", line 961, in _fetch_result
+    result = ray.get(ready)
+             ^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\auto_init_hook.py", line 22, in auto_init_wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\client_mode_hook.py", line 104, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 2981, in get
+    values, debugger_breakpoint = worker.get_objects(
+                                  ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user one\anaconda3\envs\aip\Lib\site-packages\ray\_private\worker.py", line 982, in get_objects
+    ] = self.core_worker.get_objects(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "python\\ray\\_raylet.pyx", line 2976, in ray._raylet.CoreWorker.get_objects
+  File "python\\ray\\includes/common.pxi", line 114, in ray._raylet.check_status
+OSError: Unknown error

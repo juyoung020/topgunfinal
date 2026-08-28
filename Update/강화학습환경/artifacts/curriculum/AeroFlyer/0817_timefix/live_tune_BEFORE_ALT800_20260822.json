@@ -1,0 +1,54 @@
+{
+  "target_pool": [
+    {
+      "weight": 1.4,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0822_clean\\stage_34_turnalt_gunnery\\snapshots\\snap_0081",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 1.4,
+      "mode": "policy",
+      "bundle": "C:\\Users\\user one\\Desktop\\topgun\\Update\\강화학습환경\\artifacts\\curriculum\\AeroFlyer\\0822_clean\\stage_34_turnalt_gunnery\\snapshots\\snap_0000",
+      "spawn": {
+        "target": [
+          0.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    }
+  ],
+  "reward": {
+    "loss_reward": -1500.0,
+    "far_start_m": 1800.0,
+    "far_ramp_m": 400.0,
+    "w_far": 0.45,
+    "win_reward": 1000.0,
+    "w_deck": 20.0,
+    "deck_ft": 2000.0,
+    "win_time_bonus": 1000.0,
+    "target_crash_reward": 0.0,
+    "w_damage": 1000.0,
+    "w_damage_taken": 1000.0,
+    "w_sink": 0.0,
+    "sink_free_mps": 30.0,
+    "w_alt": 400.0,
+    "alt_ceiling_m": 6300.0,
+    "w_overspeed": 0.0
+  }
+}

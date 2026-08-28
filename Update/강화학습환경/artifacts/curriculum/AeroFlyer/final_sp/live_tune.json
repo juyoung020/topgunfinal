@@ -42,12 +42,12 @@
     "w_high": 0.0,
     "high_floor_m": 6000.0,
     "high_span_m": 8000.0,
-    "win_reward": 1500.0,
+    "win_reward": 600.0,
     "win_time_bonus": 200.0,
     "loss_reward": 0.0,
     "draw_reward": 0.0,
     "draw_health_scale": 0.0,
-    "crash_reward": -1700.0,
+    "crash_reward": -700.0,
     "target_crash_reward": 0.0,
     "max_engage_time": 200.0,
     "step_penalty": 0.0,
@@ -56,15 +56,15 @@
   },
   "target_pool": [
     {
-      "weight": 0.7,
+      "weight": 0.112,
       "mode": "policy",
-      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1100",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
       "randomization": {
         "enabled": true,
-        "radius": 100.0,
-        "r_roll": 10.0,
-        "r_pitch": 5.0,
-        "r_heading": 10.0
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
       },
       "spawn": {
         "ownship": [
@@ -88,15 +88,239 @@
       }
     },
     {
-      "weight": 0.3,
+      "weight": 0.112,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.056,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          608.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          0.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.056,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.056,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          608.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          0.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.056,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.056,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          608.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          0.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.056,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.048,
       "mode": "policy",
       "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
       "randomization": {
         "enabled": true,
-        "radius": 100.0,
-        "r_roll": 10.0,
-        "r_pitch": 5.0,
-        "r_heading": 10.0
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
       },
       "spawn": {
         "ownship": [
@@ -115,6 +339,358 @@
           0.0,
           0.0,
           -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.048,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -4572.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.024,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          608.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          0.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.024,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -3500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.024,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          608.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          0.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.024,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -5500.0,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.024,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          608.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          0.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.024,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          0.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          -90.0,
+          200.0
+        ],
+        "target": [
+          608.0,
+          0.0,
+          -914.4,
+          0.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.07,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          -600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          270.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.07,
+      "mode": "policy",
+      "bundle": "artifacts/curriculum/AeroFlyer/final_sp/stage_35_selfplay_final/snapshots/snap_1400",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          -600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          270.0,
+          200.0
+        ],
+        "target": [
+          600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          90.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.03,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          90.0,
+          200.0
+        ],
+        "target": [
+          -600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          270.0,
+          200.0
+        ]
+      }
+    },
+    {
+      "weight": 0.03,
+      "mode": "policy",
+      "bundle": "artifacts/models/AeroFlyer/sub_cand_ladder5220",
+      "randomization": {
+        "enabled": true,
+        "radius": 150.0,
+        "r_roll": 15.0,
+        "r_pitch": 8.0,
+        "r_heading": 20.0
+      },
+      "spawn": {
+        "ownship": [
+          -600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          270.0,
+          200.0
+        ],
+        "target": [
+          600.0,
+          0.0,
+          -914.4,
+          60.0,
+          0.0,
+          90.0,
           200.0
         ]
       }

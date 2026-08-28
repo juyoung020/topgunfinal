@@ -53,7 +53,7 @@
   "notes": "",
   "reward_module": "student.my_reward",
   "stages_module": "student.my_curriculum",
-  "restore_checkpoint": "C:\\TOPGUN~1\\Update\\강화학~1\\artifacts\\curriculum\\AeroFlyer\\final_sp\\stage_35_selfplay_final\\checkpoints\\iter_0940",
+  "restore_checkpoint": "C:\\TOPGUN~1\\Update\\강화학~1\\artifacts\\curriculum\\AeroFlyer\\final_sp\\stage_35_selfplay_final\\checkpoints\\iter_1420",
   "init_bundle": "",
   "experiment_yaml": ""
 }

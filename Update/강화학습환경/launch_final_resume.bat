@@ -11,21 +11,22 @@ if not exist "%CONDA_ENV%\python.exe" (
 )
 set "PATH=%CONDA_ENV%;%CONDA_ENV%\Library\bin;%CONDA_ENV%\Scripts;%CONDA_ENV%\Library\mingw-w64\bin;%PATH%"
 cd /d "%~dp0"
+if "%FINAL_SP_TAG%"=="" set "FINAL_SP_TAG=final_sp"
 
 rem ==== [본선] stage 35 selfplay_final 이어받기 (--resume + 최신 체크포인트). 첫 기동은 launch_final_selfplay.bat ====
 rem   보상 = 8/16 v2 코드값 (피딜·고고도·과속·WEZ·스냅 = 0, 저고도선 2,500 ft) / 상대 = 우리 성장 스냅샷 3슬롯(Elo-PFSP)
 rem   스폰 = 정면 2000ft (서버 실측 첫 프레임) 하나
 rem   ** launch_final_sidecar.bat 을 먼저 띄울 것 ** (스냅샷 풀 갱신. 없으면 snap_0000=5220 하고만 싸운다)
 rem   승급 없음. 300 iter 마다 실서버 판정(컷오프·r9980 양 슬롯)으로 정점을 잡아 보존할 것.
-rem 최신 체크포인트를 자동으로 고른다 (final_sp/stage_35_selfplay_final/checkpoints/iter_NNNN 중 가장 큰 번호)
+rem 최신 체크포인트를 자동으로 고른다 (<태그>/stage_35_selfplay_final/checkpoints/iter_NNNN 중 가장 큰 번호)
 set "CKPT="
-for /f "delims=" %%D in ('dir /b /ad /o-n "%~dp0artifacts\curriculum\AeroFlyer\final_sp\stage_35_selfplay_final\checkpoints\iter_*"') do if not defined CKPT set "CKPT=%~dp0artifacts\curriculum\AeroFlyer\final_sp\stage_35_selfplay_final\checkpoints\%%D"
+for /f "delims=" %%D in ('dir /b /ad /o-n "%~dp0artifacts\curriculum\AeroFlyer\%FINAL_SP_TAG%\stage_35_selfplay_final\checkpoints\iter_*"') do if not defined CKPT set "CKPT=%~dp0artifacts\curriculum\AeroFlyer\%FINAL_SP_TAG%\stage_35_selfplay_final\checkpoints\%%D"
 if not exist "%CKPT%" (
   echo #### restore checkpoint missing: %CKPT%
   pause
   exit /b 1
 )
-set "RUNDIR=%~dp0artifacts\curriculum\AeroFlyer\final_sp"
+set "RUNDIR=%~dp0artifacts\curriculum\AeroFlyer\%FINAL_SP_TAG%"
 if not exist "%RUNDIR%" mkdir "%RUNDIR%"
 set "RUNLOG=%RUNDIR%\console.log"
 echo ==== [FINAL] RESUME stage 35 from %CKPT%  ^>  %RUNLOG% ====
@@ -43,7 +44,7 @@ echo ==== [FINAL] RESUME stage 35 from %CKPT%  ^>  %RUNLOG% ====
   --policy-std-cap 0.10 --log-std-clip -1.2 ^
   --start-stage 35 --resume ^
   --restore-checkpoint "%CKPT%" ^
-  --output-name AeroFlyer --output-tag final_sp ^
+  --output-name AeroFlyer --output-tag %FINAL_SP_TAG% ^
   2>&1 | "%CONDA_ENV%\python.exe" tools\tee.py "%RUNLOG%"
 echo.
 echo ==== trainer exited ====

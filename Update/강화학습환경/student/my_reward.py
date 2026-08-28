@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """[학생 파일] 학습 보상. 켜진 14항(종단·딜·조준·접근·고도) + 꺼진 항(0). 값 = stage 35 = final_sp/live_tune.json.
-동시격추·시간종료·패배 = 0, 승리 +1500(+시간보너스), 추락 -1700. 자세한 이력은 변경사항.md.
+동시격추·시간종료·패배 = 0, 승리 +600(+시간보너스), 추락 -700 (8/29 결정, 다음 재기동부터). 자세한 이력은 변경사항.md.
 """
 from __future__ import annotations
 
@@ -23,9 +23,9 @@ M_TO_FT = 1.0 / 0.3048
 # ── 보상 크기 (0 = 그 항 꺼짐). 값 = stage 35 = final_sp/live_tune.json — 바꾸면 live_tune 도 같이. 순서 = 효과(배치 간 std) 큰 순.
 MY_REWARD_WEIGHTS: dict[str, float] = {
     # 종단 (승리만 양수; 패배·동시격추·시간종료 0)
-    "win_reward": 1500.0,
+    "win_reward": 600.0,
     "win_time_bonus": 200.0,
-    "crash_reward": -1700.0,
+    "crash_reward": -700.0,
     # 딜
     "w_damage": 300.0,
     "w_precision_mult": 1.0,  # 정밀 조준 배수: 내 ATA 0도 x2 -> precision_ata_deg(1도)에서 x1 (선형)

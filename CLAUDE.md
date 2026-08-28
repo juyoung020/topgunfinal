@@ -18,21 +18,24 @@ F-16 1v1 도그파이트 RL. 예선 통과(제출 v2 = ladder5220). 이 폴더�
 - **이 폴더는 `C:\topgunfinal` 처럼 C: 최상단·공백/한글/밑줄 없는 이름에 둔다** — 그래야 교전서버(컷오프 exe)가 돈다. 접속 절차는 `BattleServer_V1.2_VeryLow\CLAUDE.md`.
 - 작업 루트 `<이 폴더>\Update\강화학습환경` (어디로 옮겨도 됨 — 절대경로 없음) · 교전 서버 `..\..\BattleServer_V1.2_VeryLow` · 컷오프 `..\..\cutoff_model\unreal_bt_client.exe`
 - Python `C:\Users\user one\anaconda3\envs\aip\python.exe` (Ray/RLlib 2.54, torch) · 팀명 **`에어프라이어`**
-- 절차서 `student/EXECUTION_MANUAL.md` · 도구·번들·손잡이 목록 `student/학습에 쓸수있는 도구.md` · 실서버 결과 `docs/실서버_대전결과_20260824.md`
+- **다음 재기동 플랜 `student/다음라운드_플랜.md`** · 절차서 `student/EXECUTION_MANUAL.md` · 도구·번들·손잡이 목록 `student/학습에 쓸수있는 도구.md` · 실서버 결과 `docs/실서버_대전결과_20260824.md`
 
-## 현재 학습 (stage 35 `selfplay_final`, 태그 `final_sp`) — 사용자 결정 8/28
+## 현재 학습 (stage 35 `selfplay_final`, **2라운드 태그 `final_sp2`**, 8/29 부터) — 1라운드 `final_sp`(iter 1437 까지) 는 보존
 
 - PPO+LSTM cell 128 / seq 32 / 10 Hz / 관측 16D / std-cap 0.10. **커리큘럼(승급) 안 씀** — 바꾸는 건 풀 배치·보상·스폰뿐.
-- 학습 = **v1**(`0824_r48/.../iter_1120` 복원). 상대 = **v1 자기 사본 70% + v2(ladder5220 고정) 30%**. self 슬롯 = 직전 사본(100 iter 전). Elo-PFSP 끔.
-- 스폰 = 정면 2000ft 하나(서버 실측 line abreast, 4,572 m, 200 m/s). **다음 재기동(트레이너+sidecar 둘 다)부터**: 50:50 뒤집기(절반은 우리가 Red 자리) · 고도 변형 4,572 m 40% / 3,500 20% / 5,500 20% / **914 m(3,000 ft) 20%** · 랜덤화 150 m/±20°/롤 ±15°/피치 ±8° · `[MOD-TIE]` draw_rate 지표. 풀 16항목(self 8 + v2 8), sidecar `--lag-steps 1×8`. 코드 반영됨, 실행 중 학습엔 미적용.
-- 보상 = v2 값 + 변경: **승 +1500 / 패·동시격추·시간종료 0 / 추락 −1700**, 딜 300×정밀배수(±1° ×2), 피딜·고고도·과속·WEZ·스냅·정면배수·적추락 0, 저고도선 2,500 ft. 전체 34항은 `final_sp/live_tune.json`(핫) = 코드.
+- 학습 = v1 계보: 1라운드는 `0824_r48/.../iter_1120` 복원, **2라운드는 `final_sp/.../iter_1400` 복원**(새 태그 = 그래프·runs 분리). 상대 = **자기 사본 70% + v2 30%**, self 슬롯 = 직전 사본(100 iter 전, 2라운드 snap_0000 = final_sp snap_1300). Elo-PFSP 끔.
+- 스폰(2라운드 적용) = 2000ft **옆구리 배치(line abreast, 기수 반대)** 를 기본으로: Blue/Red 자리 50:50 뒤집기 · 고도 4,572/3,500/5,500/914 m = 2:1:1:1 · 랜덤화 150 m/±20°/롤 ±15°/피치 ±8° · **914 m 전용 선회 진입 래트 레이스 20%**(롤 +60, 반지름 600 m, 측정 미완). 풀 20항목(self 10 + v2 10), sidecar `--lag-steps 1×10`.
+- 보상(2라운드) = **승 +600(+시간보너스 200) / 패·동시격추·시간종료 0 / 추락 −700**, deck 4 유지. 지표에 `draw_rate`(동시격추) 분리. 1라운드는 승 1500 / 추락 −1700 이었음 — reward_mean 은 라운드 간 비교 불가, 성분·승/무/패/추락률로 비교, 딜 300×정밀배수(±1° ×2), 피딜·고고도·과속·WEZ·스냅·정면배수·적추락 0, 저고도선 2,500 ft. 전체 34항은 `final_sp/live_tune.json`(핫) = 코드.
 - 300 iter 마다 실서버 판정(컷오프·v2·r9980 양 슬롯) → 정점 즉시 번들 보존.
 
 ## 학습 = 창 3개 (전부 떠 있어야 학습이다)
 
 ```
 # 창 3개 (sidecar -> 트레이너 -> 대시보드). 절대경로 없음 — tools\launch.ps1 이 자기 위치에서 8.3 경로를 계산
-powershell -File tools\launch.ps1 all          # 또는 sidecar | trainer | resume | dashboard 하나씩
+powershell -File tools\launch.ps1 sidecar -Tag final_sp2      # 반드시 1개
+powershell -File tools\launch.ps1 resume  -Tag final_sp2      # 이어받기 (첫 기동: round2 / 1라운드 첫 기동: trainer)
+powershell -File tools\launch.ps1 dashboard
+# 새 라운드 = 새 태그: sidecar/round2 에 -Tag <새이름>, launch_final_round2.bat 의 ROUND2_FROM 으로 출발 체크포인트 지정
 # 상태 / 정리 / 실서버 / 제출
 python student/tools/eval_visual.py --tag final_sp
 powershell -File tools\ops_windows.ps1 [-Apply]

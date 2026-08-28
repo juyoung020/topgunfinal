@@ -2400,19 +2400,14 @@ def get_stages() -> list[CurriculumStage]:
 
     import dataclasses as _dc
 
-    # ── 35: 본선 자가대전 고정 혼합 풀 (selfplay_final) — 2026-08-28 ─────────
-    # 사다리(35~70 순환) 폐기. 근거(실서버 8/24 리그):
-    #   * 사다리 후속작 s48/s50/s52 전부가 9일 전 자가대전 한 칸 산출물(ladder5220)에 열세
-    #   * 사다리는 같은 계열끼리 교착(동시격추만 학습) + 칸 넘길 때 이전 상대 망각
-    # 그래서 8/15 stage 33(selfplay_ladder) 방식으로 되돌린다:
-    #   보상   = ladder5220 번들 metadata 에 기록된 **실제 적용 값**(signal_clean 계열,
-    #            격추 +300 / 딜 300)을 그대로 읽어 굽는다 (코드 값이 아니라 런타임 값).
-    #            사용자 결정 2026-08-28 로 바꾼 것: 피딜 0 · 고고도 0 · 과속 0 · WEZ/스냅 0(노이즈)
-    #            · 저고도 경고선 1,300 -> 2,500 ft. 나머지는 8/16 값 그대로.
-    #   상대   = elo1667(외부) + 5220 자기 챔피언 + r9980 + scrim (계열 4종 혼합)
-    #   스폰   = 정면 2000ft / 3000ft + 후방추격 + 후방방어 + 저고도 선회
-    #            (추격·추락은 보상이 아니라 스폰으로 가르친다 — 실측 3회)
-    #   승급   = 없음(한 칸). 정점은 300 iter 마다 실서버 판정으로 사람이 잡는다.
+    # ── 35: 본선 자가대전 한 칸 (selfplay_final) — 2026-08-28~ ─────────
+    # 사다리(35~70 순환) 폐기(실서버 8/24: 후속작 s48/s50/s52 전부 ladder5220 에 열세, 같은 계열 교착·망각).
+    #   학습   = v1(s48) iter_1120 에서 출발, final_sp 체크포인트 이어받기. 승급 없음(한 칸).
+    #   상대   = 자기 사본(직전 스냅샷) 0.7 + v2 ladder5220 고정 0.3. 외부 번들·Elo 매치메이킹 없음.
+    #   스폰   = 2000ft 옆구리 배치(line abreast, 기수 반대; 서버 실측). 8/29 부터 Blue/Red 자리 50:50 뒤집기
+    #            + 고도 4,572/3,500/5,500/914 m (2:1:1:1), 랜덤화 150 m·±20°.
+    #   보상   = 8/16 v2 코드값 + 사용자 변경(아래 _reward_v2 오버라이드). 전체 값은 final_sp/live_tune.json = my_reward 기본값.
+    #   정점   = 300 iter 마다 실서버 판정으로 사람이 잡는다. 다음 재기동 항목은 student/다음라운드_플랜.md.
     import json as _json
     _s34 = S[-1]
     assert _s34.index == 34
@@ -2445,10 +2440,10 @@ def get_stages() -> list[CurriculumStage]:
     _reward_v2["w_overspeed"] = 0.0      # 과속 벌점 제거 (사용자 지시 2026-08-28) — v2 로그에선 std 딜의 0.38 로 유효했던 항
     _reward_v2["deck_ft"] = 2500.0       # 저고도 경고선 1,300 -> 2,500 ft (사용자 지시 2026-08-28). 추락선 1,000 ft 보다 1,500 ft 위에서 신호 시작
     # [사용자 지시 2026-08-28 19:40] 종단항을 v1(0817_timefix) 값으로, 적추락·정면배수 제거
-    _reward_v2["win_reward"] = 1500.0          # 300 -> 1500
+    _reward_v2["win_reward"] = 600.0           # 300 -> 1500 -> 600 (사용자 결정 2026-08-29: 종단 축소로 저고도 회복 신호 상대 강화. 다음 재기동부터, live_tune 도 같이 갱신)
     # [사용자 결정 2026-08-28] 종단 = 승리(+1500, 상대보다 먼저 격추)만 양수. 패배·동시격추(양쪽 HP<=0, env 는 ownship destroyed 로 판정)·시간종료 는 전부 0. 추락만 -1700.
     _reward_v2["loss_reward"] = 0.0            # -150 -> -1500 -> 0 (사용자 지시 2026-08-28 19:26: 패배 0, 추락만 -1700)
-    _reward_v2["crash_reward"] = -1700.0       # -250 -> -1700
+    _reward_v2["crash_reward"] = -700.0        # -250 -> -1700 -> -700 (사용자 결정 2026-08-29)
     _reward_v2["target_crash_reward"] = 0.0    # -40 -> 0 (적 추락 항 제거)
     _reward_v2["w_headon_mult"] = 0.0          # 1.0 -> 0 (정면 딜 배수 제거; v1 학습 당시도 0)
     _reward_v2["w_precision_mult"] = 1.0       # 0 -> 1.0: 내 ATA 0도에서 딜 x2, 1도에서 x1 (선형). v1(0817_timefix) 값. 사용자 지시 2026-08-28
@@ -2458,9 +2453,12 @@ def get_stages() -> list[CurriculumStage]:
 
     # live_tune: 보상 + (sidecar 가 병합해 넣는) target_pool. 경로는 실행 디렉터리(final_sp) 고정 —
     # sidecar 기본 경로(<run_dir>/live_tune.json)와 같게 해 [MOD-LTPATH] 불일치를 없앤다.
-    _SP_RUN = ROOT / "artifacts" / "curriculum" / "AeroFlyer" / "final_sp"   # 파일 생성용
+    # [2026-08-29] 실행 태그 = 환경변수 FINAL_SP_TAG (기본 final_sp). 새 라운드는 새 태그로 새 run 을 만든다(그래프·runs 분리).
+    import os as _os
+    _SP_TAG = _os.environ.get("FINAL_SP_TAG", "final_sp")
+    _SP_RUN = ROOT / "artifacts" / "curriculum" / "AeroFlyer" / _SP_TAG   # 파일 생성용
     _SP_LT = _SP_RUN / "live_tune.json"
-    _SP_RUN_REL = "artifacts/curriculum/AeroFlyer/final_sp"                    # env/sidecar 에 넘기는 값은 작업루트 기준 상대경로 (폴더 이동 안전)
+    _SP_RUN_REL = "artifacts/curriculum/AeroFlyer/" + _SP_TAG                # env/sidecar 에 넘기는 값은 작업루트 기준 상대경로 (폴더 이동 안전)
     _SP_LT.parent.mkdir(parents=True, exist_ok=True)
     if not _SP_LT.is_file():
         _json.dump({"reward": _reward_v2}, open(_SP_LT, "w", encoding="utf-8"),
@@ -2472,7 +2470,7 @@ def get_stages() -> list[CurriculumStage]:
         return {"ownship": list(own), "target": list(tgt)}
     def _at(vec, alt_d):
         v = list(vec); v[2] = alt_d; return v
-    # 스폰 = 정면 2000ft(서버 실측 line abreast) 하나. [2026-08-29] 50:50 뒤집기(절반은 우리가 Red 자리·서향)
+    # 스폰 = 2000ft 옆구리 배치(line abreast, 기수 반대 — 정면 마주보기 아님; 서버 실측). [2026-08-29] 50:50 뒤집기(절반은 우리가 Red 자리·서향)
     # + 고도 변형(시작 고도 미공개 대비): 4,572 m 40% / 3,500 m 20% / 5,500 m 20% / 914 m(3,000 ft) 20%.
     # [2026-08-29 사용자] 3,000 ft(914 m) 추가 — 실서버에서 그 고도에서 노는 팀에게 추락패 1회. 추락선 305 m·저고도선 762 m 바로 위.
     _ALTS = [(-4572.0, 2.0), (-3500.0, 1.0), (-5500.0, 1.0), (-914.4, 1.0)]
@@ -2483,12 +2481,21 @@ def get_stages() -> list[CurriculumStage]:
         wsum = sum(w for _, w in _ALTS) * 2.0
         for alt_d, w in _ALTS:
             own, tgt = _at(_S34_OWN, alt_d), _at(_S34_QIC, alt_d)
-            for spawn in (_sp(own, tgt), _sp(tgt, own)):          # 정면 / 뒤집기
+            for spawn in (_sp(own, tgt), _sp(tgt, own)):          # 기본(우리 Blue 자리) / 뒤집기(우리 Red 자리)
                 out.append({"weight": round(total * w / wsum, 4), "mode": "policy", "bundle": bundle,
                             "randomization": dict(_rnd), "spawn": spawn})
         return out
-    # self 슬롯 8개(경로에 /snapshots/) → sidecar --lag-steps 1×8 (전부 직전 사본)
-    _pool = _entries(_SNAP35 + "/snap_0000", 0.7) + _entries(_V2, 0.3)
+    # self 슬롯 10개(고도 4종×2 + 래트레이스 2, 경로에 /snapshots/) → sidecar --lag-steps 1×10 (전부 직전 사본)
+    # [2026-08-29 사용자] C. 선회 진입 래트 레이스 — 914 m(3,000 ft)에서만. 반지름 600 m 원 맞은편, 접선 기수,
+    # 롤 +60(둘 다 우측 뱅크로 시작). 비중 20%(self 0.14 + v2 0.06). 측정 전이라 실제로 오래 도는지는 미확인.
+    _LOW = -914.4
+    _RR_A = [ 600.0, 0.0, _LOW, 60.0, 0.0,  90.0, 200.0]
+    _RR_B = [-600.0, 0.0, _LOW, 60.0, 0.0, 270.0, 200.0]
+    def _rr(bundle, total):
+        return [{"weight": round(total / 2, 4), "mode": "policy", "bundle": bundle,
+                 "randomization": dict(_rnd), "spawn": sp} for sp in (_sp(_RR_A, _RR_B), _sp(_RR_B, _RR_A))]
+    _pool = (_entries(_SNAP35 + "/snap_0000", 0.7 * 0.8) + _entries(_V2, 0.3 * 0.8)
+             + _rr(_SNAP35 + "/snap_0000", 0.14) + _rr(_V2, 0.06))
     _eo = dict(_s34.env_overrides)
     _eo.pop("target_teacher", None)   # [2026-08-28] 스크립트 상대(teacher) 미사용 — 모듈을 _backup/unused 로 옮겼으므로 설정도 제거
     _eo.update({
@@ -2498,7 +2505,7 @@ def get_stages() -> list[CurriculumStage]:
     })
     S.append(_dc.replace(
         _s34, index=35, name="selfplay_final",
-        description="[본선] v1 self-play 70% + v2 고정 30%, 스폰 = 정면 2000ft, 승급 없음.",
+        description="[본선] v1 self-play 70% + v2 고정 30%, 스폰 = 2000ft line abreast(옆구리), 승급 없음.",
         reward_overrides=_reward_v2, env_overrides=_eo,
         target_mode="fixed",
         randomization=_rand(150.0, 20.0, 8.0),   # [2026-08-29] 랜덤화 확대

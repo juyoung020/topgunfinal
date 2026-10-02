@@ -1,0 +1,10 @@
+[LTPATH] 상대 풀을 여기에 쓴다: C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\daeil_r15\live_tune.json
+watching C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\daeil_r15\stage_35_selfplay_final\killfloor_probe.json
+self entries at pool indices [120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137]
+이력 복원: 188개 (snap_0000 ~ snap_20101)
+[18:36:06] snapshot -> snap_20194
+[18:36:06] pool_weights 적용 (20종)
+[18:36:06] live_tune updated: picks=['snap_20194', 'snap_18201', 'snap_14200'] (lag_steps=[0, 20, 60], history=189)
+[18:37:06] snapshot -> snap_20201
+[18:37:06] pool_weights 적용 (20종)
+[18:37:06] live_tune updated: picks=['snap_20201', 'snap_18302', 'snap_14303'] (lag_steps=[0, 20, 60], history=190)

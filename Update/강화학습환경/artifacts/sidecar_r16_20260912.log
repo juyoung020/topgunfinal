@@ -1,0 +1,37 @@
+[LTPATH] 상대 풀을 여기에 쓴다: C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\daeil_r16\live_tune.json
+watching C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\daeil_r16\stage_35_selfplay_final\killfloor_probe.json
+self entries at pool indices [120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137]
+이력 복원: 1개 (snap_0000 ~ snap_0000)
+[18:56:05] snapshot -> snap_20303
+[18:56:05] pool_weights 적용 (20종)
+[18:56:05] live_tune updated: picks=['snap_20303', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=2)
+[19:10:35] snapshot -> snap_20401
+[19:10:35] pool_weights 적용 (20종)
+[19:10:35] live_tune updated: picks=['snap_20401', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=3)
+[19:25:35] snapshot -> snap_20503
+[19:25:35] pool_weights 적용 (20종)
+[19:25:35] live_tune updated: picks=['snap_20503', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=4)
+[19:40:35] snapshot -> snap_20603
+[19:40:35] pool_weights 적용 (20종)
+[19:40:35] live_tune updated: picks=['snap_20603', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=5)
+[19:55:05] snapshot -> snap_20700
+[19:55:05] pool_weights 적용 (20종)
+[19:55:05] live_tune updated: picks=['snap_20700', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=6)
+[20:10:05] snapshot -> snap_20801
+[20:10:05] pool_weights 적용 (20종)
+[20:10:05] live_tune updated: picks=['snap_20801', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=7)
+[20:25:05] snapshot -> snap_20903
+[20:25:05] pool_weights 적용 (20종)
+[20:25:05] live_tune updated: picks=['snap_20903', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=8)
+[20:39:36] snapshot -> snap_21000
+[20:39:36] pool_weights 적용 (20종)
+[20:39:36] live_tune updated: picks=['snap_21000', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=9)
+[20:55:06] snapshot -> snap_21103
+[20:55:06] pool_weights 적용 (20종)
+[20:55:06] live_tune updated: picks=['snap_21103', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=10)
+[21:09:36] snapshot -> snap_21200
+[21:09:36] pool_weights 적용 (20종)
+[21:09:36] live_tune updated: picks=['snap_21200', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=11)
+[21:24:36] snapshot -> snap_21301
+[21:24:36] pool_weights 적용 (20종)
+[21:24:36] live_tune updated: picks=['snap_21301', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=12)

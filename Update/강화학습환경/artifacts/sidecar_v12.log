@@ -1,0 +1,4 @@
+[LTPATH] 상대 풀을 여기에 쓴다: C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\final_v12\live_tune.json
+watching C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\final_v12\stage_35_selfplay_final\killfloor_probe.json
+self entries at pool indices [30, 31, 32, 33, 34, 35]
+이력 복원: 1개 (snap_0000 ~ snap_0000)

@@ -23,7 +23,18 @@ powershell -File tools\launch.ps1 dashboard
 ```
 브라우저: http://127.0.0.1:7860/?tab=training  (bat 은 ASCII 전용 — 한글 주석 넣으면 chcp 뒤 cmd 파싱이 깨진다)
 
-## 3. 실서버 판정 (300 iter 마다)
+## 3. 판정 = 리플레이 분석 (별도 판정 실행 없음, 2026-08-29 사용자 결정)
+
+```
+python student\tools\replay_judge.py --tag final_sp2 [--since 2400] [--block 500] [--opp v2|self|all] [--plot]
+```
+- 학습이 25 iter 마다 저장하는 리플레이(`artifacts\replays\AeroFlyer_<태그>\engagement_replays\stage_35_iter_NNNNNN\episode_NN`, 판당 summary.json + Blue/Red Tacview CSV)만 읽는다. 시뮬레이션·env 를 만들지 않는다.
+- 판별: summary 의 opponent(v2 = `frozen_sub_cand_ladder5220`, self = `snap_*`) · end_condition · 양쪽 HP → 격추승/동시격추/격추패/추락/종료우위/종료열위/종료동률. CSV 에서 시간·스폰고도·최저고도·최소거리·교차 횟수(거리 극소 < 914 m)·152 m 안쪽 교차·사거리 체류 %·딜/피딜.
+- 출력: iter 구간별(기본 500) v2 상대 집계 + self 집계 + v2 판별 표. `--plot` 이면 `artifacts\eval_visual\replay_judge_<태그>.png`(초록 거리 / 파랑 고도, 914·152 m 선).
+- 리플레이는 25 iter × 6판(iter 3060 부터, 그 전 3판). `--engagement-log-episodes` 는 bat 플래그라 바꾸면 트레이너 재기동.
+
+## 3-0. 실서버 확인 (제출 후보 최종 확인에만)
+
 
 1. `..\..\BattleServer_V1.2_VeryLow\DogFightViewer\Binaries\Win64\DogFightViewer-Win64-Shipping.exe` 실행 → OpenServer → 프리셋(2000ft 등)
 2. 두 클라이언트 접속 (먼저 붙는 쪽이 Blue/plane0):

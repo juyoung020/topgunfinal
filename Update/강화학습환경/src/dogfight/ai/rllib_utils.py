@@ -75,7 +75,7 @@ def build_algorithm_config(algorithm_name: str, env_name: str, env_config: dict,
         #     (now large, since vf_clip_param was raised from 10 to 1000 to
         #     revive the critic) back-propagates through the SAME encoder the
         #     policy uses. Reviving the critic broke the actor.
-        for key in ("num_epochs", "grad_clip", "vf_loss_coeff", "kl_coeff"):
+        for key in ("num_epochs", "grad_clip", "vf_loss_coeff", "kl_coeff", "kl_target"):   # [MOD-KLTARGET] 2026-08-29
             if args.get(key) is not None:
                 ppo_training[key] = args[key]
         config = config.training(**ppo_training)

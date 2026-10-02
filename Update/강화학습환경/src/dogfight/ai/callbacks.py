@@ -39,8 +39,21 @@ class DogFightCallbacks(DefaultCallbacks):
 
         # ── Outcome ───────────────────────────────────────────────────────
         outcome = info.get("outcome", "other")
-        for key in ("win", "loss", "draw", "timeout", "crash"):
-            self._record_metric(episode, metrics_logger, key, float(outcome == key))
+        # [MOD-OUTCOME 2026-09-04] 다섯 개 고정 목록이 새 분류를 못 세고 있었다.
+        #   judge_win/judge_loss(딜 마진 판정)는 [MOD-JUDGE] 로, hit(피격 즉시 종료)은
+        #   [MOD-ENDONHIT] 로 생겼는데 목록에 없어서 timeout_rate 가 0 으로 고정되고
+        #   win_rate 가 실제(25%)보다 훨씬 낮게(1.7%) 찍혔다(실측 60판).
+        # [2026-09-05] end_on_hit 을 끄면서 "hit" 은 더 이상 생기지 않는다(실측 0판).
+        #   피격이 판을 끝내지 않으므로 패배로도 세지 않는다 — 맞고도 반격해 이기는
+        #   판이 실제로 나온다(v3 초기 12판 중 맞은 7판, 그 중 3판 승).
+        #   end_on_hit 을 다시 켜면 "hit" 을 loss 에 되돌려 넣어야 한다.
+        _GROUP = {"win": ("win", "judge_win"),
+                  "loss": ("loss", "judge_loss"),
+                  "draw": ("draw",),
+                  "timeout": ("timeout",),
+                  "crash": ("crash",)}
+        for key, members in _GROUP.items():
+            self._record_metric(episode, metrics_logger, key, float(outcome in members))
 
         # ── Reward components (cumulative episode totals) ─────────────────
         for key, val in info.get("ep_reward_components", {}).items():

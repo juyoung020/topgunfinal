@@ -1,7 +1,0 @@
-{
-  "end_condition": "ownship altitude below min",
-  "outcome": "crash",
-  "opponent": "frozen_sub_cand_ladder5220",
-  "ownship_health": 0.06656781824980319,
-  "target_health": 0.8782458628512536
-}

@@ -2400,6 +2400,8 @@ def get_stages() -> list[CurriculumStage]:
 
     import dataclasses as _dc
 
+
+
     # ── 35: 본선 자가대전 한 칸 (selfplay_final) — 2026-08-28~ ─────────
     # 사다리(35~70 순환) 폐기(실서버 8/24: 후속작 s48/s50/s52 전부 ladder5220 에 열세, 같은 계열 교착·망각).
     #   학습   = v1(s48) iter_1120 에서 출발, final_sp 체크포인트 이어받기. 승급 없음(한 칸).
@@ -2422,29 +2424,43 @@ def get_stages() -> list[CurriculumStage]:
     _reward_v2.update({                                        # 8/16 stage 33 오버라이드 원문
         "w_deck": 4.0, "draw_reward": -40.0, "target_crash_reward": -40.0,
         "draw_health_scale": 600.0, "w_damage_taken": 300.0, "w_range": 0.10,
-        "w_far": 0.12, "far_start_m": 1800.0, "far_ramp_m": 1000.0, "w_perch": 0.0,
+        # [2026-09-05 사용자 지시] 이탈 벌점 제거 (0.12 -> 0). 접근 포텐셜과 함께 뺀다.
+        "w_far": 0.0, "far_start_m": 1800.0, "far_ramp_m": 1000.0, "w_perch": 0.0,
         "w_wez": 0.06, "wez_cone_deg": 15.0, "wez_best_m": 260.0,
         "w_snap": 0.5, "snap_ata_deg": 3.0,
-        "w_nmd": 8.0, "nmd_half_m": 10.0, "w_cpa": 1.5, "cpa_half_m": 40.0, "cpa_horizon_s": 8.0,
-        "w_close_pot": 15.0, "w_aim": 0.16, "max_engage_time": 200.0, "aim_range_gate_m": 4500.0,
+        "w_nmd": 8.0, "nmd_half_m": 5.0, "w_cpa": 1.5,   # [2026-08-30 사용자 "0도샷 부족"] 10 -> 5: 1도->0도 기울기 2배(600 m: 1.07->3.30/스텝), 0도 값은 동일 "cpa_half_m": 40.0, "cpa_horizon_s": 8.0,
+        "w_close_pot": 0.0,   # [2026-09-05 사용자 지시] 접근 포텐셜 제거 (15 -> 0)
+        "w_aim": 0.16, "max_engage_time": 200.0, "aim_range_gate_m": 4500.0,
         "w_ceil": 1.0, "ceil_ft": 45000.0, "ceil_ramp_ft": 2000.0,
         "w_high": 60.0, "high_floor_m": 6000.0, "high_span_m": 8000.0,
         "w_overspeed": 0.8, "overspeed_ref_mps": 190.0, "overspeed_gate_m": 1200.0,
         "overspeed_turn_ata_deg": 30.0,
     })
     # [본선 사용자 결정 2026-08-28]
-    _reward_v2["w_damage_taken"] = 0.0   # 피격 페널티 제거
+    _reward_v2["w_damage_taken"] = 50.0  # 0 -> 50 (사용자 지시 2026-08-29 iter ~360, 핫 적용): 맞은 HP 당 -50   # 피격 페널티 제거
     _reward_v2["w_wez"] = 0.0            # 노이즈 (v2 로그: 판당 +1.1, std 딜의 0%)
     _reward_v2["w_snap"] = 0.0           # 노이즈 (판당 +11, std 딜의 3%)
     _reward_v2["w_high"] = 0.0           # 고고도 벌점 제거 (사용자 지시 2026-08-28)
     _reward_v2["w_overspeed"] = 0.0      # 과속 벌점 제거 (사용자 지시 2026-08-28) — v2 로그에선 std 딜의 0.38 로 유효했던 항
-    _reward_v2["deck_ft"] = 2500.0       # 저고도 경고선 1,300 -> 2,500 ft (사용자 지시 2026-08-28). 추락선 1,000 ft 보다 1,500 ft 위에서 신호 시작
+    _reward_v2["w_sink"] = 0.05          # 0 -> 0.03 (사용자 지시 2026-08-29 final_v2r4 iter ~115): 침하율 벌점. 45도 강하 250 m/s = 침하 177 m/s -> 스텝당 -4.9
+                                         # 0.03 -> 0.05, 게이트 2,000 -> 5,000 ft(램프 1,000 ft) (사용자 지시 2026-08-31 final_v2r7 iter ~2360): 추락 리플레이 6판 전부 1,000~1,500 m 에서 -130~-190 m/s 강하 시작 -> 게이트를 결정 지점 위로
+    _reward_v2["sink_gate_ft"] = 3000.0   # 5000 -> 3000 (사용자: 5000 은 과함)
+    _reward_v2["sink_gate_ramp_ft"] = 1000.0
+    _reward_v2["w_recover"] = 0.0        # 5 -> 0 (사용자 지시 2026-08-29 final_v2r2). final_v2r1 iter 130~160 에 5 로 켰으나 추락 7.5 -> 12.7% 로 무효. 완만한 강하 추락(강하각 28도, h_need 75 m)은 원리상 못 잡음
+    _reward_v2["w_deck"] = 12.0          # 4 -> 12 (사용자 지시 2026-08-29, final_v2r1 iter ~55, live_tune 핫 적용). 2,500 ft 아래 스텝 벌점
+    # [2026-09-05 사용자 지시] 저고도 경고선 2,500 ft -> 500 m(1,640.42 ft).
+    #   deck 은 deck_ft 에서 0, deck_floor_ft(추락선 1,000 ft = 304.8 m)에서 -w_deck 인 선형.
+    _reward_v2["deck_ft"] = 1640.42      # 1,300 -> 2,500 -> 1,640.42 ft (= 500 m)
     # [사용자 지시 2026-08-28 19:40] 종단항을 v1(0817_timefix) 값으로, 적추락·정면배수 제거
-    _reward_v2["win_reward"] = 600.0           # 300 -> 1500 -> 600 (사용자 결정 2026-08-29: 종단 축소로 저고도 회복 신호 상대 강화. 다음 재기동부터, live_tune 도 같이 갱신)
+    _reward_v2["win_reward"] = 300.0           # 300 -> 1500 -> 600 -> 300 (사용자 지시 2026-08-29 iter 3060 재기동, live_tune 동기)
     # [사용자 결정 2026-08-28] 종단 = 승리(+1500, 상대보다 먼저 격추)만 양수. 패배·동시격추(양쪽 HP<=0, env 는 ownship destroyed 로 판정)·시간종료 는 전부 0. 추락만 -1700.
     _reward_v2["loss_reward"] = 0.0            # -150 -> -1500 -> 0 (사용자 지시 2026-08-28 19:26: 패배 0, 추락만 -1700)
     _reward_v2["crash_reward"] = -700.0        # -250 -> -1700 -> -700 (사용자 결정 2026-08-29)
-    _reward_v2["target_crash_reward"] = 0.0    # -40 -> 0 (적 추락 항 제거)
+    # [2026-09-05 사용자 지시] 적 추락 = 대회 규칙상 승리(1,000 ft 이하는 양측 격추,
+    #   라운드는 생존팀 승). 승패 지표는 이미 win 으로 치는데 보상만 0 이라
+    #   "이겨도 0점"이었다 — 실측 v4: 적을 지면으로 몰아 이긴 판이 -7,911.
+    #   격추승과 동일하게 준다(my_reward 가 시간보너스도 더한다).
+    _reward_v2["target_crash_reward"] = 300.0  # -40 -> 0 -> 300
     _reward_v2["w_headon_mult"] = 0.0          # 1.0 -> 0 (정면 딜 배수 제거; v1 학습 당시도 0)
     _reward_v2["w_precision_mult"] = 1.0       # 0 -> 1.0: 내 ATA 0도에서 딜 x2, 1도에서 x1 (선형). v1(0817_timefix) 값. 사용자 지시 2026-08-28
     _reward_v2["precision_ata_deg"] = 1.0
@@ -2456,6 +2472,15 @@ def get_stages() -> list[CurriculumStage]:
     # [2026-08-29] 실행 태그 = 환경변수 FINAL_SP_TAG (기본 final_sp). 새 라운드는 새 태그로 새 run 을 만든다(그래프·runs 분리).
     import os as _os
     _SP_TAG = _os.environ.get("FINAL_SP_TAG", "final_sp")
+
+    # [2026-09-05 사용자 지시] 보상은 개편 전(v2r7 iter25100 백업본)으로 되돌렸다.
+    #   보상 대격변(w_six · w_rear_mult · 적추락 +300 · 판정승패 분리 · MOD-VOID 래치)은
+    #   my_reward.py 를 백업본으로 복사해 제거했고, 여기서 가중치를 0 으로 미는 블록도 뺐다.
+    #   스폰(대회 2000/2500/3000ft)·상대 풀·랜덤화는 별도 지시라 그대로 둔다.
+    #   아래 집합은 그 스폰·env 설정에서만 계속 쓴다(보상과 무관).
+    _MINIMAL_ENV_TAGS = {"final_v2r9", "final_v2r10", "final_v3", "final_v4", "final_v5", "final_v6",
+                         "final_v7", "final_v8", "final_v9", "daeil_r15", "daeil_r16",
+                         "final_v10", "final_v11", "final_v12", "daeil_headon"}
     _SP_RUN = ROOT / "artifacts" / "curriculum" / "AeroFlyer" / _SP_TAG   # 파일 생성용
     _SP_LT = _SP_RUN / "live_tune.json"
     _SP_RUN_REL = "artifacts/curriculum/AeroFlyer/" + _SP_TAG                # env/sidecar 에 넘기는 값은 작업루트 기준 상대경로 (폴더 이동 안전)
@@ -2466,6 +2491,52 @@ def get_stages() -> list[CurriculumStage]:
 
     # [2026-08-29 사용자 지시] 랜덤화 확대: radius 100->150 m(각 축), 기수 ±10->±20°, 롤 ±10->±15°, 피치 ±5->±8°
     _rnd = {"enabled": True, "radius": 150.0, "r_roll": 15.0, "r_pitch": 8.0, "r_heading": 20.0}
+    # [2026-09-03 사용자 지시 "시작각도 랜덤화해서 좀더 랜덤"] final_v2r8: 기수 ±20 -> ±90도, 롤 ±15 -> ±30, 피치 ±8 -> ±15, radius 150 -> 250 m.
+    #   내장 커리큘럼이 r_heading 60~180 을 쓰므로 ±90 은 지원 범위 안(src/dogfight/ai/curriculum.py:150,183).
+    # [2026-09-03 사용자 지시 2차] 기수만 ±90 -> ±20도로 복귀(롤/피치/위치는 유지).
+    #   근거: 만료 판과 빠른 결착 판의 시작 ATA 가 82.1 vs 89.1도로 같아 ±90 이 만료 원인은 아니었으나,
+    #   사용자 지시로 대회 IC(정면 배치)에 가깝게 되돌린다. 적기 랜덤화는 [MOD-TGTRAND] 로 양쪽 적용 유지.
+    # [2026-09-10 사용자 지시] daeil_r15 = 팀원 daeil.zip(iter_1620) 이어받기. 스폰은 final_v9 와 동일.
+    # [2026-09-12 사용자 지시] daeil_r16 = daeil_r15 의 iter_19380 에서 분기. 스폰·랜덤화는 동일.
+    #   final_v10 = v9 iter_11840 에서 재출발 + 헤드온 100%. 랜덤화는 같은 값.
+    _RND_BY_TAG = {"final_v12": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v11": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v10": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                "r_pitch": 15.0, "r_heading": 20.0},
+                   "daeil_r16": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                "r_pitch": 15.0, "r_heading": 20.0},
+                   "daeil_r15": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v9": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                               "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v8": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                               "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v7": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                               "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v6": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                               "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v5": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                               "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v4": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                               "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v3": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                               "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v2r10": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                  "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v2r9": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                 "r_pitch": 15.0, "r_heading": 20.0},
+                   "final_v2r8": {"enabled": True, "radius": 250.0, "r_roll": 30.0,
+                                  "r_pitch": 15.0, "r_heading": 20.0}}
+    _rnd = _RND_BY_TAG.get(_SP_TAG, _rnd)
+
+    # [2026-09-04 사용자 지시] 대회 서버는 위치·자세를 안 흩는다(실측: 623 m 프리셋 113판이
+    #   위도·경도·yaw·roll 소수점 6자리까지 동일). 본선 안내도 랜덤은 "초기 고도와 속도"뿐이다.
+    #   우리가 흩으면 실제에 없는 조건을 배우므로 위치·롤·피치·기수 산포를 전부 끈다.
+    #   고도·속도 랜덤은 env 의 [MOD-SPAWNRAND] 가 담당한다.
+    if _SP_TAG in _MINIMAL_ENV_TAGS:
+        _rnd = {"enabled": False, "radius": 0.0, "r_roll": 0.0, "r_pitch": 0.0, "r_heading": 0.0}
     def _sp(own, tgt):
         return {"ownship": list(own), "target": list(tgt)}
     def _at(vec, alt_d):
@@ -2476,14 +2547,32 @@ def get_stages() -> list[CurriculumStage]:
     _ALTS = [(-4572.0, 2.0), (-3500.0, 1.0), (-5500.0, 1.0), (-914.4, 1.0)]
     _SNAP35 = _SP_RUN_REL + "/stage_35_selfplay_final/snapshots"
     _V2 = "artifacts/models/AeroFlyer/sub_cand_ladder5220"
+    # [2026-08-29 사용자 지시] 고정 상대는 태그별: final_sp3 = v2 / final_v2r1 = 우리 final_sp3 iter 400 번들(학습 주체는 v2 iter_5220 체크포인트). 없는 태그는 v2.
+    _FIXED_OPP_BY_TAG = {"final_v2r1": "artifacts/models/AeroFlyer/final_sp3_iter0400",
+                         "final_v2r2": "artifacts/models/AeroFlyer/final_sp3_iter0400",   # 2026-08-29 v2 재출발(deck 선형·recover 0)
+                         "final_v2r3": "artifacts/models/AeroFlyer/final_sp3_iter0400",   # 2026-08-29 관측 고도 절벽(2,000 ft) 후 v2 재출발
+                         "final_v2r4": "artifacts/models/AeroFlyer/final_sp3_iter0400",   # 2026-08-29 관측 저고도 램프(610 m -0.913 -> 305 m -1.5) 후 v2 재출발
+                         "final_v2r5": "artifacts/models/AeroFlyer/final_sp3_iter0400"}   # 2026-08-29 v2r4 iter_0200 복원 + lr 2e-4 / kl-target 0.02 / kl-coeff 0.1
+    _V2 = _FIXED_OPP_BY_TAG.get(_SP_TAG, _V2)
+    # [2026-09-04 본선 안내 실측] 서버 거리 프리셋 3종. 배치는 동일하고 북쪽 이격만 다르다.
+    #   2000ft 622.5 m / 2500ft 778.3 m / 3000ft 933.7 m, East 오프셋 -13.7 m 고정,
+    #   plane0 yaw +90 / plane1 yaw -90, pitch -0.002, roll 0, 200 m/s.
+    #   본선은 경기 순서대로 2000 -> 2500 -> 3000 -> 2000 ... 로 순환한다.
+    #   고도는 [MOD-SPAWNRAND] 가 판마다 2,000~10,000 m 로 다시 뽑으므로 여기선 기준값만 둔다.
+    _SEPS = [(622.5, "2000ft"), (778.3, "2500ft"), (933.7, "3000ft")]
+    _EAST_OFF = -13.7
+
     def _entries(bundle, total):
         out = []
-        wsum = sum(w for _, w in _ALTS) * 2.0
-        for alt_d, w in _ALTS:
-            own, tgt = _at(_S34_OWN, alt_d), _at(_S34_QIC, alt_d)
-            for spawn in (_sp(own, tgt), _sp(tgt, own)):          # 기본(우리 Blue 자리) / 뒤집기(우리 Red 자리)
-                out.append({"weight": round(total * w / wsum, 4), "mode": "policy", "bundle": bundle,
-                            "randomization": dict(_rnd), "spawn": spawn})
+        w = total / (len(_SEPS) * 2.0)
+        for sep, tag in _SEPS:
+            own = [sep, 0.0,        _S34_ALT, 0.0, 0.0,  90.0, _S34_SPD]
+            tgt = [0.0, _EAST_OFF,  _S34_ALT, 0.0, 0.0, -90.0, _S34_SPD]
+            for side, spawn in (("blue", _sp(own, tgt)), ("red", _sp(tgt, own))):
+                # [MOD-PAIR] 한 상대·한 거리를 뽑으면 다음 판은 같은 짝의 반대 자리
+                out.append({"weight": round(w, 4), "mode": "policy", "bundle": bundle,
+                            "randomization": dict(_rnd), "spawn": spawn,
+                            "pair": f"{bundle}|{tag}", "side": side})
         return out
     # self 슬롯 10개(고도 4종×2 + 래트레이스 2, 경로에 /snapshots/) → sidecar --lag-steps 1×10 (전부 직전 사본)
     # [2026-08-29 사용자] C. 선회 진입 래트 레이스 — 914 m(3,000 ft)에서만. 반지름 600 m 원 맞은편, 접선 기수,
@@ -2491,27 +2580,436 @@ def get_stages() -> list[CurriculumStage]:
     _LOW = -914.4
     _RR_A = [ 600.0, 0.0, _LOW, 60.0, 0.0,  90.0, 200.0]
     _RR_B = [-600.0, 0.0, _LOW, 60.0, 0.0, 270.0, 200.0]
+    # [2026-09-04] 서버 실측 IC — 첫 프레임 패킷/CSV 에서 직접 잰 값(실행마다 소수점까지 동일).
+    #   2000ft 프리셋 : 622.5 m 남북 이격, yaw +90/-90 (지금 _entries 가 쓰는 배치)
+    #   2500ft 프리셋 : 778.3 m 같은 배치
+    #   HABFM        : 5,662.9 m 마주봄, 측면 182.1 m 어긋남
+    #   OBFM_RED     : 적이 내 6시 567.3 m, 측면 46.5 m, 같은 기수
+    _SRV_ALT = -4572.0
+    _HEADON_A = [   0.0,    0.0, _SRV_ALT, 0.0, 0.0, 180.0, 200.0]
+    _HEADON_B = [-5662.9, -182.1, _SRV_ALT, 0.0, 0.0,   0.0, 200.0]
+    _TAIL_LEAD = [   0.0,   0.0, _SRV_ALT, 0.0, 0.0, 0.0, 200.0]   # 앞 기체(쫓기는 쪽)
+    # [2026-09-05 사용자 지시] 꼬리잡기 이격 567.3 -> 1,000 -> 1,200 m.
+    #   567 m 는 사거리(914 m) 안이라 시작하자마자 조준 거리였다. 1,200 m 면 사거리 밖에서
+    #   접근·각 만들기가 먼저다. 측면 46.5 m 는 서버 실측값 그대로 둔다.
+    _TAIL_CHASE = [-1200.0, -46.5, _SRV_ALT, 0.0, 0.0, 0.0, 200.0]  # 뒤 기체(쫓는 쪽)
+
+    def _srv_ic(bundle, total):
+        """헤드온 IC. [2026-09-04 사용자 지시] 메인 모델에서는 안 쓴다 — 본선에서 헤드온 모드는
+        무승부일 때만 들어가므로 별도 헤드온 모델로 따로 학습한다. 함수는 그때 쓰려고 남겨둔다.
+        한 짝(pair)이라 [MOD-PAIR] 가 Blue/Red 자리를 교대시킨다."""
+        def mk(w, own, tgt, side):
+            e = {"weight": round(w, 4),
+                 "mode": ("cutoffbt" if bundle == "cutoffbt" else "policy"),
+                 "randomization": dict(_rnd), "spawn": _sp(own, tgt),
+                 "pair": f"{bundle}|headon", "side": side}
+            if bundle != "cutoffbt":
+                e["bundle"] = bundle
+            return e
+        return [mk(total / 2, _HEADON_A, _HEADON_B, "blue"),
+                mk(total / 2, _HEADON_B, _HEADON_A, "red")]
+
+    def _tail_ic(bundle, total):
+        """[2026-09-05 사용자 지시] 꼬리잡기 IC 를 풀의 30% 로 넣는다.
+        서버 OBFM_RED 실측 배치 — 뒤 기체가 앞 기체의 6시 567.3 m, 측면 46.5 m, 같은 기수.
+        한 짝(pair)이라 [MOD-PAIR] 가 자리를 교대시킨다: 한 판은 우리가 쫓고(chase),
+        다음 판은 우리가 쫓긴다(lead). 고도는 [MOD-SPAWNRAND] 가 판마다 다시 뽑는다."""
+        def mk(w, own, tgt, side):
+            e = {"weight": round(w, 4),
+                 "mode": ("cutoffbt" if bundle == "cutoffbt" else "policy"),
+                 "randomization": dict(_rnd), "spawn": _sp(own, tgt),
+                 "pair": f"{bundle}|tail", "side": side}
+            if bundle != "cutoffbt":
+                e["bundle"] = bundle
+            return e
+        return [mk(total / 2, _TAIL_CHASE, _TAIL_LEAD, "blue"),   # 우리가 쫓는다
+                mk(total / 2, _TAIL_LEAD, _TAIL_CHASE, "red")]    # 우리가 쫓긴다
+
+
     def _rr(bundle, total):
         return [{"weight": round(total / 2, 4), "mode": "policy", "bundle": bundle,
-                 "randomization": dict(_rnd), "spawn": sp} for sp in (_sp(_RR_A, _RR_B), _sp(_RR_B, _RR_A))]
-    _pool = (_entries(_SNAP35 + "/snap_0000", 0.7 * 0.8) + _entries(_V2, 0.3 * 0.8)
-             + _rr(_SNAP35 + "/snap_0000", 0.14) + _rr(_V2, 0.06))
+                 "randomization": dict(_rnd), "spawn": sp, "pair": f"{bundle}|rr", "side": side}
+                for side, sp in (("blue", _sp(_RR_A, _RR_B)), ("red", _sp(_RR_B, _RR_A)))]
+    # [2026-08-29 사용자 지시, iter 3060 재기동] 풀 v2 고정 (self 0). 이전(iter 1400~3060): self 0.7 + v2 0.3
+    #   = _entries(_SNAP35 + "/snap_0000", 0.7 * 0.8) + _entries(_V2, 0.3 * 0.8) + _rr(_SNAP35 + "/snap_0000", 0.14) + _rr(_V2, 0.06)
+    #   self 슬롯이 없으므로 sidecar 는 띄우지 않는다(자기 사본 갱신 대상 없음).
+    # [2026-08-29 사용자 지시 "지금 조건 그대로 모델만 다르게"] final_v2r6: 고정 상대 여러 개(실서버 13판에서 못 이긴/못 잡은 상대 중심).
+    #   각 상대에 같은 스폰 구조(고도 4종×2자리 0.8 + 래트레이스 0.2)를 비중대로 배분. 비율 = s52 0.35(유일한 패) / aimcur 0.15 / aimangle 0.15(200 s 못 잡음)
+    #   / sp3_iter0400 0.15(회피형) / v1 s48 0.10(정면형 대표) / league_v4 0.10(완전 회피형).
+    _FIXED_POOL_BY_TAG = {
+        "final_v2r6": [("artifacts/models/AeroFlyer/s52_ladder5220_beaten", 0.35),
+                       ("artifacts/models/AeroFlyer/recv_aimcur_0823", 0.15),
+                       ("artifacts/models/AeroFlyer/recv_aimangle_v4_0824", 0.15),
+                       ("artifacts/models/AeroFlyer/final_sp3_iter0400", 0.15),
+                       ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.10),
+                       ("artifacts/models/AeroFlyer/recv_league_v4_best60", 0.10)],
+        # [2026-08-30 사용자 지시 "풀에서 정면전 졌던 거 넣고"] final_v2r7 = final_v2r6 iter_7200(현 챔피언) 복원.
+        #   실서버 26판에서 진/비긴/간신히 이긴 정면 맞교환형을 넣는다: s48(패·무) / peak3100(무·패) / scrim_exp025(무·무) / sub_cand_snap12241(HP 2~3 남기고 승).
+        #   s52 는 유지(실서버 전승이지만 리플레이 최강 정면형). 회피형은 aimcur·league_v4 만 소량(추격 유지용).
+        # [2026-08-30 사용자 지시 iter ~40] recv_aimcur_0823 제외(실서버 22 s 격추 ×2·리플레이 신호 0). 그 0.075 는 정면형 4종에 비례 배분.
+        # [2026-08-30 사용자 지시 iter ~45] 우리 final_v2r6_iter3200(교전력 정점, 3200 vs 7200 실서버 양 슬롯 Draw 25 s) 추가 0.075.
+        "final_v2r7": [("artifacts/models/AeroFlyer/s52_ladder5220_beaten", 0.20),
+                       ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.20),
+                       ("artifacts/models/AeroFlyer/sub_cand_peak3100", 0.20),
+                       ("artifacts/models/AeroFlyer/recv_scrim_exp025", 0.15),
+                       ("artifacts/models/AeroFlyer/sub_cand_snap12241", 0.10),
+                       ("artifacts/models/AeroFlyer/final_v2r6_iter3200", 0.075),
+                       ("artifacts/models/AeroFlyer/recv_league_v4_best60", 0.075)],
+        # [2026-09-03 사용자 지시 "진 상대 비율 높히고"] final_v2r8 = final_v2r7 iter_25100 복원.
+        #   실서버 34판(2000ft 2판 + 무승부 시리즈 2500ft TB)에서 시리즈 14승 1패.
+        #   유일한 패 = final_v2r6_iter7200(부모): 2000ft 양판 동시격추, 2500ft TB 0-2(부모 HP 1.146/1.549 잔존).
+        #   그래서 부모를 풀 최대 비중 0.30 으로 새로 넣고 나머지를 비례 축소.
+        # [2026-09-03 사용자 지시 3차] "적기에 현재의 나도 넣어주고 뺄만한거 빼고".
+        #   "현재의 나" = 학습 시작점 final_v2r7_iter25100 을 고정 이터 번들로 0.25 투입
+        #   (사용자 지시 "현재 고정이터로" — 롤링 스냅샷/sidecar 대신 고정).
+        #   뺀 것 = 실서버 34판에서 양 슬롯 HP 100 무피해로 이긴 상대 둘:
+        #     s52_ladder5220_beaten(0.15), sub_cand_snap12241(0.05).
+        #   남긴 것은 전부 진/비긴/간신히 이긴 상대: 7200(패) / c13280(무) /
+        #     s48(HP 0.35) / scrim(HP 7.0) / peak3100(HP 9.7) / v2r6_3200(HP 10.7).
+        # [2026-09-04 사용자 지시] 7200·scrim·peak3100·3200 제거. 컷오프 BT 복원본과 회피형 2종 추가.
+        #   cutoffbt = 룰베이스 추격형(docs/cutoff_decompile). 실서버 대조 90.1 vs 원본 91.7.
+        # [2026-09-04 사용자 지시] league_v4 제거 / 컷오프 BT 0.40 / 자기(25100) 비중 축소.
+        #   cand_s48_snap12241 = 예선 제출 v1 과 동일 파일(sha256 823241c9158b66f9) — 0.25 로 올려 대체.
+        # [2026-09-05 사용자 지시] final_v5 = final_v4 iter_0900 에서 새 출발 + [MOD-SIX] 후방
+        #   포지션 보상(w_six 1.0, rear x near, 조준 없음, 700 m 안쪽 평탄). 풀·스폰은 v4 그대로.
+        # [2026-09-05 사용자 지시 "bt 비중 줄이고 RL 넣자"] 컷오프 0.40 -> 0.25,
+        #   그 0.15 를 final_v2r6_iter7200 에 준다.
+        #   근거: 컷오프 상대 승률 0.81 인데 이긴 79판 중 51판(65%)이 상대 자멸이라
+        #     지표를 부풀린다(격추는 21판뿐, 적HP 0.677). 반면 RL 상대는 자멸이 거의 없다.
+        #   final_v2r6_iter7200 = 실서버 34판에서 우리 챔피언(25100)이 유일하게 진 상대.
+        #     정면 맞교환형, 대회 IC(정면·나란히)와 성격이 맞는다. 우리 조상 계보라
+        #     계열 다양성은 따로 챙겨야 한다(외부 수신 모델 opp_iter7440 등).
+        #   sha256[:16] 625eff3747bfb35b (상대후보 색인과 일치 확인)
+        # [2026-09-05 사용자 지시] final_v6 = final_v5 최신 체크포인트에서 새 태그로 이어받기.
+        #   설정 변경 없음 — 그래프를 0 부터 다시 보기 위한 태그 분리다.
+        #   v5 누적 변경: six(0.17, 700 m 평탄) · 머지 가중(x2→x1, 30초) · 꼬리잡기 1,200 m
+        #   · 컷오프 0.25 + v2r6_7200 0.15 · 스폰 고도 2,000~15,000 ft.
+        # [2026-09-06 사용자 지시 "적기 대거 투입 · 다 넣어봐"] 6종 -> 17종.
+        #   비중은 가중치 공간 거리로 정했다(s48 기준 L2/코사인, 536,715 파라미터 실측):
+        #     먼 가지 cos~0.17  symmetric_1920 405 / ladder5220 408 / v2r7_25100 447 / 26100 448 / v2r8_10400 457
+        #     중간    cos 0.66~0.91  c13280 39 / scrim 41 / peak3100 43 / snap9980 47 / aimangle 56 / v2r6_3200 58 / 7200 65 / league_v4 78
+        #     중복    s52_ladder5220_beaten L2 7.4 cos 0.997 = s48 과 사실상 동일 -> 0.02 만
+        #   먼 가지를 두껍게 준 근거: 계열 교착을 실력으로 오독한 전례([[judge-needs-multiple-lineages]]).
+        #   대가: 신규 1종당 판당 ~1.5판, 스폰·자리까지 쪼개면 조합당 0.2판. s48 노출이 0.25 -> 0.12 로 준다.
+        # [2026-09-06 사용자 지시] v8 = 10400 에서 이어받고, 그 자리를 **우리 자신**으로 채운다.
+        #   근거: v7 에서 10400 만 유일하게 못 뚫었다(승률 0.22 · 패율 0.48, 182,224판).
+        #   계열을 그쪽으로 갈아타고, v7 최종(iter_4880)을 상대로 남겨 되돌아가지 않게 한다.
+        #   나머지 16종·비중은 v7 그대로.
+        "final_v9": [
+            ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.0978),
+            ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.0850),
+            ("artifacts/models/AeroFlyer/final_v2r6_iter7200", 0.0850),
+            ("artifacts/models/AeroFlyer/symmetric_iter1920", 0.0552),
+            ("artifacts/models/AeroFlyer/sub_cand_ladder5220", 0.0510),
+            ("artifacts/models/AeroFlyer/cand_v7_iter4880", 0.0510),
+            ("artifacts/models/AeroFlyer/final_v2r7_iter26100", 0.0510),
+            ("artifacts/models/AeroFlyer/sub_cand_peak3100", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_scrim_exp025", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_snap9980", 0.0340),
+            ("artifacts/models/AeroFlyer/recv_aimangle_v4_0824", 0.0340),
+            ("artifacts/models/AeroFlyer/final_v2r6_iter3200", 0.0340),
+            ("artifacts/models/AeroFlyer/recv_league_v4_best60", 0.0340),
+            ("artifacts/models/AeroFlyer/s52_ladder5220_beaten", 0.0170),
+            ("cutoffbt", 0.0680),
+            ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.0255),
+            # [2026-09-09 사용자 지시] 외부 전달 번들 2종 추가(카카오톡 수신 zip).
+            #   둘 다 obs 16 · lstm 128 · student.my_observation. 로드·조종 검증 완료.
+            #   비중은 중위권과 같게(각 0.0425). 고정 17종 -> 19종, 자기 3슬롯 포함 22종.
+            ("artifacts/models/AeroFlyer/ext_v7_iter0140", 0.0425),
+            ("artifacts/models/AeroFlyer/ext_v8_iter0080", 0.0425),
+            # [2026-09-12 사용자 지시] 외부 전달 번들 1종 추가(카카오톡 topgun_0912.zip).
+            #   obs 16 · student16 · lstm 128 · fcnet [256,256] · vf 비공유 — 우리 규격과 동일.
+            #   첫 층 shape (256, 16) 로드 검증 완료. 비중은 앞 두 수신 번들과 같게 0.0425.
+            ("artifacts/models/AeroFlyer/recv_0912", 0.0425),
+            # [2026-09-06 사용자 지시 "pfsp 3종 + 17종"] 자기 자신 스냅샷 3슬롯.
+            #   경로에 /snapshots/ 가 들어간 항목을 snapshot_sidecar.py 가 lag 별로 갈아끼운다
+            #   (--lag-steps 0,20,60 = 지금 / -400 / -1200 iter). 비중 조정은 PFSP 가 맡고,
+            #   고정 17종은 pool_autotune.py 가 승률로 맡는다 — 서로 안 겹친다.
+            ("artifacts/curriculum/AeroFlyer/final_v9/stage_35_selfplay_final/snapshots/snap_0000", 0.0500),
+            ("artifacts/curriculum/AeroFlyer/final_v9/stage_35_selfplay_final/snapshots/snap_0000", 0.0500),
+            ("artifacts/curriculum/AeroFlyer/final_v9/stage_35_selfplay_final/snapshots/snap_0000", 0.0500)],
+        "final_v8": [
+            ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.0978),
+            ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.0850),
+            ("artifacts/models/AeroFlyer/final_v2r6_iter7200", 0.0850),
+            ("artifacts/models/AeroFlyer/symmetric_iter1920", 0.0552),
+            ("artifacts/models/AeroFlyer/sub_cand_ladder5220", 0.0510),
+            ("artifacts/models/AeroFlyer/cand_v7_iter4880", 0.0510),
+            ("artifacts/models/AeroFlyer/final_v2r7_iter26100", 0.0510),
+            ("artifacts/models/AeroFlyer/sub_cand_peak3100", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_scrim_exp025", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_snap9980", 0.0340),
+            ("artifacts/models/AeroFlyer/recv_aimangle_v4_0824", 0.0340),
+            ("artifacts/models/AeroFlyer/final_v2r6_iter3200", 0.0340),
+            ("artifacts/models/AeroFlyer/recv_league_v4_best60", 0.0340),
+            ("artifacts/models/AeroFlyer/s52_ladder5220_beaten", 0.0170),
+            ("cutoffbt", 0.0680),
+            ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.0255),
+            # [2026-09-06 사용자 지시 "pfsp 3종 + 17종"] 자기 자신 스냅샷 3슬롯.
+            #   경로에 /snapshots/ 가 들어간 항목을 snapshot_sidecar.py 가 lag 별로 갈아끼운다
+            #   (--lag-steps 0,20,60 = 지금 / -400 / -1200 iter). 비중 조정은 PFSP 가 맡고,
+            #   고정 17종은 pool_autotune.py 가 승률로 맡는다 — 서로 안 겹친다.
+            ("artifacts/curriculum/AeroFlyer/final_v8/stage_35_selfplay_final/snapshots/snap_0000", 0.0500),
+            ("artifacts/curriculum/AeroFlyer/final_v8/stage_35_selfplay_final/snapshots/snap_0000", 0.0500),
+            ("artifacts/curriculum/AeroFlyer/final_v8/stage_35_selfplay_final/snapshots/snap_0000", 0.0500)],
+        "final_v7": [
+            ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.0978),
+            ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.0850),
+            ("artifacts/models/AeroFlyer/final_v2r6_iter7200", 0.0850),
+            ("artifacts/models/AeroFlyer/symmetric_iter1920", 0.0552),
+            ("artifacts/models/AeroFlyer/sub_cand_ladder5220", 0.0510),
+            ("artifacts/models/AeroFlyer/final_v2r8_iter10400", 0.0510),
+            ("artifacts/models/AeroFlyer/final_v2r7_iter26100", 0.0510),
+            ("artifacts/models/AeroFlyer/sub_cand_peak3100", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_scrim_exp025", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_snap9980", 0.0340),
+            ("artifacts/models/AeroFlyer/recv_aimangle_v4_0824", 0.0340),
+            ("artifacts/models/AeroFlyer/final_v2r6_iter3200", 0.0340),
+            ("artifacts/models/AeroFlyer/recv_league_v4_best60", 0.0340),
+            ("artifacts/models/AeroFlyer/s52_ladder5220_beaten", 0.0170),
+            ("cutoffbt", 0.0680),
+            ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.0425),
+            ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.0255),
+            # [2026-09-06 사용자 지시 "pfsp 3종 + 17종"] 자기 자신 스냅샷 3슬롯.
+            #   경로에 /snapshots/ 가 들어간 항목을 snapshot_sidecar.py 가 lag 별로 갈아끼운다
+            #   (--lag-steps 0,20,60 = 지금 / -400 / -1200 iter). 비중 조정은 PFSP 가 맡고,
+            #   고정 17종은 pool_autotune.py 가 승률로 맡는다 — 서로 안 겹친다.
+            ("artifacts/curriculum/AeroFlyer/final_v7/stage_35_selfplay_final/snapshots/snap_0000", 0.0500),
+            ("artifacts/curriculum/AeroFlyer/final_v7/stage_35_selfplay_final/snapshots/snap_0000", 0.0500),
+            ("artifacts/curriculum/AeroFlyer/final_v7/stage_35_selfplay_final/snapshots/snap_0000", 0.0500)],
+        "final_v6": [("cutoffbt", 0.25),
+                     ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.25),
+                     ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.15),
+                     ("artifacts/models/AeroFlyer/final_v2r6_iter7200", 0.15),
+                     ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.10),
+                     ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.10)],
+        "final_v5": [("cutoffbt", 0.25),
+                     ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.25),
+                     ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.15),
+                     ("artifacts/models/AeroFlyer/final_v2r6_iter7200", 0.15),
+                     ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.10),
+                     ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.10)],
+        # [2026-09-05 사용자 지시] final_v4 = s48(cand_s48_snap12241) 가중치에서 새 출발.
+        #   s48 은 번들만 있고 네이티브 체크포인트가 없다(로컬 12,738개 + 백업 zip 전수 확인).
+        #   그래서 --init-bundle 로 가중치만 싣는다(옵티마이저 상태는 애초에 존재하지 않음).
+        #   풀·스폰·보상은 final_v3 와 동일 — 사용자 지시 "현재 풀 구성 그대로".
+        "final_v4": [("cutoffbt", 0.40),
+                     ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.25),
+                     ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.15),
+                     ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.10),
+                     ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.10)],
+        # [2026-09-05 사용자 지시] final_v3 = final_v2r8 iter_10400 에서 새 출발.
+        #   보상은 개편 전(v2r7 백업본)으로 되돌린 상태 + 접근 포텐셜 제거 + 저고도선 500 m
+        #   + 추락가드 발동 스텝 -50. 스폰은 거리프리셋 70% / 꼬리잡기 30%.
+        #   상대는 v2r10 과 동일(전부 고정 — self-play 슬롯 없음 -> sidecar 불필요).
+        "final_v3": [("cutoffbt", 0.40),
+                     ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.25),
+                     ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.15),
+                     ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.10),
+                     ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.10)],
+        "final_v2r10": [("cutoffbt", 0.40),
+                       ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.25),
+                       ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.15),
+                       ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.10),
+                       ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.10)],
+        "final_v2r9": [("cutoffbt", 0.40),
+                       ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.25),
+                       ("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.15),
+                       ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.10),
+                       ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.10)],
+        "final_v2r8": [("artifacts/models/AeroFlyer/final_v2r7_iter25100", 0.25),
+                       ("cutoffbt", 0.25),
+                       ("artifacts/models/AeroFlyer/cand_s48_snap12241", 0.15),
+                       ("artifacts/models/AeroFlyer/recv_league_v4_best60", 0.15),
+                       ("artifacts/models/AeroFlyer/cand_c13280_s45", 0.10),
+                       ("artifacts/models/AeroFlyer/recv_league_v3_gen1_iter5", 0.10)],
+    }
+    # [2026-09-10 사용자 지시] daeil_r15: 팀원 풀(candidate*)은 없어 우리 final_v9 풀(19종+cutoff)을 쓴다.
+    #   자기 스냅샷 3슬롯만 daeil_r15 경로로 바꾼다. 보상은 daeil_r15/live_tune.json(팀원 원본).
+    _FIXED_POOL_BY_TAG["daeil_r15"] = [(b.replace("/final_v9/", "/daeil_r15/"), w)
+                                       for b, w in _FIXED_POOL_BY_TAG["final_v9"]]
+    # [2026-09-12 사용자 지시] daeil_r16 = daeil_r15 iter_19380 분기. 고정 상대는 같고(recv_0912 포함),
+    #   자기 스냅샷 3슬롯만 daeil_r16 경로로 바꾼다.
+    _FIXED_POOL_BY_TAG["daeil_r16"] = [(b.replace("/final_v9/", "/daeil_r16/"), w)
+                                       for b, w in _FIXED_POOL_BY_TAG["final_v9"]]
+    # [2026-09-14 사용자 지시 "대일 거기서 헤드온 조금만 학습"] daeil_headon.
+    #   본선 헤드온 모델용 미세학습. 출발점은 peak_daeil_r16_iter21100 (네이티브 체크포인트).
+    #   **최소 변경 원칙**: 상대 풀은 daeil_r16 과 똑같이 두고 **스폰만 헤드온 100%** 로 바꾼다
+    #   (_HEADON_ONLY 에 등록). daeil 이 이미 아는 상대들을 헤드온 배치에서 다시 만나게 하는 것이다.
+    #   근거: v12 는 헤드온을 아는 상대를 76% 까지 올렸다가 오히려 퇴보했다
+    #   (헤드온 마진 +0.13 -> -0.28, 자기 스냅샷에만 +0.27 로 드리프트). 상대 구성을 흔드는 대신
+    #   스폰만 바꿔 daeil 의 강함을 유지한 채 헤드온 국면만 적응시킨다.
+    #   자기 스냅샷 슬롯만 daeil_headon 경로로 바꾼다.
+    _FIXED_POOL_BY_TAG["daeil_headon"] = [(b.replace("/final_v9/", "/daeil_headon/"), w)
+                                          for b, w in _FIXED_POOL_BY_TAG["final_v9"]]
+    # [2026-09-12 사용자 지시] final_v10 = 우리 v9 계열(iter_11840)에서 재출발.
+    #   상대는 v9 풀 그대로(recv_0912 포함), 자기 스냅샷 슬롯만 final_v10 경로.
+    #   스폰은 _HEADON_ONLY 로 헤드온 100%, 보상은 팀원 daeil 원본값(live_tune).
+    # [2026-09-12 사용자 지시 "승률 90퍼 넘는건 제거"] 헤드온 7,774판 실측에서 승률 0.90 을
+    #   넘은 7종을 풀에서 뺀다. 배울 게 남지 않은 상대에 판을 쓰지 않는다.
+    #   실측 승률: league_v4 0.997 / league_v3 0.988 / c13280 0.972 / snap12241 0.943 /
+    #             aimangle 0.926 / symmetric_1920 0.926 / s52_ladder5220_beaten 0.913
+    #   번들은 지우지 않는다 — 목록만 빠지므로 되돌리려면 이 집합을 비우면 된다.
+    _V10_DROP = {"recv_league_v4_best60", "recv_league_v3_gen1_iter5", "cand_c13280_s45",
+                 "cand_s48_snap12241", "recv_aimangle_v4_0824", "symmetric_iter1920",
+                 "s52_ladder5220_beaten"}
+    _FIXED_POOL_BY_TAG["final_v10"] = [
+        (b.replace("/final_v9/", "/final_v10/"), w)
+        for b, w in _FIXED_POOL_BY_TAG["final_v9"]
+        if b.rstrip("/").rsplit("/", 1)[-1] not in _V10_DROP]
+    # [2026-09-12 사용자 지시 "final_v2r6_iter7200 으로 재개 · 계열만"] final_v11.
+    #   계열 교체만 한다 — 스폰(헤드온 100%)과 보상(팀원 daeil 원본값)은 v10 그대로.
+    #   근거: v10(헤드온)에서 7200 상대 패율이 0.426 -> 0.742 로 무너졌다(2,517판).
+    #         우리를 이긴 계열에서 이어받는다([[lineage-rock-paper-scissors]] 패턴, v8 전례).
+    #   풀: v10 목록에서 7200 을 뺀다(이제 우리 자신이다). scrim_exp025 는 승률 0.928 로
+    #       90퍼센트 기준 재발이라 같이 뺀다. 자기 스냅샷 슬롯만 final_v11 경로.
+    #   주의: 7200 계열은 **관측 16차원**이다(v10 은 17차원) — bat 의 observation-module 확인.
+    _V11_DROP = _V10_DROP | {"final_v2r6_iter7200", "recv_scrim_exp025"}
+    _FIXED_POOL_BY_TAG["final_v11"] = [
+        (b.replace("/final_v9/", "/final_v11/"), w)
+        for b, w in _FIXED_POOL_BY_TAG["final_v9"]
+        if b.rstrip("/").rsplit("/", 1)[-1] not in _V11_DROP]
+    # [2026-09-13 사용자 지시 "되돌리고 진행"] final_v12 = final_v11 의 iter_2660 에서 재출발.
+    #   **제출 슬롯이 2개라 헤드온 전용 모델을 따로 키운다**(옆구리 전용은 별도 실행).
+    #   실측 진단: v11 은 옆구리 학습 상대에게만 이겼고(마진 +0.25~0.35), 헤드온을 학습한 상대
+    #   (자기 스냅샷)에게는 8구간 내내 -0.10~+0.03 으로 제자리였다. 헤드온을 아는 연습 상대가
+    #   자기 스냅샷 6슬롯(21%)뿐이고 나머지 79%가 헤드온을 모르는 상대였던 것이 원인으로 보인다.
+    #   => 헤드온을 아는 상대 비중을 76% 로 올린다.
+    #      자기 스냅샷 40% (self-play 중심) + 헤드온 고정 4종 36% + 옆구리 11종 24%(기본기 유지).
+    #   헤드온 고정 4종은 우리가 헤드온으로 학습시킨 번들이다. v10 계열 2종은 obs 17 차원인데
+    #   rl_opponent.py 가 16/17 둘 다 지원하므로 16차원 학습에 그대로 상대로 쓸 수 있다
+    #   (v9 17차원 실행에서 16차원 상대와 7,750판 싸운 실측이 있다).
+    # [2026-09-14 사용자 지시 "승률 많이 나오는 거 빼줘"] 배울 게 없는 상대를 풀에서 제거.
+    #   근거: opp_log 9,046판을 러너별 시간구간으로 쪼개 3/4/5 분할 전부에서 같은 추세 확인.
+    #     전체 승률 0.544 -> 0.473, 전체 마진 +0.190 -> +0.105, 헤드온 승률 0.483 -> 0.378 (단조 하락)
+    #     최근 600판은 아군 격추 52.3% > 적 격추 44.7% 로 순손실이다. 정체가 아니라 **퇴보**다.
+    #   제거 기준: 전체기간 승률 0.80 이상 + 표본 120판 이상(작은 표본의 우연한 고승률 배제).
+    #     sub_cand_ladder5220 0.951(307) · cutoffbt 0.940(134) · final_v2r7_iter25100 0.882(306)
+    #     final_v2r7_iter26100 0.851(269) · sub_cand_peak3100 0.826(121) · ext_v7_iter0140 0.821(274)
+    #   유지: recv_0912 0.782 · recv_snap9980 0.757 · final_v2r6_iter3200 0.709
+    #         ext_v8_iter0080 0.668 · cand_v7_iter4880 0.610  (아직 배울 여지가 있는 구간)
+    #   비중은 그대로 자기 40% / 헤드온 36% / 옆구리 24% 를 유지하고 옆구리만 5종으로 나눈다.
+    #   **종 수가 16 -> 10 으로 줄었으므로 pool_autotune 은 --cap-mult 1.5 로 다시 띄울 것**
+    #   (균등 10% x 1.5 = 상한 15%). 종을 바꾸고 cap-mult 를 그대로 뒀다가 상한이 튄 전례가 있다.
+    # [2026-09-14 2차 정리 · 사용자 지시 "적당히 쳐내, 학습에 필요없는 것들"]
+    #   옆구리(line-abreast) 고정 상대를 **전부** 제거한다. v12 는 헤드온 전용 모델이라
+    #   옆구리 상대는 목적과 무관하고, 실측 승률이 0.61~0.95 로 이미 압도해 배울 것이 없다.
+    #   남기는 것은 **우리가 지고 있는 헤드온 4종**뿐이다(최근 승률 0.212~0.700).
+    #   비중: 헤드온 4종 60% + 자기 스냅샷 40%.
+    #   pool_autotune 은 이 구성에서 띄우지 않는다 — 종이 5개면 균등이 20% 라 15% 상한 규칙이
+    #   성립하지 않고, 가중치를 지정한 그대로 둬야 가지치기 효과를 순수하게 귀속할 수 있다.
+    #   되돌리려면 _V12_SIDE 를 복원하고 헤드온 가중치를 0.0900 으로 낮추면 된다.
+    _V12_HEADON = ["peak_v11_iter1920", "peak_v11_iter2120",
+                   "peak_v10_headon_iter11900", "final_v10_last_iter12740"]
+    _FIXED_POOL_BY_TAG["final_v12"] = (
+        [("artifacts/models/AeroFlyer/" + b, 0.1500) for b in _V12_HEADON]      # 헤드온 4종 = 0.60
+        + [("artifacts/curriculum/AeroFlyer/final_v12/stage_35_selfplay_final/snapshots/snap_0000",
+            0.1333)] * 3)                                                      # 자기 3슬롯 = 0.40
+    # [MOD-PAIR 2026-08-30 사용자 지시] 자리 짝: 랜덤 50:50 대신 "매칭 걸리면 Blue 자리 → 다음 판 같은 상대·고도의 Red 자리".
+    _PAIR_SLOTS_BY_TAG = {"final_v2r7": True, "final_v2r8": True, "final_v2r9": True,
+                          "final_v2r10": True, "final_v3": True, "final_v4": True,
+                          "final_v5": True, "final_v6": True, "final_v7": True, "final_v8": True,
+                          "final_v9": True, "daeil_r15": True, "daeil_r16": True,
+                          "final_v10": True, "final_v11": True, "final_v12": True,
+                          "daeil_headon": True}
+    if _SP_TAG in _FIXED_POOL_BY_TAG:
+        _pool = []
+        # [2026-09-05 사용자 지시] 상대마다 스폰을 거리프리셋 70% : 꼬리잡기 30% 로 나눈다.
+        # [2026-09-07 사용자 지시 "꼬리잡기 스폰을 빼라"] 전 상대 꼬리잡기 IC 제거.
+        #   근거: 대회 초기조건은 기체 간 **거리**(2000~3000 ft)로 주어지는 나란한 배치뿐이고
+        #   꼬리잡기 IC 는 대회에 없다. 컷오프는 풀에 그대로 둔다(스폰만 빠진다).
+        #   되돌리려면 이 값을 0.30 으로 하면 된다.
+        _TAIL_SHARE = 0.0
+        # [2026-09-06 사용자 지시 "컷오프는 옆구리만 100%"] 상대별 꼬리잡기 비율 예외.
+        #   컷오프는 대회 기준 모델과 성격이 가장 가까운 룰베이스인데, 대회 초기조건은
+        #   기체 간 **거리**(2000~3000 ft)로 주어지는 나란한 배치다. 꼬리잡기 IC 는 대회에 없다.
+        #   실측(28_55): 컷오프 상대 판정승이 200초 완주에 적 HP 12%만 깎는 형태라
+        #   대회 조건에 맞는 국면만 남겨 신호를 깨끗하게 한다.
+        _TAIL_SHARE_BY_BUNDLE = {"cutoffbt": 0.0}
+        # [2026-09-12 사용자 지시 "헤드온 스폰 100%"] 이 태그는 전 상대 헤드온 IC 만 쓴다.
+        #   _srv_ic = 서버 HABFM 실측(5,662.9 m 마주봄 · 측면 182.1 m · yaw 180/0 · 200 m/s).
+        #   옆구리 3거리(_entries)와 꼬리잡기(_tail_ic)는 이 태그에서 전부 빠진다.
+        #   컷오프도 같은 IC 로 만든다(_srv_ic 가 mode=cutoffbt 를 처리한다).
+        _HEADON_ONLY = {"final_v10", "final_v11", "final_v12", "daeil_headon"}
+        for _b, _w in _FIXED_POOL_BY_TAG[_SP_TAG]:
+            if _SP_TAG in _HEADON_ONLY:
+                _pool += _srv_ic(_b, _w)
+                continue
+            _ts = _TAIL_SHARE_BY_BUNDLE.get(_b, _TAIL_SHARE)
+            # [2026-09-04 사용자 지시] 래트레이스 제거 — 실서버 IC 가 아니고 오래 도는지도 미측정이었다.
+            #   _rr 함수는 되돌릴 수 있게 남겨 둔다.
+            _w_pre = _w * (1.0 - _ts)
+            if _b == "cutoffbt":
+                # [MOD-CUTOFFBT] 번들이 없는 룰베이스 상대 — _entries 와 같은 거리 3종 구조를 직접 만든다.
+                _w2 = _w_pre / (len(_SEPS) * 2.0)
+                for _sep, _tag in _SEPS:
+                    _o = [_sep, 0.0,       _S34_ALT, 0.0, 0.0,  90.0, _S34_SPD]
+                    _t = [0.0,  _EAST_OFF, _S34_ALT, 0.0, 0.0, -90.0, _S34_SPD]
+                    for _side, _spn in (("blue", _sp(_o, _t)), ("red", _sp(_t, _o))):
+                        _pool.append({"weight": round(_w2, 4), "mode": "cutoffbt",
+                                      "randomization": dict(_rnd), "spawn": _spn,
+                                      "pair": f"cutoffbt|{_tag}", "side": _side})
+            else:
+                _pool += _entries(_b, _w_pre)
+            if _ts > 0.0:
+                _pool += _tail_ic(_b, _w * _ts)
+    else:
+        _pool = _entries(_V2, 0.8) + _rr(_V2, 0.2)
     _eo = dict(_s34.env_overrides)
     _eo.pop("target_teacher", None)   # [2026-08-28] 스크립트 상대(teacher) 미사용 — 모듈을 _backup/unused 로 옮겼으므로 설정도 제거
     _eo.update({
         "max_engage_time": 200.0,
         "live_tune_file": _SP_RUN_REL + "/live_tune.json",
         "target_pool": _pool,
+        "pair_slots": bool(_PAIR_SLOTS_BY_TAG.get(_SP_TAG, False)),   # [MOD-PAIR] env 의 상대 추첨이 짝(Blue→Red)으로 돈다
+        # [MOD-ENDONHIT] 한 대 맞으면 즉시 종료. 보상 대격변([MOD-VOID] 래치)과 세트였고,
+        #   2026-09-05 보상을 개편 전으로 되돌리면서 같이 껐다. 켜둔 채 옛 보상을 쓰면
+        #   피격 즉시 판이 끝나 shaping 항이 학습되지 않는다.
+        "end_on_hit": False,
+        # [MOD-SPAWNRAND 사용자 지시 2026-09-04] 판마다 고도·초기속도를 뽑는다(양측 동일).
+        # [2026-09-05 사용자 지시] 2,000 ft ~ 15,000 ft (= 609.6 ~ 4,572 m). 단위는 미터.
+        #   처음에 하한을 2,000 m 로 잘못 뒀다가 정정(사용자 지적: "m 로 한 것 같은데 ft").
+        #   상한 15,000 ft = 서버 기본 Alt. 하한 2,000 ft = 뷰어 Alt(ft) 최소값(그 아래는 클램프).
+        #   실측: 10,000 m 대에서는 112 m/s 로도 코너속도 아래라 선회율이 11°/s 로 바닥.
+        #   지는 판이 스폰보다 +1,099 m 올라가며 느려지는 패턴도 고고도에서 심했다.
+        #   저고도 스폰(610 m)은 deck 500 m · 가드 457 m · 추락 305 m 와 여유가 얇다 —
+        #   추락률을 같이 본다.
+        "spawn_alt_m": [609.6, 4572.0],
+        "spawn_speed_mps": [150.0, 300.0],
+        # [MOD-DECKGUARD 사용자 지시 2026-09-04] 학습에도 GCAS 를 걸고 발동 스텝에 -50.
+        "deck_guard": _SP_TAG in _MINIMAL_ENV_TAGS,
+        # [MOD-OPPLOG 2026-09-06] 상대별 전적 기록 위치. pool_autotune.py 가 읽는다.
+        "opponent_log_dir": "artifacts/curriculum/AeroFlyer/%s/opp_log" % _SP_TAG,
+        # [2026-09-05 사용자 지시] 가드 벌점을 끈다 — "전투기가 가드를 이용하게".
+        #   근거: ① 가드는 정책 행동을 보지 않고 고도·침하만으로 켜져 행동을 덮어쓴다.
+        #        켜진 동안 정책은 무슨 행동을 내도 벌점을 피할 수 없어, '스스로 빠져나오기'를
+        #        배울 기울기가 아예 없었다(회복 행위 자체가 벌점).
+        #      ② 실측 판당 11스텝 x -50 = -540 으로 격추승 +300 을 압도했다.
+        #      ③ 제출 경로(my_submission)에도 같은 가드가 있으므로, 가드를 안전망으로
+        #        쓰는 기동은 실전에서도 그대로 작동한다 — 학습·배포가 일치한다.
+        #   추락 자체는 crash_reward(-700)가 여전히 막는다. 가드가 완전하지 않기 때문이다
+        #   (실측: -230 m/s 급강하는 어느 발동 고도로도 못 세운다).
+        "deck_guard_penalty": 0.0,   # 50 -> 0
+        # [MOD-CRASHDUMP 사용자 지시 2026-09-04] 추락 판만 궤적 CSV 로 남긴다(0.13% 라 샘플링엔 안 걸린다).
+        "crash_dump_dir": "artifacts/crash_dumps/" + _SP_TAG,   # [2026-09-04 사용자 지시] 스텝당 -1 (전 -50 은 판당 -1,750~-4,800 이라 격추승도 음수였다)
     })
     S.append(_dc.replace(
         _s34, index=35, name="selfplay_final",
-        description="[본선] v1 self-play 70% + v2 고정 30%, 스폰 = 2000ft line abreast(옆구리), 승급 없음.",
+        description="[본선] 상대 = v2 고정 100%(2026-08-29 iter 3060 부터; 그 전 self 70%+v2 30%), 스폰 = 2000ft line abreast(옆구리) 고도 4종 + 914 m 래트레이스, 승급 없음.",
         reward_overrides=_reward_v2, env_overrides=_eo,
         target_mode="fixed",
-        randomization=_rand(150.0, 20.0, 8.0),   # [2026-08-29] 랜덤화 확대
+        randomization=dict(_rnd),   # [2026-08-29] 랜덤화 확대 / [2026-09-03] 태그별(_RND_BY_TAG)과 일치
         advance_conditions={"win_rate_min": 1.01, "crash_rate_max": 0.05},
         advance_window=10, advance_episodes=0, min_iterations=0,
         max_iterations=30000,
+        # [2026-09-14 사용자 지시 "이터 10마다 저장"] 체크포인트 주기 20 -> 10.
+        #   stage 34 를 복사(_dc.replace)하는 구조라 안 적으면 34 의 20 을 상속한다.
+        #   여기서만 덮어써서 다른 스테이지에는 영향이 없다.
+        #   이유: daeil_headon 1차 실행이 iter 400~479 고원(win 0.746~0.772)에서 멈췄는데
+        #   20 간격으로는 그 안의 최고점을 정확히 집기 어려웠다. 저장 비용은 6.3 MB/개.
+        checkpoint_interval=10,
         gate_optional=True,
         # 프로브는 kill_floor > 0 이어야 돈다(train_curriculum.py). 번들만 쓰고(eval 생략) 게이트는 안 건다.
         eval_kill_floor=0.05, eval_kill_abort=False, eval_kill_probe_eval=False,

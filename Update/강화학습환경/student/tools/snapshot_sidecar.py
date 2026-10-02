@@ -175,9 +175,16 @@ def main() -> int:
         # 역사가 짧을 때는 자동으로 가장 오래된 것(초기엔 snap_0000)으로 물린다.
         picks = [history[max(0, len(history) - 1 - k)] for k in lag_steps]
         pool = [dict(e) for e in pool_template]
+        # [MOD-SELFEXPAND 2026-09-06] 풀 항목은 자기 슬롯 하나가 스폰4 x 자리2 = 8개로
+        #   확장된다(v7: 3슬롯 -> 24항목). 원래 코드는 슬롯 1개 = 항목 1개를 가정해
+        #   picks[slot] 에서 IndexError 로 매 스냅샷마다 죽었다(실측: snap_0101 생성 직후 크래시,
+        #   live_tune 에 target_pool 이 아예 안 써져 상대 풀이 얼어붙음).
+        #   확장 항목을 picks 개수만큼 균등 그룹으로 나눠 같은 lag 를 물린다.
+        _n_pick = max(1, len(picks))
         for slot, idx in enumerate(self_idx):
+            _p = picks[min(slot * _n_pick // max(1, len(self_idx)), _n_pick - 1)]
             # [2026-08-28] 절대경로 금지: 작업루트 기준 상대경로로 기록 (폴더를 옮겨도 깨지지 않게)
-            pool[idx]["bundle"] = os.path.relpath(snap_dir / picks[slot], ROOT).replace("\\", "/")
+            pool[idx]["bundle"] = os.path.relpath(snap_dir / _p, ROOT).replace("\\", "/")
         # [2026-08-17] target_pool 만 쓰고 통째로 덮어쓰면, 손으로 넣은
         # reward 핫튜닝이 다음 스냅샷(20 iter)에 지워진다. 기존 키는 보존한다.
         _payload = {}
@@ -188,6 +195,33 @@ def main() -> int:
                 _payload = {}
         except Exception:
             _payload = {}
+        # [MOD-POOLTUNE 2026-09-06 사용자 지시 "비율 조정은 따로 지능적이게"]
+        #   pool_autotune.py 가 발행한 상대별 배수를 여기서 적용한다. 쓰는 쪽을 하나로
+        #   묶는 이유: 둘이 각자 live_tune 의 target_pool 을 쓰면 20 iter 마다 서로를
+        #   덮어써 경쟁한다(같은 사고 전례가 보상 핫튜닝에서 있었다).
+        #   자기 스냅샷 슬롯(/snapshots/)은 PFSP 몫이라 배수를 적용하지 않는다.
+        try:
+            _mw = run_dir / "pool_weights.json"
+            if _mw.exists():
+                with open(_mw, encoding="utf-8") as _f:
+                    _mult = (json.load(_f) or {}).get("mult", {})
+                if _mult:
+                    for _e in pool:
+                        _b = str(_e.get("bundle", "")).replace("\\", "/")
+                        if "/snapshots/" in _b:
+                            continue
+                        # [MOD-POOLTUNE] 키는 env `_opponent_name` 규칙("frozen_<leaf>" /
+                        #   "cutoff_bt")을 따른다. basename 만 쓰면 하나도 안 맞아 배수가
+                        #   통째로 무시된다(실측: 17종 전부 미적용).
+                        _key = ("cutoff_bt" if _e.get("mode") == "cutoffbt"
+                                else ("frozen_" + os.path.basename(_b.rstrip("/")) if _b
+                                      else str(_e.get("mode", "?"))))
+                        _k = _mult.get(_key)
+                        if _k:
+                            _e["weight"] = round(float(_e["weight"]) * float(_k), 6)
+                    print(f"[{time.strftime('%H:%M:%S')}] pool_weights 적용 ({len(_mult)}종)")
+        except Exception as _ex:
+            print(f"[pool_weights] 건너뜀: {_ex}")
         _payload["target_pool"] = pool
         _atomic_write_json(live_tune, _payload)
         print(f"[{time.strftime('%H:%M:%S')}] live_tune updated: "

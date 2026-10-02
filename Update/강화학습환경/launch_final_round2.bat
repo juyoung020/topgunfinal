@@ -10,10 +10,10 @@ if not exist "%CONDA_ENV%\python.exe" (
 )
 set "PATH=%CONDA_ENV%;%CONDA_ENV%\Library\bin;%CONDA_ENV%\Scripts;%CONDA_ENV%\Library\mingw-w64\bin;%PATH%"
 cd /d "%~dp0"
-rem ==== round 2: new tag (default final_sp2), restored from final_sp iter_1400 (user decision 2026-08-29) ====
+rem ==== new round: default tag final_v2r7 = final_v2r6 iter_7200 (champion) + head-on pool s52/s48/peak3100/scrim/subcand12241/aimcur/league_v4 + paired Blue->Red slots [MOD-PAIR] (user decision 2026-08-30). v2r6 = v2r5 iter_1000 + mixed pool (2026-08-29). v2r5 = v2r4 iter_0200 + lr 2e-4/kl 0.02 = learner v2 (0815_ladder iter_5220 checkpoint) vs fixed opponent final_sp3_iter0400 (user decision 2026-08-29). earlier: final_sp3 <- final_sp2 iter_3060, final_sp2 <- final_sp iter_1400 ====
 rem   pool/spawn/reward = student/my_curriculum.py stage 35 as of restart (see student/next round plan md)
-if "%FINAL_SP_TAG%"=="" set "FINAL_SP_TAG=final_sp2"
-if "%ROUND2_FROM%"=="" set "ROUND2_FROM=final_sp\stage_35_selfplay_final\checkpoints\iter_1400"
+if "%FINAL_SP_TAG%"=="" set "FINAL_SP_TAG=final_v2r7"
+if "%ROUND2_FROM%"=="" set "ROUND2_FROM=final_v2r6\stage_35_selfplay_final\checkpoints\iter_7200"
 set "CKPT=%~dp0artifacts\curriculum\AeroFlyer\%ROUND2_FROM%"
 if not exist "%CKPT%" (
   echo #### restore checkpoint missing: %CKPT%
@@ -28,11 +28,11 @@ echo ==== [ROUND2] tag %FINAL_SP_TAG% from %CKPT%  ^>  %RUNLOG% ====
   --algorithm ppo --use-lstm --lstm-cell-size 128 --max-seq-len 32 ^
   --num-env-runners 16 ^
   --train-batch-size 16384 --minibatch-size 1024 ^
-  --gamma 0.995 --lr 1e-4 --num-epochs 3 --kl-coeff 0.2 --vf-loss-coeff 0.5 --model-vf-share-layers false ^
+  --gamma 0.995 --lr 2e-4 --num-epochs 3 --kl-coeff 0.1 --kl-target 0.02 --vf-loss-coeff 0.5 --model-vf-share-layers false ^
   --observation-mode custom --observation-module student.my_observation ^
   --reward-module student.my_reward ^
   --stages-module student.my_curriculum ^
-  --engagement-log-interval 25 --engagement-log-episodes 3 --engagement-log-steps 2200 ^
+  --engagement-log-interval 25 --engagement-log-episodes 6 --engagement-log-steps 2200 ^
   --policy-probe-interval 25 ^
   --gate-eval-episodes 0 ^
   --policy-std-cap 0.10 --log-std-clip -1.2 ^

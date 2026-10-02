@@ -4,3 +4,22 @@ __pycache__/
 BattleServer_V1.2_VeryLow/DogFightViewer/Content/Paks/DogFightViewer-Windows.ucas
 BattleServer_V1.2_VeryLow/DogFightViewer/Binaries/Win64/DogFightViewer-Win64-Shipping.exe
 *.lock
+
+# 2026-10-02 정리: 무거운 학습·빌드 산출물은 올리지 않는다 (가중치는 model/ 만)
+build_venv/
+build_exe/
+submit_main/
+submit_headon/
+verify_unzip_*/
+BattleServer_V1.2_VeryLow/DogFightViewer/
+Update/강화학습환경/artifacts/curriculum/
+Update/강화학습환경/artifacts/replays/
+Update/강화학습환경/artifacts/replays_archive_*/
+Update/강화학습환경/artifacts/_deprecated/
+Update/강화학습환경/artifacts/crash_dumps/
+Update/강화학습환경/artifacts/eval_visual/
+Update/강화학습환경/artifacts/dashboard/
+Update/강화학습환경/artifacts/models/
+Update/강화학습환경/artifacts/peaks_*/
+checkpoints/
+*.pptx.tmp

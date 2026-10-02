@@ -329,6 +329,8 @@ def parse_args():
                    help="hold the Gaussian exploration std at this value after "
                         "every iteration (0 = let PPO move it freely)")
     p.add_argument("--gae-lambda",        type=float, default=0.95)
+    p.add_argument("--kl-target",         type=float, default=None,
+                   help="[MOD-KLTARGET] adaptive-KL target (RLlib default 0.01); the step size cap per iteration")
     p.add_argument("--clip-param",        type=float, default=0.2)
     p.add_argument("--entropy-coeff",     type=float, default=None,
                    help="PPO entropy bonus coefficient (default: RLlib default).")
@@ -1324,6 +1326,7 @@ class CurriculumTrainer:
                 "num_epochs":       args.num_epochs,
                 "grad_clip":        args.grad_clip,
                 "kl_coeff":         args.kl_coeff,
+                "kl_target":        args.kl_target,   # [MOD-KLTARGET]
                 "vf_loss_coeff":    args.vf_loss_coeff,
                 "model_config": _build_model_config_args(args),
                 "network_spec": args.network_spec_json,

@@ -35,7 +35,7 @@ echo ==== [FINAL] stage 35 selfplay_final: base v1 iter_1120 vs snap_0000=v2  ^>
   --observation-mode custom --observation-module student.my_observation ^
   --reward-module student.my_reward ^
   --stages-module student.my_curriculum ^
-  --engagement-log-interval 25 --engagement-log-episodes 3 --engagement-log-steps 2200 ^
+  --engagement-log-interval 25 --engagement-log-episodes 6 --engagement-log-steps 2200 ^
   --policy-probe-interval 25 ^
   --gate-eval-episodes 0 ^
   --policy-std-cap 0.10 --log-std-clip -1.2 ^

@@ -38,6 +38,7 @@ from __future__ import annotations
 
 import time
 
+import os
 import sys
 from pathlib import Path
 
@@ -54,6 +55,7 @@ from dogfight.ai.rl_action_provider import RLActionProvider
 from dogfight.ai.rllib_utils import build_algorithm_from_bundle
 from dogfight.ai.student_hooks import load_observation_hook
 from dogfight.unreal import AIType, ProviderCommandPolicy, UnrealAIPilotUDPClient
+from student.deck_guard import DeckGuardProvider  # [2026-08-31] 저고도 pitch 강제 가드
 
 
 # =============================================================================
@@ -196,6 +198,9 @@ def build_action_provider():
 
     if MODE == "rl":
         print(f"[{TEAM_NAME}] RL 전용 모드")
+        if os.environ.get("DECK_GUARD", "1") != "0":
+            print(f"[{TEAM_NAME}] 덱 가드 활성: (alt<1500ft 또는 지면도달<4s) & vz<-10m/s -> 롤수평 + 당김(|roll|<=100deg) + throttle idle/max (DECK_GUARD=0 비활성)")
+            return DeckGuardProvider(rl_provider)
         return rl_provider
 
     # hybrid

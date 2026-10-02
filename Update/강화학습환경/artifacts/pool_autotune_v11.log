@@ -1,0 +1,977 @@
+[23:58:07] final_v11 · iter 4 · 로그 229판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        31   0.26    0.085    0.109   1.29x
+frozen_final_v2r7_iter26100        22   0.05    0.051    0.109   2.13x
+frozen_ext_v8_iter0080             13   0.15    0.043    0.071   1.67x
+frozen_cand_v7_iter4880            22   0.23    0.051    0.071   1.40x
+frozen_final_v2r6_iter3200         10   0.20    0.034    0.051   1.50x
+frozen_sub_cand_ladder5220         17   0.41    0.051    0.041   0.81x
+frozen_ext_v7_iter0140             20   0.50    0.043    0.025   0.58x
+frozen_sub_cand_peak3100           11   0.55    0.043    0.021   0.48x
+frozen_recv_0912                    9   0.56    0.043    0.020   0.46x
+frozen_recv_snap9980               13   0.54    0.034    0.017   0.50x
+cutoff_bt                          10   1.00    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 4 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[00:12:07] final_v11 · iter 105 · 로그 4085판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter26100        60   0.05    0.051    0.148   2.91x
+frozen_cand_v7_iter4880            60   0.13    0.051    0.121   2.37x
+frozen_final_v2r7_iter25100        60   0.38    0.085    0.102   1.20x
+frozen_ext_v8_iter0080             60   0.40    0.043    0.048   1.14x
+frozen_ext_v7_iter0140             60   0.43    0.043    0.043   1.01x
+frozen_recv_0912                   60   0.55    0.043    0.027   0.64x
+frozen_recv_snap9980               60   0.63    0.034    0.014   0.42x
+cutoff_bt                          60   0.90    0.068    0.010   0.15x
+frozen_final_v2r6_iter3200         60   0.72    0.034    0.010   0.29x
+frozen_sub_cand_ladder5220         60   0.80    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.77    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 105 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[00:28:07] final_v11 · iter 219 · 로그 9308판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.32    0.085    0.142   1.67x
+frozen_cand_v7_iter4880            60   0.15    0.051    0.131   2.58x
+frozen_final_v2r7_iter26100        60   0.23    0.051    0.107   2.10x
+frozen_ext_v8_iter0080             60   0.43    0.043    0.049   1.14x
+frozen_recv_snap9980               60   0.50    0.034    0.030   0.89x
+frozen_sub_cand_ladder5220         60   0.63    0.051    0.024   0.48x
+frozen_ext_v7_iter0140             60   0.68    0.043    0.015   0.36x
+frozen_recv_0912                   60   0.68    0.043    0.015   0.36x
+frozen_sub_cand_peak3100           60   0.73    0.043    0.011   0.25x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_final_v2r6_iter3200         60   0.72    0.034    0.010   0.29x
+-> pool_weights.json 발행 (iter 219 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[00:42:08] final_v11 · iter 320 · 로그 13650판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.17    0.051    0.135   2.64x
+frozen_final_v2r7_iter25100        60   0.37    0.085    0.130   1.52x
+frozen_final_v2r7_iter26100        60   0.25    0.051    0.109   2.14x
+frozen_ext_v8_iter0080             60   0.42    0.043    0.055   1.29x
+frozen_ext_v7_iter0140             60   0.62    0.043    0.024   0.56x
+frozen_recv_snap9980               60   0.58    0.034    0.022   0.66x
+frozen_recv_0912                   60   0.65    0.043    0.020   0.47x
+frozen_final_v2r6_iter3200         60   0.63    0.034    0.017   0.51x
+frozen_sub_cand_peak3100           60   0.72    0.043    0.013   0.31x
+cutoff_bt                          60   0.93    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.82    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 320 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[00:56:08] final_v11 · iter 422 · 로그 18146판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.28    0.051    0.148   2.91x
+frozen_final_v2r7_iter25100        60   0.47    0.085    0.135   1.59x
+frozen_final_v2r7_iter26100        60   0.48    0.051    0.076   1.49x
+frozen_sub_cand_peak3100           60   0.63    0.043    0.032   0.75x
+frozen_sub_cand_ladder5220         60   0.67    0.051    0.032   0.62x
+frozen_recv_snap9980               60   0.60    0.034    0.030   0.89x
+frozen_ext_v8_iter0080             60   0.65    0.043    0.029   0.68x
+frozen_recv_0912                   60   0.70    0.043    0.021   0.50x
+frozen_final_v2r6_iter3200         60   0.72    0.034    0.015   0.45x
+frozen_ext_v7_iter0140             60   0.75    0.043    0.015   0.35x
+cutoff_bt                          60   0.90    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 422 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[01:10:08] final_v11 · iter 523 · 로그 22686판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.20    0.051    0.148   2.91x
+frozen_final_v2r7_iter26100        60   0.43    0.051    0.105   2.05x
+frozen_final_v2r7_iter25100        60   0.58    0.085    0.094   1.11x
+frozen_ext_v8_iter0080             60   0.43    0.043    0.088   2.05x
+frozen_recv_snap9980               60   0.58    0.034    0.038   1.11x
+frozen_recv_0912                   60   0.72    0.043    0.022   0.51x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+frozen_ext_v7_iter0140             60   0.83    0.043    0.010   0.23x
+frozen_final_v2r6_iter3200         60   0.80    0.034    0.010   0.29x
+frozen_sub_cand_ladder5220         60   0.87    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.83    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 523 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[01:24:08] final_v11 · iter 624 · 로그 26968판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.18    0.051    0.148   2.91x
+frozen_final_v2r7_iter25100        60   0.37    0.085    0.148   1.75x
+frozen_final_v2r7_iter26100        60   0.45    0.051    0.081   1.60x
+frozen_ext_v8_iter0080             60   0.50    0.043    0.056   1.32x
+frozen_recv_snap9980               60   0.63    0.034    0.024   0.71x
+frozen_recv_0912                   60   0.68    0.043    0.023   0.53x
+frozen_sub_cand_ladder5220         60   0.73    0.051    0.019   0.38x
+frozen_final_v2r6_iter3200         60   0.72    0.034    0.014   0.42x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_ext_v7_iter0140             60   0.85    0.043    0.010   0.23x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 624 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[01:38:08] final_v11 · iter 725 · 로그 31470판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.17    0.051    0.148   2.91x
+frozen_final_v2r7_iter25100        60   0.53    0.085    0.148   1.75x
+frozen_final_v2r7_iter26100        60   0.60    0.051    0.070   1.38x
+frozen_recv_snap9980               60   0.53    0.034    0.064   1.88x
+frozen_recv_0912                   60   0.70    0.043    0.033   0.78x
+frozen_final_v2r6_iter3200         60   0.75    0.034    0.018   0.54x
+frozen_ext_v8_iter0080             60   0.78    0.043    0.017   0.41x
+frozen_ext_v7_iter0140             60   0.80    0.043    0.015   0.35x
+cutoff_bt                          60   1.00    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.85    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.87    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 725 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[01:52:09] final_v11 · iter 826 · 로그 36222판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.38    0.051    0.148   2.91x
+frozen_final_v2r7_iter25100        60   0.75    0.085    0.119   1.40x
+frozen_recv_snap9980               60   0.70    0.034    0.068   2.01x
+frozen_recv_0912                   60   0.77    0.043    0.052   1.22x
+frozen_final_v2r7_iter26100        60   0.82    0.051    0.038   0.75x
+frozen_ext_v7_iter0140             60   0.82    0.043    0.032   0.75x
+frozen_final_v2r6_iter3200         60   0.80    0.034    0.030   0.89x
+frozen_sub_cand_peak3100           60   0.83    0.043    0.026   0.62x
+cutoff_bt                          60   1.00    0.068    0.010   0.15x
+frozen_ext_v8_iter0080             60   0.88    0.043    0.010   0.23x
+frozen_sub_cand_ladder5220         60   0.90    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 826 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[02:06:09] final_v11 · iter 931 · 로그 40452판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.18    0.051    0.148   2.91x
+frozen_final_v2r7_iter25100        60   0.50    0.085    0.092   1.08x
+frozen_recv_0912                   60   0.37    0.043    0.074   1.73x
+frozen_recv_snap9980               60   0.38    0.034    0.056   1.64x
+frozen_final_v2r7_iter26100        60   0.50    0.051    0.055   1.08x
+frozen_ext_v7_iter0140             60   0.50    0.043    0.046   1.08x
+frozen_final_v2r6_iter3200         60   0.58    0.034    0.025   0.75x
+frozen_ext_v8_iter0080             60   0.68    0.043    0.018   0.43x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.80    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 931 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[02:20:06] final_v11 · iter 1037 · 로그 44310판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.53    0.051    0.148   2.91x
+frozen_recv_0912                   60   0.52    0.043    0.139   3.27x
+frozen_ext_v7_iter0140             60   0.67    0.043    0.066   1.55x
+frozen_ext_v8_iter0080             60   0.72    0.043    0.048   1.12x
+frozen_recv_snap9980               60   0.70    0.034    0.043   1.26x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.024   0.56x
+frozen_final_v2r7_iter25100        60   0.87    0.085    0.021   0.25x
+frozen_final_v2r6_iter3200         60   0.80    0.034    0.019   0.56x
+frozen_final_v2r7_iter26100        60   0.85    0.051    0.016   0.31x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.90    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 1037 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[02:34:06] final_v11 · iter 1139 · 로그 48307판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_recv_0912                   60   0.45    0.043    0.148   3.49x
+frozen_recv_snap9980               60   0.55    0.034    0.085   2.50x
+frozen_cand_v7_iter4880            60   0.63    0.051    0.085   1.66x
+frozen_final_v2r7_iter25100        60   0.75    0.085    0.065   0.77x
+frozen_ext_v8_iter0080             60   0.67    0.043    0.058   1.37x
+frozen_ext_v7_iter0140             60   0.73    0.043    0.037   0.88x
+frozen_final_v2r7_iter26100        60   0.83    0.051    0.017   0.34x
+frozen_final_v2r6_iter3200         60   0.80    0.034    0.017   0.49x
+cutoff_bt                          60   0.88    0.068    0.011   0.17x
+frozen_sub_cand_ladder5220         60   0.92    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.93    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 1139 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[02:50:07] final_v11 · iter 1252 · 로그 52784판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.58    0.051    0.148   2.91x
+frozen_recv_0912                   60   0.58    0.043    0.148   3.49x
+frozen_recv_snap9980               60   0.68    0.034    0.069   2.04x
+frozen_ext_v7_iter0140             60   0.78    0.043    0.041   0.95x
+frozen_ext_v8_iter0080             60   0.78    0.043    0.041   0.95x
+frozen_final_v2r7_iter26100        60   0.83    0.051    0.029   0.56x
+frozen_sub_cand_peak3100           60   0.85    0.043    0.019   0.46x
+frozen_final_v2r6_iter3200         60   0.83    0.034    0.019   0.56x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+frozen_final_v2r7_iter25100        60   0.95    0.085    0.010   0.12x
+frozen_sub_cand_ladder5220         60   0.95    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 1252 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[03:04:07] final_v11 · iter 1352 · 로그 56658판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.47    0.051    0.148   2.91x
+frozen_ext_v8_iter0080             60   0.52    0.043    0.099   2.33x
+frozen_recv_0912                   60   0.55    0.043    0.086   2.02x
+frozen_final_v2r6_iter3200         60   0.62    0.034    0.050   1.47x
+frozen_final_v2r7_iter26100        60   0.73    0.051    0.036   0.71x
+frozen_final_v2r7_iter25100        60   0.80    0.085    0.034   0.40x
+frozen_recv_snap9980               60   0.70    0.034    0.031   0.90x
+frozen_ext_v7_iter0140             60   0.73    0.043    0.030   0.71x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.98    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.93    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 1352 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[03:18:07] final_v11 · iter 1454 · 로그 60452판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r6_iter3200         60   0.60    0.034    0.111   3.25x
+frozen_ext_v7_iter0140             60   0.68    0.043    0.087   2.04x
+frozen_final_v2r7_iter25100        60   0.78    0.085    0.081   0.95x
+frozen_recv_0912                   60   0.70    0.043    0.078   1.83x
+frozen_recv_snap9980               60   0.68    0.034    0.069   2.04x
+frozen_final_v2r7_iter26100        60   0.80    0.051    0.041   0.81x
+frozen_ext_v8_iter0080             60   0.83    0.043    0.024   0.56x
+frozen_cand_v7_iter4880            60   0.85    0.051    0.023   0.46x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.97    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.93    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 1454 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[03:32:07] final_v11 · iter 1554 · 로그 64278판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.63    0.051    0.117   2.29x
+frozen_recv_0912                   60   0.63    0.043    0.097   2.29x
+frozen_final_v2r7_iter25100        60   0.80    0.085    0.058   0.68x
+frozen_recv_snap9980               60   0.70    0.034    0.052   1.53x
+frozen_ext_v7_iter0140             60   0.73    0.043    0.052   1.21x
+frozen_ext_v8_iter0080             60   0.73    0.043    0.052   1.21x
+frozen_final_v2r6_iter3200         60   0.73    0.034    0.041   1.21x
+frozen_final_v2r7_iter26100        60   0.78    0.051    0.041   0.80x
+cutoff_bt                          60   0.88    0.068    0.016   0.23x
+frozen_sub_cand_ladder5220         60   0.97    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.95    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 1554 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[03:46:08] final_v11 · iter 1654 · 로그 68204판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.73    0.085    0.099   1.16x
+frozen_cand_v7_iter4880            60   0.67    0.051    0.093   1.81x
+frozen_ext_v7_iter0140             60   0.65    0.043    0.085   2.00x
+frozen_ext_v8_iter0080             60   0.67    0.043    0.077   1.81x
+frozen_recv_0912                   60   0.68    0.043    0.070   1.64x
+frozen_final_v2r6_iter3200         60   0.73    0.034    0.039   1.16x
+frozen_final_v2r7_iter26100        60   0.82    0.051    0.028   0.55x
+frozen_recv_snap9980               60   0.82    0.034    0.019   0.55x
+cutoff_bt                          60   0.88    0.068    0.015   0.22x
+frozen_sub_cand_ladder5220         60   0.93    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   1.00    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 1654 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[04:00:08] final_v11 · iter 1754 · 로그 72293판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.57    0.051    0.148   2.91x
+frozen_final_v2r6_iter3200         60   0.60    0.034    0.104   3.07x
+frozen_recv_0912                   60   0.68    0.043    0.082   1.92x
+frozen_ext_v8_iter0080             60   0.75    0.043    0.051   1.20x
+frozen_recv_snap9980               60   0.73    0.034    0.046   1.36x
+frozen_final_v2r7_iter25100        60   0.85    0.085    0.037   0.43x
+frozen_ext_v7_iter0140             60   0.80    0.043    0.033   0.77x
+frozen_final_v2r7_iter26100        60   0.88    0.051    0.013   0.26x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.98    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.95    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 1754 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[04:14:09] final_v11 · iter 1855 · 로그 76678판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.67    0.051    0.148   2.91x
+frozen_recv_0912                   60   0.70    0.043    0.125   2.95x
+frozen_final_v2r6_iter3200         60   0.77    0.034    0.061   1.78x
+frozen_ext_v8_iter0080             60   0.82    0.043    0.047   1.10x
+frozen_ext_v7_iter0140             60   0.83    0.043    0.039   0.91x
+frozen_final_v2r7_iter25100        60   0.88    0.085    0.038   0.45x
+frozen_recv_snap9980               60   0.83    0.034    0.031   0.91x
+frozen_sub_cand_peak3100           60   0.88    0.043    0.019   0.45x
+frozen_final_v2r7_iter26100        60   0.90    0.051    0.017   0.33x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.98    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 1855 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[04:30:09] final_v11 · iter 1969 · 로그 81567판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_ext_v8_iter0080             60   0.52    0.043    0.148   3.49x
+frozen_recv_0912                   60   0.67    0.043    0.090   2.12x
+frozen_cand_v7_iter4880            60   0.72    0.051    0.078   1.53x
+frozen_ext_v7_iter0140             60   0.72    0.043    0.065   1.53x
+frozen_final_v2r7_iter25100        60   0.83    0.085    0.045   0.53x
+frozen_final_v2r6_iter3200         60   0.77    0.034    0.035   1.04x
+frozen_final_v2r7_iter26100        60   0.83    0.051    0.027   0.53x
+frozen_recv_snap9980               60   0.80    0.034    0.026   0.76x
+cutoff_bt                          60   0.93    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.97    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.93    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 1969 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[04:44:09] final_v11 · iter 2070 · 로그 85695판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_recv_0912                   60   0.60    0.043    0.148   3.49x
+frozen_ext_v8_iter0080             60   0.63    0.043    0.124   2.91x
+frozen_cand_v7_iter4880            60   0.75    0.051    0.069   1.35x
+frozen_final_v2r6_iter3200         60   0.70    0.034    0.066   1.95x
+frozen_recv_snap9980               60   0.73    0.034    0.052   1.54x
+frozen_ext_v7_iter0140             60   0.83    0.043    0.026   0.60x
+frozen_final_v2r7_iter25100        60   0.90    0.085    0.018   0.22x
+frozen_final_v2r7_iter26100        60   0.90    0.051    0.011   0.22x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.93    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.92    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 2070 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[04:58:10] final_v11 · iter 2170 · 로그 89594판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_ext_v8_iter0080             60   0.63    0.043    0.130   3.06x
+frozen_recv_0912                   60   0.70    0.043    0.087   2.05x
+frozen_final_v2r6_iter3200         60   0.67    0.034    0.086   2.53x
+frozen_cand_v7_iter4880            60   0.75    0.051    0.073   1.42x
+frozen_final_v2r7_iter25100        60   0.83    0.085    0.054   0.63x
+frozen_ext_v7_iter0140             60   0.82    0.043    0.033   0.77x
+frozen_final_v2r7_iter26100        60   0.83    0.051    0.032   0.63x
+frozen_sub_cand_ladder5220         60   0.88    0.051    0.016   0.31x
+frozen_sub_cand_peak3100           60   0.88    0.043    0.013   0.31x
+frozen_recv_snap9980               60   0.88    0.034    0.011   0.31x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 2170 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[05:14:10] final_v11 · iter 2283 · 로그 94283판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.58    0.051    0.148   2.91x
+frozen_ext_v8_iter0080             60   0.58    0.043    0.148   3.48x
+frozen_final_v2r6_iter3200         60   0.72    0.034    0.055   1.61x
+frozen_recv_0912                   60   0.75    0.043    0.053   1.25x
+frozen_final_v2r7_iter26100        60   0.80    0.051    0.041   0.80x
+frozen_ext_v7_iter0140             60   0.82    0.043    0.029   0.67x
+frozen_sub_cand_peak3100           60   0.83    0.043    0.024   0.56x
+frozen_final_v2r7_iter25100        60   0.90    0.085    0.017   0.20x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_recv_snap9980               60   0.88    0.034    0.010   0.29x
+frozen_sub_cand_ladder5220         60   0.93    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 2283 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[05:28:11] final_v11 · iter 2385 · 로그 98264판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.58    0.051    0.116   2.27x
+frozen_recv_0912                   60   0.58    0.043    0.097   2.27x
+frozen_final_v2r6_iter3200         60   0.58    0.034    0.077   2.27x
+frozen_final_v2r7_iter25100        60   0.77    0.085    0.060   0.71x
+frozen_ext_v8_iter0080             60   0.70    0.043    0.050   1.18x
+frozen_final_v2r7_iter26100        60   0.73    0.051    0.047   0.93x
+frozen_ext_v7_iter0140             60   0.72    0.043    0.045   1.05x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.022   0.52x
+frozen_recv_snap9980               60   0.85    0.034    0.010   0.29x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.92    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 2385 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[05:44:11] final_v11 · iter 2498 · 로그 102862판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.60    0.085    0.148   1.75x
+frozen_ext_v8_iter0080             60   0.62    0.043    0.093   2.19x
+frozen_final_v2r6_iter3200         60   0.63    0.034    0.068   2.00x
+frozen_cand_v7_iter4880            60   0.73    0.051    0.054   1.06x
+frozen_ext_v7_iter0140             60   0.72    0.043    0.051   1.20x
+frozen_sub_cand_peak3100           60   0.75    0.043    0.040   0.93x
+frozen_final_v2r7_iter26100        60   0.80    0.051    0.030   0.60x
+frozen_recv_0912                   60   0.78    0.043    0.030   0.70x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_recv_snap9980               60   0.87    0.034    0.010   0.29x
+frozen_sub_cand_ladder5220         60   0.90    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 2498 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[05:58:12] final_v11 · iter 2600 · 로그 107069판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_ext_v8_iter0080             60   0.57    0.043    0.113   2.66x
+frozen_cand_v7_iter4880            60   0.62    0.051    0.106   2.08x
+frozen_final_v2r6_iter3200         60   0.57    0.034    0.090   2.66x
+frozen_recv_0912                   60   0.63    0.043    0.081   1.90x
+frozen_ext_v7_iter0140             60   0.67    0.043    0.067   1.57x
+frozen_sub_cand_peak3100           60   0.78    0.043    0.028   0.66x
+frozen_final_v2r7_iter26100        60   0.85    0.051    0.016   0.32x
+frozen_sub_cand_ladder5220         60   0.87    0.051    0.013   0.25x
+cutoff_bt                          60   1.00    0.068    0.010   0.15x
+frozen_final_v2r7_iter25100        60   0.92    0.085    0.010   0.12x
+frozen_recv_snap9980               60   0.93    0.034    0.010   0.29x
+-> pool_weights.json 발행 (iter 2600 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[06:12:12] final_v11 · iter 2700 · 로그 111435판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_ext_v8_iter0080             60   0.40    0.043    0.148   3.49x
+frozen_cand_v7_iter4880            60   0.72    0.051    0.108   2.12x
+frozen_ext_v7_iter0140             60   0.72    0.043    0.090   2.12x
+frozen_final_v2r6_iter3200         60   0.72    0.034    0.072   2.12x
+frozen_recv_0912                   60   0.77    0.043    0.061   1.44x
+frozen_sub_cand_peak3100           60   0.88    0.043    0.015   0.36x
+cutoff_bt                          60   1.00    0.068    0.010   0.15x
+frozen_final_v2r7_iter25100        60   0.93    0.085    0.010   0.12x
+frozen_final_v2r7_iter26100        60   0.90    0.051    0.010   0.19x
+frozen_recv_snap9980               60   0.92    0.034    0.010   0.29x
+frozen_sub_cand_ladder5220         60   0.95    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 2700 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[06:28:13] final_v11 · iter 2813 · 로그 116325판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_ext_v8_iter0080             60   0.43    0.043    0.148   3.49x
+frozen_cand_v7_iter4880            60   0.77    0.051    0.093   1.83x
+frozen_final_v2r6_iter3200         60   0.73    0.034    0.081   2.39x
+frozen_ext_v7_iter0140             60   0.77    0.043    0.078   1.83x
+frozen_recv_0912                   60   0.83    0.043    0.040   0.93x
+frozen_sub_cand_ladder5220         60   0.85    0.051    0.039   0.76x
+frozen_sub_cand_peak3100           60   0.87    0.043    0.025   0.60x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_final_v2r7_iter25100        60   0.93    0.085    0.010   0.12x
+frozen_final_v2r7_iter26100        60   0.95    0.051    0.010   0.19x
+frozen_recv_snap9980               60   0.92    0.034    0.010   0.29x
+-> pool_weights.json 발행 (iter 2813 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[06:42:13] final_v11 · iter 2914 · 로그 120611판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.53    0.051    0.141   2.77x
+frozen_ext_v8_iter0080             60   0.50    0.043    0.135   3.18x
+frozen_recv_0912                   60   0.63    0.043    0.073   1.71x
+frozen_final_v2r6_iter3200         60   0.68    0.034    0.043   1.27x
+frozen_recv_snap9980               60   0.68    0.034    0.043   1.27x
+frozen_ext_v7_iter0140             60   0.73    0.043    0.038   0.90x
+frozen_final_v2r7_iter25100        60   0.85    0.085    0.024   0.29x
+frozen_final_v2r7_iter26100        60   0.85    0.051    0.015   0.29x
+frozen_sub_cand_ladder5220         60   0.87    0.051    0.012   0.23x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.87    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 2914 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[06:58:14] final_v11 · iter 3027 · 로그 125406판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.63    0.051    0.148   2.91x
+frozen_recv_snap9980               60   0.70    0.034    0.070   2.05x
+frozen_ext_v8_iter0080             60   0.73    0.043    0.069   1.62x
+frozen_final_v2r6_iter3200         60   0.72    0.034    0.062   1.82x
+frozen_recv_0912                   60   0.75    0.043    0.061   1.42x
+frozen_ext_v7_iter0140             60   0.80    0.043    0.039   0.91x
+frozen_final_v2r7_iter25100        60   0.87    0.085    0.034   0.40x
+frozen_final_v2r7_iter26100        60   0.83    0.051    0.032   0.63x
+cutoff_bt                          60   1.00    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.92    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.92    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3027 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[07:12:14] final_v11 · iter 3128 · 로그 129681판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_ext_v8_iter0080             60   0.48    0.043    0.148   3.49x
+frozen_ext_v7_iter0140             60   0.65    0.043    0.090   2.11x
+frozen_recv_0912                   60   0.65    0.043    0.090   2.11x
+frozen_final_v2r7_iter25100        60   0.82    0.085    0.049   0.58x
+frozen_final_v2r7_iter26100        60   0.77    0.051    0.048   0.94x
+frozen_final_v2r6_iter3200         60   0.73    0.034    0.042   1.23x
+frozen_recv_snap9980               60   0.78    0.034    0.028   0.81x
+frozen_cand_v7_iter4880            60   0.85    0.051    0.020   0.39x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.90    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.90    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3128 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[07:28:15] final_v11 · iter 3236 · 로그 133521판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_ext_v8_iter0080             60   0.10    0.043    0.112   2.63x
+frozen_ext_v7_iter0140             60   0.20    0.043    0.088   2.08x
+frozen_recv_0912                   60   0.23    0.043    0.081   1.91x
+frozen_final_v2r6_iter3200         60   0.28    0.034    0.057   1.67x
+frozen_cand_v7_iter4880            60   0.42    0.051    0.056   1.10x
+frozen_final_v2r7_iter26100        60   0.45    0.051    0.050   0.98x
+frozen_final_v2r7_iter25100        60   0.58    0.085    0.048   0.56x
+frozen_recv_snap9980               60   0.55    0.034    0.022   0.66x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.78    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3236 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[07:44:16] final_v11 · iter 3346 · 로그 138276판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.40    0.085    0.127   1.50x
+frozen_cand_v7_iter4880            60   0.33    0.051    0.094   1.85x
+frozen_final_v2r7_iter26100        60   0.35    0.051    0.090   1.76x
+frozen_ext_v8_iter0080             60   0.35    0.043    0.075   1.76x
+frozen_ext_v7_iter0140             60   0.50    0.043    0.044   1.04x
+frozen_recv_0912                   60   0.57    0.043    0.033   0.78x
+frozen_final_v2r6_iter3200         60   0.58    0.034    0.025   0.72x
+frozen_recv_snap9980               60   0.63    0.034    0.019   0.56x
+frozen_sub_cand_ladder5220         60   0.72    0.051    0.017   0.33x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.77    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3346 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[07:58:16] final_v11 · iter 3449 · 로그 143041판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.28    0.051    0.111   2.18x
+frozen_final_v2r7_iter26100        60   0.35    0.051    0.091   1.79x
+frozen_final_v2r7_iter25100        60   0.50    0.085    0.090   1.06x
+frozen_ext_v8_iter0080             60   0.32    0.043    0.084   1.98x
+frozen_ext_v7_iter0140             60   0.47    0.043    0.051   1.21x
+frozen_recv_0912                   60   0.55    0.043    0.037   0.86x
+frozen_final_v2r6_iter3200         60   0.53    0.034    0.031   0.92x
+frozen_recv_snap9980               60   0.65    0.034    0.018   0.52x
+frozen_sub_cand_ladder5220         60   0.78    0.051    0.010   0.20x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.85    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3449 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[08:12:17] final_v11 · iter 3551 · 로그 147732판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.30    0.051    0.110   2.15x
+frozen_final_v2r7_iter26100        60   0.37    0.051    0.090   1.76x
+frozen_final_v2r7_iter25100        60   0.52    0.085    0.087   1.03x
+frozen_ext_v8_iter0080             60   0.37    0.043    0.075   1.76x
+frozen_ext_v7_iter0140             60   0.52    0.043    0.044   1.03x
+frozen_recv_0912                   60   0.52    0.043    0.044   1.03x
+frozen_final_v2r6_iter3200         60   0.50    0.034    0.037   1.10x
+frozen_recv_snap9980               60   0.65    0.034    0.018   0.54x
+frozen_sub_cand_ladder5220         60   0.73    0.051    0.016   0.31x
+frozen_sub_cand_peak3100           60   0.73    0.043    0.013   0.31x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 3551 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[08:26:17] final_v11 · iter 3653 · 로그 152607판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.37    0.051    0.098   1.92x
+frozen_ext_v8_iter0080             60   0.35    0.043    0.086   2.02x
+frozen_final_v2r7_iter26100        60   0.42    0.051    0.083   1.63x
+frozen_final_v2r7_iter25100        60   0.57    0.085    0.076   0.90x
+frozen_ext_v7_iter0140             60   0.50    0.043    0.051   1.20x
+frozen_recv_0912                   60   0.50    0.043    0.051   1.20x
+frozen_final_v2r6_iter3200         60   0.55    0.034    0.033   0.97x
+frozen_recv_snap9980               60   0.57    0.034    0.031   0.90x
+frozen_sub_cand_ladder5220         60   0.75    0.051    0.015   0.30x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3653 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[08:40:18] final_v11 · iter 3756 · 로그 157548판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.45    0.085    0.096   1.13x
+frozen_cand_v7_iter4880            60   0.32    0.051    0.089   1.75x
+frozen_final_v2r7_iter26100        60   0.35    0.051    0.081   1.58x
+frozen_ext_v8_iter0080             60   0.30    0.043    0.078   1.84x
+frozen_recv_0912                   60   0.42    0.043    0.054   1.28x
+frozen_ext_v7_iter0140             60   0.43    0.043    0.051   1.20x
+frozen_final_v2r6_iter3200         60   0.52    0.034    0.030   0.88x
+frozen_sub_cand_ladder5220         60   0.63    0.051    0.026   0.50x
+frozen_recv_snap9980               60   0.62    0.034    0.019   0.55x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.78    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3756 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[08:54:19] final_v11 · iter 3860 · 로그 162225판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter26100        60   0.25    0.051    0.105   2.05x
+frozen_final_v2r7_iter25100        60   0.43    0.085    0.100   1.17x
+frozen_cand_v7_iter4880            60   0.30    0.051    0.091   1.79x
+frozen_ext_v8_iter0080             60   0.40    0.043    0.056   1.31x
+frozen_ext_v7_iter0140             60   0.47    0.043    0.044   1.04x
+frozen_recv_0912                   60   0.48    0.043    0.042   0.98x
+frozen_final_v2r6_iter3200         60   0.48    0.034    0.033   0.98x
+frozen_sub_cand_ladder5220         60   0.58    0.051    0.032   0.63x
+frozen_recv_snap9980               60   0.58    0.034    0.022   0.63x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.78    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3860 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[09:10:19] final_v11 · iter 3972 · 로그 167236판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.42    0.085    0.121   1.42x
+frozen_cand_v7_iter4880            60   0.30    0.051    0.105   2.05x
+frozen_final_v2r7_iter26100        60   0.38    0.051    0.081   1.59x
+frozen_ext_v8_iter0080             60   0.42    0.043    0.061   1.42x
+frozen_ext_v7_iter0140             60   0.47    0.043    0.051   1.19x
+frozen_recv_0912                   60   0.53    0.043    0.039   0.91x
+frozen_final_v2r6_iter3200         60   0.55    0.034    0.029   0.85x
+frozen_sub_cand_ladder5220         60   0.68    0.051    0.021   0.42x
+frozen_recv_snap9980               60   0.65    0.034    0.017   0.51x
+cutoff_bt                          60   0.92    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.77    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 3972 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[09:26:20] final_v11 · iter 4085 · 로그 172154판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.30    0.051    0.109   2.14x
+frozen_final_v2r7_iter25100        60   0.48    0.085    0.099   1.16x
+frozen_final_v2r7_iter26100        60   0.42    0.051    0.076   1.48x
+frozen_ext_v8_iter0080             60   0.40    0.043    0.067   1.57x
+frozen_ext_v7_iter0140             60   0.47    0.043    0.053   1.24x
+frozen_recv_0912                   60   0.53    0.043    0.040   0.95x
+frozen_sub_cand_ladder5220         60   0.62    0.051    0.033   0.64x
+frozen_final_v2r6_iter3200         60   0.55    0.034    0.030   0.88x
+frozen_recv_snap9980               60   0.65    0.034    0.018   0.53x
+cutoff_bt                          60   0.93    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.85    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 4085 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[09:40:21] final_v11 · iter 4188 · 로그 176670판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.48    0.085    0.102   1.20x
+frozen_ext_v8_iter0080             60   0.35    0.043    0.081   1.91x
+frozen_ext_v7_iter0140             60   0.37    0.043    0.077   1.81x
+frozen_cand_v7_iter4880            60   0.43    0.051    0.074   1.45x
+frozen_recv_0912                   60   0.43    0.043    0.062   1.45x
+frozen_final_v2r7_iter26100        60   0.50    0.051    0.058   1.13x
+frozen_final_v2r6_iter3200         60   0.50    0.034    0.038   1.13x
+frozen_recv_snap9980               60   0.65    0.034    0.019   0.55x
+frozen_sub_cand_peak3100           60   0.73    0.043    0.014   0.32x
+cutoff_bt                          60   0.93    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.80    0.051    0.010   0.19x
+-> pool_weights.json 발행 (iter 4188 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[09:54:21] final_v11 · iter 4291 · 로그 181447판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.40    0.051    0.088   1.74x
+frozen_ext_v8_iter0080             60   0.37    0.043    0.082   1.93x
+frozen_ext_v7_iter0140             60   0.38    0.043    0.078   1.83x
+frozen_final_v2r7_iter25100        60   0.57    0.085    0.077   0.91x
+frozen_final_v2r7_iter26100        60   0.47    0.051    0.070   1.37x
+frozen_recv_0912                   60   0.48    0.043    0.055   1.29x
+frozen_final_v2r6_iter3200         60   0.52    0.034    0.038   1.13x
+frozen_recv_snap9980               60   0.67    0.034    0.018   0.54x
+frozen_sub_cand_ladder5220         60   0.73    0.051    0.017   0.34x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.85    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 4291 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[10:08:22] final_v11 · iter 4393 · 로그 186144판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.32    0.051    0.115   2.25x
+frozen_final_v2r7_iter26100        60   0.43    0.051    0.079   1.55x
+frozen_ext_v8_iter0080             60   0.38    0.043    0.078   1.83x
+frozen_final_v2r7_iter25100        60   0.58    0.085    0.071   0.84x
+frozen_ext_v7_iter0140             60   0.47    0.043    0.058   1.37x
+frozen_recv_0912                   60   0.52    0.043    0.048   1.13x
+frozen_final_v2r6_iter3200         60   0.47    0.034    0.047   1.37x
+frozen_recv_snap9980               60   0.67    0.034    0.018   0.54x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         60   0.87    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           60   0.83    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 4393 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[10:22:23] final_v11 · iter 4496 · 로그 190800판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.32    0.051    0.113   2.21x
+frozen_final_v2r7_iter25100        60   0.50    0.085    0.101   1.18x
+frozen_ext_v7_iter0140             60   0.40    0.043    0.073   1.70x
+frozen_ext_v8_iter0080             60   0.40    0.043    0.073   1.70x
+frozen_final_v2r7_iter26100        60   0.52    0.051    0.056   1.11x
+frozen_final_v2r6_iter3200         60   0.48    0.034    0.043   1.26x
+frozen_recv_0912                   60   0.57    0.043    0.038   0.89x
+frozen_sub_cand_ladder5220         60   0.77    0.051    0.013   0.26x
+frozen_recv_snap9980               60   0.72    0.034    0.013   0.38x
+frozen_sub_cand_peak3100           60   0.75    0.043    0.013   0.30x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 4496 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[10:36:23] final_v11 · iter 4599 · 로그 195240판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.27    0.051    0.115   2.26x
+frozen_final_v2r7_iter25100        60   0.43    0.085    0.115   1.35x
+frozen_ext_v8_iter0080             60   0.37    0.043    0.072   1.69x
+frozen_final_v2r7_iter26100        60   0.43    0.051    0.069   1.35x
+frozen_ext_v7_iter0140             60   0.43    0.043    0.057   1.35x
+frozen_recv_0912                   60   0.55    0.043    0.036   0.85x
+frozen_final_v2r6_iter3200         60   0.50    0.034    0.036   1.05x
+frozen_recv_snap9980               60   0.70    0.034    0.013   0.38x
+frozen_sub_cand_ladder5220         60   0.77    0.051    0.012   0.23x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.82    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 4599 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[10:50:24] final_v11 · iter 4700 · 로그 199015판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.42    0.085    0.097   1.14x
+frozen_ext_v8_iter0080             60   0.23    0.043    0.084   1.96x
+frozen_cand_v7_iter4880            60   0.32    0.051    0.079   1.56x
+frozen_final_v2r7_iter26100        60   0.37    0.051    0.068   1.34x
+frozen_recv_0912                   60   0.35    0.043    0.060   1.41x
+frozen_ext_v7_iter0140             60   0.40    0.043    0.051   1.20x
+frozen_final_v2r6_iter3200         60   0.40    0.034    0.041   1.20x
+frozen_sub_cand_peak3100           60   0.60    0.043    0.023   0.53x
+frozen_recv_snap9980               60   0.60    0.034    0.018   0.53x
+frozen_sub_cand_ladder5220         60   0.72    0.051    0.014   0.27x
+cutoff_bt                          60   0.97    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 4700 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[11:04:25] final_v11 · iter 4804 · 로그 202226판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.45    0.085    0.093   1.10x
+frozen_final_v2r7_iter26100        60   0.30    0.051    0.090   1.77x
+frozen_cand_v7_iter4880            60   0.38    0.051    0.070   1.38x
+frozen_ext_v7_iter0140             60   0.33    0.043    0.069   1.61x
+frozen_recv_0912                   60   0.38    0.043    0.059   1.38x
+frozen_ext_v8_iter0080             60   0.43    0.043    0.050   1.16x
+frozen_final_v2r6_iter3200         60   0.47    0.034    0.035   1.03x
+frozen_sub_cand_ladder5220         60   0.58    0.051    0.032   0.63x
+frozen_recv_snap9980               60   0.58    0.034    0.021   0.63x
+frozen_sub_cand_peak3100           60   0.68    0.043    0.015   0.36x
+cutoff_bt                          60   0.93    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 4804 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[11:18:26] final_v11 · iter 4906 · 로그 204600판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.40    0.085    0.116   1.36x
+frozen_cand_v7_iter4880            60   0.37    0.051    0.077   1.51x
+frozen_ext_v8_iter0080             60   0.33    0.043    0.071   1.68x
+frozen_ext_v7_iter0140             60   0.37    0.043    0.065   1.51x
+frozen_final_v2r7_iter26100        60   0.43    0.051    0.062   1.21x
+frozen_recv_0912                   60   0.42    0.043    0.055   1.28x
+frozen_final_v2r6_iter3200         60   0.53    0.034    0.028   0.82x
+frozen_recv_snap9980               60   0.58    0.034    0.022   0.66x
+frozen_sub_cand_peak3100           60   0.65    0.043    0.020   0.46x
+frozen_sub_cand_ladder5220         60   0.68    0.051    0.019   0.38x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 4906 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[11:32:27] final_v11 · iter 5008 · 로그 207476판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.43    0.085    0.113   1.34x
+frozen_cand_v7_iter4880            60   0.38    0.051    0.081   1.58x
+frozen_ext_v8_iter0080             60   0.33    0.043    0.079   1.85x
+frozen_ext_v7_iter0140             60   0.45    0.043    0.054   1.26x
+frozen_final_v2r7_iter26100        60   0.50    0.051    0.053   1.04x
+frozen_recv_0912                   60   0.48    0.043    0.047   1.11x
+frozen_final_v2r6_iter3200         60   0.43    0.034    0.045   1.34x
+frozen_recv_snap9980               60   0.52    0.034    0.033   0.97x
+frozen_sub_cand_peak3100           60   0.68    0.043    0.018   0.42x
+frozen_sub_cand_ladder5220         60   0.77    0.051    0.012   0.23x
+cutoff_bt                          60   0.98    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 5008 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[11:46:27] final_v11 · iter 5111 · 로그 211306판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.40    0.085    0.141   1.66x
+frozen_cand_v7_iter4880            60   0.40    0.051    0.085   1.66x
+frozen_ext_v7_iter0140             60   0.45    0.043    0.060   1.40x
+frozen_recv_0912                   60   0.45    0.043    0.060   1.40x
+frozen_ext_v8_iter0080             60   0.47    0.043    0.056   1.31x
+frozen_final_v2r7_iter26100        60   0.53    0.051    0.051   1.01x
+frozen_final_v2r6_iter3200         60   0.50    0.034    0.039   1.16x
+frozen_recv_snap9980               60   0.68    0.034    0.016   0.46x
+frozen_sub_cand_peak3100           60   0.73    0.043    0.014   0.33x
+frozen_sub_cand_ladder5220         60   0.77    0.051    0.013   0.25x
+cutoff_bt                          60   0.92    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 5111 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[12:00:28] final_v11 · iter 5213 · 로그 214999판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.43    0.085    0.118   1.39x
+frozen_cand_v7_iter4880            60   0.35    0.051    0.093   1.83x
+frozen_ext_v7_iter0140             60   0.35    0.043    0.078   1.83x
+frozen_final_v2r7_iter26100        60   0.47    0.051    0.063   1.23x
+frozen_ext_v8_iter0080             60   0.48    0.043    0.049   1.15x
+frozen_final_v2r6_iter3200         60   0.45    0.034    0.044   1.31x
+frozen_recv_0912                   60   0.52    0.043    0.043   1.01x
+frozen_sub_cand_ladder5220         60   0.70    0.051    0.020   0.39x
+frozen_recv_snap9980               60   0.68    0.034    0.015   0.43x
+frozen_sub_cand_peak3100           60   0.75    0.043    0.012   0.27x
+cutoff_bt                          60   0.90    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 5213 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[12:14:29] final_v11 · iter 5316 · 로그 218841판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.40    0.085    0.132   1.55x
+frozen_cand_v7_iter4880            60   0.40    0.051    0.079   1.55x
+frozen_ext_v7_iter0140             60   0.38    0.043    0.070   1.64x
+frozen_ext_v8_iter0080             60   0.38    0.043    0.070   1.64x
+frozen_final_v2r6_iter3200         60   0.35    0.034    0.062   1.82x
+frozen_final_v2r7_iter26100        60   0.53    0.051    0.048   0.94x
+frozen_recv_0912                   60   0.55    0.043    0.037   0.87x
+frozen_sub_cand_ladder5220         60   0.75    0.051    0.014   0.27x
+frozen_recv_snap9980               60   0.70    0.034    0.013   0.39x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 5316 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[12:30:30] final_v11 · iter 5426 · 로그 222898판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.42    0.085    0.133   1.57x
+frozen_cand_v7_iter4880            60   0.42    0.051    0.080   1.57x
+frozen_ext_v8_iter0080             60   0.40    0.043    0.071   1.66x
+frozen_final_v2r7_iter26100        60   0.50    0.051    0.059   1.15x
+frozen_final_v2r6_iter3200         60   0.42    0.034    0.053   1.57x
+frozen_ext_v7_iter0140             60   0.48    0.043    0.052   1.23x
+frozen_recv_0912                   60   0.52    0.043    0.046   1.08x
+frozen_sub_cand_ladder5220         60   0.73    0.051    0.017   0.33x
+frozen_recv_snap9980               60   0.70    0.034    0.014   0.41x
+cutoff_bt                          60   0.90    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.82    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 5426 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[12:46:31] final_v11 · iter 5539 · 로그 226895판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.48    0.085    0.098   1.15x
+frozen_cand_v7_iter4880            60   0.35    0.051    0.093   1.82x
+frozen_ext_v7_iter0140             60   0.43    0.043    0.059   1.39x
+frozen_ext_v8_iter0080             60   0.43    0.043    0.059   1.39x
+frozen_recv_0912                   60   0.43    0.043    0.059   1.39x
+frozen_final_v2r6_iter3200         60   0.37    0.034    0.059   1.73x
+frozen_final_v2r7_iter26100        60   0.48    0.051    0.059   1.15x
+frozen_sub_cand_ladder5220         60   0.67    0.051    0.024   0.48x
+frozen_recv_snap9980               60   0.68    0.034    0.015   0.43x
+cutoff_bt                          60   0.88    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.78    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 5539 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[13:02:32] final_v11 · iter 5651 · 로그 230742판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.43    0.051    0.088   1.72x
+frozen_final_v2r7_iter25100        60   0.57    0.085    0.085   1.01x
+frozen_ext_v8_iter0080             60   0.43    0.043    0.073   1.72x
+frozen_final_v2r7_iter26100        60   0.50    0.051    0.068   1.34x
+frozen_recv_0912                   60   0.47    0.043    0.065   1.52x
+frozen_ext_v7_iter0140             60   0.48    0.043    0.061   1.43x
+frozen_final_v2r6_iter3200         60   0.50    0.034    0.046   1.34x
+frozen_sub_cand_ladder5220         60   0.70    0.051    0.025   0.48x
+frozen_sub_cand_peak3100           60   0.77    0.043    0.012   0.29x
+frozen_recv_snap9980               60   0.75    0.034    0.011   0.33x
+cutoff_bt                          60   0.83    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 5651 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[13:18:33] final_v11 · iter 5763 · 로그 234750판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        60   0.43    0.085    0.122   1.44x
+frozen_cand_v7_iter4880            60   0.38    0.051    0.087   1.70x
+frozen_final_v2r7_iter26100        60   0.45    0.051    0.069   1.35x
+frozen_ext_v7_iter0140             60   0.42    0.043    0.065   1.52x
+frozen_ext_v8_iter0080             60   0.42    0.043    0.065   1.52x
+frozen_recv_0912                   60   0.53    0.043    0.042   0.98x
+frozen_final_v2r6_iter3200         60   0.50    0.034    0.038   1.12x
+frozen_recv_snap9980               60   0.65    0.034    0.019   0.55x
+frozen_sub_cand_ladder5220         60   0.72    0.051    0.018   0.36x
+cutoff_bt                          60   0.90    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           60   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 5763 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[13:34:34] final_v11 · iter 5872 · 로그 238902판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.36    0.085    0.129   1.52x
+frozen_cand_v7_iter4880            55   0.27    0.051    0.099   1.94x
+frozen_final_v2r7_iter26100        57   0.33    0.051    0.083   1.63x
+frozen_ext_v8_iter0080             60   0.37    0.043    0.063   1.47x
+frozen_ext_v7_iter0140             59   0.51    0.043    0.038   0.89x
+frozen_final_v2r6_iter3200         55   0.45    0.034    0.037   1.09x
+frozen_recv_0912                   58   0.53    0.043    0.034   0.80x
+frozen_recv_snap9980               51   0.55    0.034    0.025   0.75x
+frozen_sub_cand_ladder5220         48   0.71    0.051    0.016   0.31x
+cutoff_bt                          43   0.84    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           40   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 5872 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[13:48:35] final_v11 · iter 5975 · 로그 243466판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.39    0.085    0.135   1.59x
+frozen_cand_v7_iter4880            55   0.33    0.051    0.099   1.95x
+frozen_final_v2r7_iter26100        58   0.41    0.051    0.076   1.48x
+frozen_ext_v8_iter0080             60   0.38    0.043    0.070   1.64x
+frozen_ext_v7_iter0140             60   0.57    0.043    0.034   0.81x
+frozen_recv_snap9980               54   0.52    0.034    0.034   1.00x
+frozen_final_v2r6_iter3200         58   0.53    0.034    0.032   0.93x
+frozen_recv_0912                   60   0.60    0.043    0.029   0.69x
+frozen_sub_cand_ladder5220         53   0.74    0.051    0.015   0.30x
+cutoff_bt                          50   0.86    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           47   0.81    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 5975 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[14:02:36] final_v11 · iter 6078 · 로그 247757판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.41    0.085    0.134   1.57x
+frozen_cand_v7_iter4880            55   0.33    0.051    0.105   2.05x
+frozen_final_v2r7_iter26100        58   0.38    0.051    0.089   1.75x
+frozen_ext_v8_iter0080             60   0.43    0.043    0.062   1.46x
+frozen_ext_v7_iter0140             60   0.58    0.043    0.034   0.79x
+frozen_final_v2r6_iter3200         58   0.55    0.034    0.031   0.91x
+frozen_recv_0912                   60   0.60    0.043    0.031   0.73x
+frozen_recv_snap9980               54   0.59    0.034    0.026   0.75x
+frozen_sub_cand_peak3100           48   0.75    0.043    0.012   0.28x
+frozen_sub_cand_ladder5220         53   0.77    0.051    0.012   0.23x
+cutoff_bt                          50   0.84    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 6078 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[14:16:37] final_v11 · iter 6182 · 로그 251621판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.34    0.085    0.148   1.75x
+frozen_cand_v7_iter4880            55   0.35    0.051    0.092   1.81x
+frozen_final_v2r7_iter26100        58   0.38    0.051    0.083   1.62x
+frozen_ext_v8_iter0080             60   0.43    0.043    0.058   1.35x
+frozen_final_v2r6_iter3200         58   0.48    0.034    0.038   1.13x
+frozen_ext_v7_iter0140             60   0.55    0.043    0.036   0.85x
+frozen_recv_0912                   60   0.60    0.043    0.029   0.67x
+frozen_recv_snap9980               55   0.56    0.034    0.027   0.80x
+frozen_sub_cand_ladder5220         53   0.75    0.051    0.013   0.25x
+cutoff_bt                          50   0.86    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           49   0.84    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 6182 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[14:30:38] final_v11 · iter 6286 · 로그 255803판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.48    0.085    0.124   1.46x
+frozen_cand_v7_iter4880            55   0.42    0.051    0.094   1.84x
+frozen_final_v2r7_iter26100        58   0.47    0.051    0.079   1.55x
+frozen_ext_v8_iter0080             60   0.50    0.043    0.058   1.36x
+frozen_ext_v7_iter0140             60   0.55    0.043    0.047   1.10x
+frozen_recv_0912                   60   0.58    0.043    0.040   0.94x
+frozen_recv_snap9980               55   0.56    0.034    0.035   1.03x
+frozen_final_v2r6_iter3200         58   0.59    0.034    0.032   0.93x
+frozen_sub_cand_ladder5220         53   0.75    0.051    0.017   0.33x
+cutoff_bt                          50   0.86    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           49   0.84    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 6286 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[14:44:39] final_v11 · iter 6388 · 로그 259875판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.45    0.085    0.131   1.54x
+frozen_cand_v7_iter4880            55   0.40    0.051    0.092   1.81x
+frozen_final_v2r7_iter26100        58   0.43    0.051    0.083   1.63x
+frozen_ext_v8_iter0080             60   0.47    0.043    0.061   1.43x
+frozen_final_v2r6_iter3200         58   0.45    0.034    0.052   1.53x
+frozen_ext_v7_iter0140             60   0.60    0.043    0.034   0.80x
+frozen_recv_snap9980               55   0.60    0.034    0.027   0.80x
+frozen_recv_0912                   60   0.65    0.043    0.026   0.62x
+frozen_sub_cand_ladder5220         53   0.74    0.051    0.018   0.35x
+cutoff_bt                          50   0.86    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           49   0.86    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 6388 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[14:58:40] final_v11 · iter 6491 · 로그 263176판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.32    0.085    0.148   1.75x
+frozen_final_v2r7_iter26100        58   0.40    0.051    0.092   1.79x
+frozen_cand_v7_iter4880            55   0.44    0.051    0.080   1.57x
+frozen_ext_v7_iter0140             60   0.52    0.043    0.049   1.15x
+frozen_final_v2r6_iter3200         58   0.47    0.034    0.048   1.41x
+frozen_ext_v8_iter0080             60   0.55    0.043    0.043   1.00x
+frozen_recv_snap9980               55   0.60    0.034    0.027   0.79x
+frozen_recv_0912                   60   0.65    0.043    0.026   0.60x
+frozen_sub_cand_ladder5220         53   0.77    0.051    0.013   0.25x
+cutoff_bt                          51   0.86    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           49   0.86    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 6491 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[15:12:40] final_v11 · iter 6594 · 로그 266295판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.43    0.085    0.133   1.57x
+frozen_cand_v7_iter4880            55   0.38    0.051    0.093   1.83x
+frozen_final_v2r7_iter26100        58   0.45    0.051    0.074   1.46x
+frozen_ext_v8_iter0080             60   0.45    0.043    0.062   1.45x
+frozen_final_v2r6_iter3200         58   0.45    0.034    0.050   1.46x
+frozen_ext_v7_iter0140             60   0.55    0.043    0.041   0.97x
+frozen_recv_snap9980               55   0.56    0.034    0.031   0.91x
+frozen_recv_0912                   60   0.62    0.043    0.030   0.70x
+cutoff_bt                          51   0.84    0.068    0.010   0.15x
+frozen_sub_cand_ladder5220         53   0.83    0.051    0.010   0.19x
+frozen_sub_cand_peak3100           49   0.86    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 6594 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[15:26:41] final_v11 · iter 6698 · 로그 269370판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.46    0.085    0.113   1.33x
+frozen_final_v2r7_iter26100        58   0.43    0.051    0.076   1.50x
+frozen_cand_v7_iter4880            55   0.44    0.051    0.075   1.47x
+frozen_ext_v8_iter0080             60   0.40    0.043    0.071   1.66x
+frozen_final_v2r6_iter3200         58   0.41    0.034    0.054   1.59x
+frozen_recv_0912                   60   0.52    0.043    0.046   1.08x
+frozen_recv_snap9980               55   0.51    0.034    0.038   1.11x
+frozen_ext_v7_iter0140             60   0.58    0.043    0.034   0.80x
+frozen_sub_cand_ladder5220         53   0.75    0.051    0.014   0.28x
+frozen_sub_cand_peak3100           49   0.73    0.043    0.014   0.33x
+cutoff_bt                          51   0.86    0.068    0.010   0.15x
+-> pool_weights.json 발행 (iter 6698 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[15:40:43] final_v11 · iter 6801 · 로그 272021판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.39    0.085    0.126   1.48x
+frozen_cand_v7_iter4880            55   0.33    0.051    0.093   1.82x
+frozen_final_v2r7_iter26100        58   0.41    0.051    0.071   1.38x
+frozen_ext_v7_iter0140             60   0.42    0.043    0.058   1.37x
+frozen_ext_v8_iter0080             60   0.47    0.043    0.049   1.14x
+frozen_final_v2r6_iter3200         58   0.43    0.034    0.044   1.30x
+frozen_recv_0912                   60   0.52    0.043    0.040   0.94x
+frozen_recv_snap9980               55   0.60    0.034    0.022   0.64x
+frozen_sub_cand_ladder5220         53   0.68    0.051    0.021   0.41x
+cutoff_bt                          51   0.80    0.068    0.011   0.15x
+frozen_sub_cand_peak3100           49   0.80    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 6801 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[15:54:44] final_v11 · iter 6902 · 로그 275227판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.48    0.085    0.120   1.41x
+frozen_cand_v7_iter4880            55   0.42    0.051    0.091   1.78x
+frozen_final_v2r7_iter26100        58   0.47    0.051    0.076   1.50x
+frozen_ext_v8_iter0080             60   0.45    0.043    0.068   1.59x
+frozen_ext_v7_iter0140             60   0.52    0.043    0.052   1.22x
+frozen_final_v2r6_iter3200         58   0.53    0.034    0.039   1.14x
+frozen_recv_0912                   60   0.62    0.043    0.033   0.77x
+frozen_recv_snap9980               55   0.60    0.034    0.029   0.84x
+frozen_sub_cand_ladder5220         53   0.77    0.051    0.014   0.27x
+frozen_sub_cand_peak3100           49   0.76    0.043    0.013   0.31x
+cutoff_bt                          51   0.82    0.068    0.011   0.16x
+-> pool_weights.json 발행 (iter 6902 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[16:10:45] final_v11 · iter 7015 · 로그 278817판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.54    0.085    0.105   1.23x
+frozen_cand_v7_iter4880            55   0.44    0.051    0.093   1.82x
+frozen_final_v2r7_iter26100        58   0.50    0.051    0.073   1.43x
+frozen_ext_v8_iter0080             60   0.50    0.043    0.061   1.43x
+frozen_final_v2r6_iter3200         58   0.45    0.034    0.059   1.74x
+frozen_ext_v7_iter0140             60   0.53    0.043    0.053   1.25x
+frozen_recv_snap9980               55   0.56    0.034    0.037   1.09x
+frozen_recv_0912                   60   0.63    0.043    0.033   0.77x
+frozen_sub_cand_ladder5220         53   0.81    0.051    0.010   0.20x
+cutoff_bt                          51   0.84    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           49   0.84    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 7015 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[16:26:46] final_v11 · iter 7125 · 로그 282046판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.41    0.085    0.126   1.48x
+frozen_cand_v7_iter4880            55   0.35    0.051    0.093   1.83x
+frozen_final_v2r7_iter26100        58   0.41    0.051    0.075   1.47x
+frozen_ext_v8_iter0080             60   0.47    0.043    0.052   1.22x
+frozen_recv_0912                   60   0.48    0.043    0.049   1.14x
+frozen_final_v2r6_iter3200         58   0.43    0.034    0.047   1.38x
+frozen_ext_v7_iter0140             60   0.53    0.043    0.040   0.93x
+frozen_recv_snap9980               55   0.58    0.034    0.025   0.75x
+frozen_sub_cand_ladder5220         53   0.72    0.051    0.017   0.34x
+cutoff_bt                          51   0.84    0.068    0.010   0.15x
+frozen_sub_cand_peak3100           50   0.86    0.043    0.010   0.23x
+-> pool_weights.json 발행 (iter 7125 · 11종). 사이드카가 다음 스냅샷에 반영한다.
+[16:42:47] final_v11 · iter 7234 · 로그 284745판 · 상대 11종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r7_iter25100        56   0.45    0.085    0.108   1.27x
+frozen_cand_v7_iter4880            55   0.40    0.051    0.076   1.50x
+frozen_final_v2r7_iter26100        58   0.41    0.051    0.073   1.43x
+frozen_ext_v8_iter0080             60   0.42    0.043    0.060   1.41x
+frozen_ext_v7_iter0140             60   0.43    0.043    0.057   1.34x
+frozen_final_v2r6_iter3200         58   0.40    0.034    0.051   1.51x
+frozen_recv_0912                   60   0.47    0.043    0.050   1.18x
+frozen_recv_snap9980               55   0.58    0.034    0.025   0.73x
+frozen_sub_cand_ladder5220         53   0.70    0.051    0.019   0.38x

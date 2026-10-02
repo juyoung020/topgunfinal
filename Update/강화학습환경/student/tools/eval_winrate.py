@@ -90,6 +90,8 @@ def parse_args():
     p.add_argument("--step-ratio", type=int, default=6)
     p.add_argument("--randomize-radius", type=float, default=2500.0,
                    help="Per-episode ownship spawn scatter (m); 0 disables.")
+    p.add_argument("--tail-guard", action="store_true",
+                   help="[MOD-TAILGUARD] 후방 접근 스로틀 가드 켜기")
     p.add_argument("--json-out", default="", help="Optional summary JSON path.")
     p.add_argument("--save-log", action="store_true",
                    help="Save a Tacview CSV log of the LAST episode.")
@@ -152,6 +154,7 @@ def main() -> int:
         if not args.opponent_bundle:
             raise SystemExit("--opponent policy requires --opponent-bundle")
         env_config["target_policy_bundle"] = args.opponent_bundle
+    env_config["tail_guard"] = bool(args.tail_guard)
     env_config.update(FIXTURES.get(args.fixture, {}))
 
     env = DogFightWrapper(

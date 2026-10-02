@@ -1,0 +1,222 @@
+[21:36:00] final_v10 · iter ? · 로그 0판 · 상대 20종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_s48_snap12241           0      -    0.098    0.098   1.00x
+frozen_final_v2r6_iter7200          0      -    0.085    0.085   1.00x
+frozen_final_v2r7_iter25100         0      -    0.085    0.085   1.00x
+cutoff_bt                           0      -    0.068    0.068   1.00x
+frozen_symmetric_iter1920           0      -    0.055    0.055   1.00x
+frozen_cand_v7_iter4880             0      -    0.051    0.051   1.00x
+frozen_final_v2r7_iter26100         0      -    0.051    0.051   1.00x
+frozen_sub_cand_ladder5220          0      -    0.051    0.051   1.00x
+frozen_cand_c13280_s45              0      -    0.043    0.043   1.00x
+frozen_ext_v7_iter0140              0      -    0.043    0.043   1.00x
+frozen_ext_v8_iter0080              0      -    0.043    0.043   1.00x
+frozen_recv_0912                    0      -    0.043    0.043   1.00x
+frozen_recv_scrim_exp025            0      -    0.043    0.043   1.00x
+frozen_sub_cand_peak3100            0      -    0.043    0.043   1.00x
+frozen_final_v2r6_iter3200          0      -    0.034    0.034   1.00x
+frozen_recv_aimangle_v4_0824        0      -    0.034    0.034   1.00x
+frozen_recv_league_v4_best60        0      -    0.034    0.034   1.00x
+frozen_recv_snap9980                0      -    0.034    0.034   1.00x
+frozen_recv_league_v3_gen1_ite      0      -    0.025    0.025   1.00x
+frozen_s52_ladder5220_beaten        0      -    0.017    0.017   1.00x
+-> pool_weights.json 발행 (iter ? · 20종). 사이드카가 다음 스냅샷에 반영한다.
+[21:38:00] final_v10 · iter ? · 로그 0판 · 상대 20종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_s48_snap12241           0      -    0.098    0.098   1.00x
+frozen_final_v2r6_iter7200          0      -    0.085    0.085   1.00x
+frozen_final_v2r7_iter25100         0      -    0.085    0.085   1.00x
+cutoff_bt                           0      -    0.068    0.068   1.00x
+frozen_symmetric_iter1920           0      -    0.055    0.055   1.00x
+frozen_cand_v7_iter4880             0      -    0.051    0.051   1.00x
+frozen_final_v2r7_iter26100         0      -    0.051    0.051   1.00x
+frozen_sub_cand_ladder5220          0      -    0.051    0.051   1.00x
+frozen_cand_c13280_s45              0      -    0.043    0.043   1.00x
+frozen_ext_v7_iter0140              0      -    0.043    0.043   1.00x
+frozen_ext_v8_iter0080              0      -    0.043    0.043   1.00x
+frozen_recv_0912                    0      -    0.043    0.043   1.00x
+frozen_recv_scrim_exp025            0      -    0.043    0.043   1.00x
+frozen_sub_cand_peak3100            0      -    0.043    0.043   1.00x
+frozen_final_v2r6_iter3200          0      -    0.034    0.034   1.00x
+frozen_recv_aimangle_v4_0824        0      -    0.034    0.034   1.00x
+frozen_recv_league_v4_best60        0      -    0.034    0.034   1.00x
+frozen_recv_snap9980                0      -    0.034    0.034   1.00x
+frozen_recv_league_v3_gen1_ite      0      -    0.025    0.025   1.00x
+frozen_s52_ladder5220_beaten        0      -    0.017    0.017   1.00x
+-> pool_weights.json 발행 (iter ? · 20종). 사이드카가 다음 스냅샷에 반영한다.
+[21:40:00] final_v10 · iter ? · 로그 0판 · 상대 20종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_s48_snap12241           0      -    0.098    0.098   1.00x
+frozen_final_v2r6_iter7200          0      -    0.085    0.085   1.00x
+frozen_final_v2r7_iter25100         0      -    0.085    0.085   1.00x
+cutoff_bt                           0      -    0.068    0.068   1.00x
+frozen_symmetric_iter1920           0      -    0.055    0.055   1.00x
+frozen_cand_v7_iter4880             0      -    0.051    0.051   1.00x
+frozen_final_v2r7_iter26100         0      -    0.051    0.051   1.00x
+frozen_sub_cand_ladder5220          0      -    0.051    0.051   1.00x
+frozen_cand_c13280_s45              0      -    0.043    0.043   1.00x
+frozen_ext_v7_iter0140              0      -    0.043    0.043   1.00x
+frozen_ext_v8_iter0080              0      -    0.043    0.043   1.00x
+frozen_recv_0912                    0      -    0.043    0.043   1.00x
+frozen_recv_scrim_exp025            0      -    0.043    0.043   1.00x
+frozen_sub_cand_peak3100            0      -    0.043    0.043   1.00x
+frozen_final_v2r6_iter3200          0      -    0.034    0.034   1.00x
+frozen_recv_aimangle_v4_0824        0      -    0.034    0.034   1.00x
+frozen_recv_league_v4_best60        0      -    0.034    0.034   1.00x
+frozen_recv_snap9980                0      -    0.034    0.034   1.00x
+frozen_recv_league_v3_gen1_ite      0      -    0.025    0.025   1.00x
+frozen_s52_ladder5220_beaten        0      -    0.017    0.017   1.00x
+-> pool_weights.json 발행 (iter ? · 20종). 사이드카가 다음 스냅샷에 반영한다.
+[21:42:00] final_v10 · iter ? · 로그 0판 · 상대 20종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_s48_snap12241           0      -    0.098    0.098   1.00x
+frozen_final_v2r6_iter7200          0      -    0.085    0.085   1.00x
+frozen_final_v2r7_iter25100         0      -    0.085    0.085   1.00x
+cutoff_bt                           0      -    0.068    0.068   1.00x
+frozen_symmetric_iter1920           0      -    0.055    0.055   1.00x
+frozen_cand_v7_iter4880             0      -    0.051    0.051   1.00x
+frozen_final_v2r7_iter26100         0      -    0.051    0.051   1.00x
+frozen_sub_cand_ladder5220          0      -    0.051    0.051   1.00x
+frozen_cand_c13280_s45              0      -    0.043    0.043   1.00x
+frozen_ext_v7_iter0140              0      -    0.043    0.043   1.00x
+frozen_ext_v8_iter0080              0      -    0.043    0.043   1.00x
+frozen_recv_0912                    0      -    0.043    0.043   1.00x
+frozen_recv_scrim_exp025            0      -    0.043    0.043   1.00x
+frozen_sub_cand_peak3100            0      -    0.043    0.043   1.00x
+frozen_final_v2r6_iter3200          0      -    0.034    0.034   1.00x
+frozen_recv_aimangle_v4_0824        0      -    0.034    0.034   1.00x
+frozen_recv_league_v4_best60        0      -    0.034    0.034   1.00x
+frozen_recv_snap9980                0      -    0.034    0.034   1.00x
+frozen_recv_league_v3_gen1_ite      0      -    0.025    0.025   1.00x
+frozen_s52_ladder5220_beaten        0      -    0.017    0.017   1.00x
+-> pool_weights.json 발행 (iter ? · 20종). 사이드카가 다음 스냅샷에 반영한다.
+[21:44:00] final_v10 · iter 11847 · 로그 221판 · 상대 20종
+상대                                 판수     승률       기준      새비중      배수
+frozen_sub_cand_ladder5220          6      -    0.051    0.095   1.87x
+frozen_cand_c13280_s45              5      -    0.043    0.079   1.87x
+frozen_ext_v8_iter0080              6      -    0.043    0.079   1.87x
+frozen_sub_cand_peak3100            3      -    0.043    0.079   1.87x
+frozen_final_v2r6_iter7200         24   0.33    0.085    0.070   0.83x
+frozen_final_v2r6_iter3200          2      -    0.034    0.063   1.87x
+frozen_recv_aimangle_v4_0824        0      -    0.034    0.063   1.87x
+frozen_recv_league_v4_best60        6      -    0.034    0.063   1.87x
+frozen_recv_snap9980                4      -    0.034    0.063   1.87x
+frozen_final_v2r7_iter26100        16   0.19    0.051    0.063   1.23x
+frozen_cand_v7_iter4880            17   0.29    0.051    0.047   0.93x
+frozen_recv_league_v3_gen1_ite      2      -    0.025    0.047   1.87x
+frozen_final_v2r7_iter25100        13   0.54    0.085    0.034   0.40x
+frozen_s52_ladder5220_beaten        2      -    0.017    0.032   1.87x
+frozen_recv_0912                   14   0.43    0.043    0.026   0.61x
+frozen_ext_v7_iter0140             16   0.44    0.043    0.025   0.59x
+frozen_recv_scrim_exp025           13   0.54    0.043    0.017   0.40x
+cutoff_bt                          16   0.75    0.068    0.010   0.14x
+frozen_cand_s48_snap12241          18   1.00    0.098    0.010   0.10x
+frozen_symmetric_iter1920          10   1.00    0.055    0.010   0.18x
+-> pool_weights.json 발행 (iter 11847 · 20종). 사이드카가 다음 스냅샷에 반영한다.
+[21:58:00] final_v10 · iter 11950 · 로그 3818판 · 상대 20종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r6_iter7200         60   0.42    0.085    0.147   1.73x
+frozen_recv_0912                   60   0.27    0.043    0.147   3.44x
+frozen_cand_v7_iter4880            60   0.38    0.051    0.145   2.85x
+frozen_final_v2r7_iter26100        60   0.45    0.051    0.116   2.27x
+frozen_sub_cand_ladder5220         60   0.52    0.051    0.089   1.75x
+frozen_ext_v7_iter0140             56   0.55    0.043    0.064   1.49x
+frozen_final_v2r6_iter3200         60   0.57    0.034    0.048   1.41x
+frozen_ext_v8_iter0080             60   0.62    0.043    0.047   1.10x
+frozen_final_v2r7_iter25100        60   0.77    0.085    0.035   0.41x
+frozen_recv_scrim_exp025           54   0.72    0.043    0.025   0.58x
+frozen_recv_snap9980               60   0.70    0.034    0.023   0.67x
+cutoff_bt                          60   0.83    0.068    0.014   0.21x
+frozen_sub_cand_peak3100           60   0.82    0.043    0.011   0.25x
+frozen_cand_c13280_s45             60   0.97    0.043    0.010   0.23x
+frozen_cand_s48_snap12241          60   0.97    0.098    0.010   0.10x
+frozen_recv_aimangle_v4_0824       60   0.95    0.034    0.010   0.29x
+frozen_recv_league_v3_gen1_ite     60   1.00    0.025    0.010   0.39x
+frozen_recv_league_v4_best60       60   1.00    0.034    0.010   0.29x
+frozen_s52_ladder5220_beaten       55   0.93    0.017    0.010   0.58x
+frozen_symmetric_iter1920          56   0.88    0.055    0.010   0.18x
+-> pool_weights.json 발행 (iter 11950 · 20종). 사이드카가 다음 스냅샷에 반영한다.
+[22:12:00] final_v10 · iter 12050 · 로그 8036판 · 상대 20종
+상대                                 판수     승률       기준      새비중      배수
+frozen_cand_v7_iter4880            60   0.45    0.051    0.147   2.88x
+frozen_final_v2r6_iter7200         60   0.47    0.085    0.147   1.73x
+frozen_recv_0912                   60   0.30    0.043    0.147   3.44x
+frozen_final_v2r7_iter26100        60   0.50    0.051    0.131   2.58x
+frozen_final_v2r6_iter3200         60   0.53    0.034    0.076   2.24x
+frozen_ext_v8_iter0080             60   0.63    0.043    0.059   1.39x
+frozen_sub_cand_ladder5220         60   0.67    0.051    0.058   1.15x
+frozen_ext_v7_iter0140             60   0.70    0.043    0.040   0.93x
+frozen_recv_scrim_exp025           60   0.72    0.043    0.035   0.83x
+frozen_recv_snap9980               60   0.68    0.034    0.035   1.03x
+frozen_sub_cand_peak3100           60   0.82    0.043    0.015   0.35x
+cutoff_bt                          60   0.90    0.068    0.010   0.14x
+frozen_cand_c13280_s45             60   0.97    0.043    0.010   0.23x
+frozen_cand_s48_snap12241          60   0.93    0.098    0.010   0.10x
+frozen_final_v2r7_iter25100        60   0.92    0.085    0.010   0.12x
+frozen_recv_aimangle_v4_0824       60   0.92    0.034    0.010   0.29x
+frozen_recv_league_v3_gen1_ite     60   0.98    0.025    0.010   0.39x
+frozen_recv_league_v4_best60       60   1.00    0.034    0.010   0.29x
+frozen_s52_ladder5220_beaten       58   0.93    0.017    0.010   0.58x
+frozen_symmetric_iter1920          60   0.95    0.055    0.010   0.18x
+-> pool_weights.json 발행 (iter 12050 · 20종). 사이드카가 다음 스냅샷에 반영한다.
+[22:28:00] final_v10 · iter 12158 · 로그 13106판 · 상대 13종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r6_iter7200         60   0.17    0.085    0.155   1.82x
+frozen_recv_0912                   60   0.38    0.043    0.104   2.44x
+frozen_final_v2r7_iter26100        60   0.47    0.051    0.093   1.83x
+frozen_cand_v7_iter4880            60   0.53    0.051    0.071   1.40x
+frozen_final_v2r6_iter3200         60   0.47    0.034    0.062   1.83x
+frozen_recv_snap9980               60   0.53    0.034    0.048   1.40x
+frozen_ext_v7_iter0140             60   0.62    0.043    0.040   0.94x
+frozen_sub_cand_ladder5220         60   0.68    0.051    0.033   0.64x
+frozen_sub_cand_peak3100           60   0.73    0.043    0.019   0.46x
+frozen_ext_v8_iter0080             60   0.77    0.043    0.015   0.35x
+cutoff_bt                          60   0.93    0.068    0.010   0.15x
+frozen_final_v2r7_iter25100        60   0.90    0.085    0.010   0.12x
+frozen_recv_scrim_exp025           60   0.92    0.043    0.010   0.24x
+-> pool_weights.json 발행 (iter 12158 · 13종). 사이드카가 다음 스냅샷에 반영한다.
+[22:44:01] final_v10 · iter 12267 · 로그 18113판 · 상대 13종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r6_iter7200         60   0.30    0.085    0.155   1.82x
+frozen_recv_0912                   60   0.37    0.043    0.107   2.50x
+frozen_cand_v7_iter4880            60   0.48    0.051    0.085   1.66x
+frozen_recv_snap9980               60   0.43    0.034    0.068   2.00x
+frozen_final_v2r7_iter26100        60   0.55    0.051    0.064   1.26x
+frozen_final_v2r6_iter3200         60   0.53    0.034    0.046   1.36x
+frozen_sub_cand_ladder5220         60   0.63    0.051    0.043   0.84x
+frozen_sub_cand_peak3100           60   0.65    0.043    0.033   0.76x
+frozen_ext_v8_iter0080             60   0.70    0.043    0.024   0.56x
+frozen_ext_v7_iter0140             60   0.75    0.043    0.017   0.39x
+cutoff_bt                          60   0.95    0.068    0.010   0.15x
+frozen_final_v2r7_iter25100        60   0.90    0.085    0.010   0.12x
+frozen_recv_scrim_exp025           60   0.82    0.043    0.010   0.24x
+-> pool_weights.json 발행 (iter 12267 · 13종). 사이드카가 다음 스냅샷에 반영한다.
+[23:00:01] final_v10 · iter 12375 · 로그 23094판 · 상대 13종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r6_iter7200         60   0.17    0.085    0.155   1.82x
+frozen_recv_0912                   60   0.23    0.043    0.132   3.09x
+frozen_cand_v7_iter4880            60   0.37    0.051    0.107   2.11x
+frozen_final_v2r7_iter26100        60   0.53    0.051    0.058   1.14x
+frozen_final_v2r6_iter3200         60   0.45    0.034    0.054   1.59x
+frozen_recv_snap9980               60   0.47    0.034    0.051   1.49x
+frozen_sub_cand_ladder5220         60   0.63    0.051    0.036   0.71x
+frozen_ext_v7_iter0140             60   0.73    0.043    0.016   0.37x
+frozen_ext_v8_iter0080             60   0.73    0.043    0.016   0.37x
+frozen_sub_cand_peak3100           60   0.73    0.043    0.016   0.37x
+cutoff_bt                          60   0.88    0.068    0.010   0.15x
+frozen_final_v2r7_iter25100        60   0.92    0.085    0.010   0.12x
+frozen_recv_scrim_exp025           60   0.87    0.043    0.010   0.24x
+-> pool_weights.json 발행 (iter 12375 · 13종). 사이드카가 다음 스냅샷에 반영한다.
+[23:16:01] final_v10 · iter 12484 · 로그 28044판 · 상대 13종
+상대                                 판수     승률       기준      새비중      배수
+frozen_final_v2r6_iter7200         60   0.20    0.085    0.155   1.82x
+frozen_cand_v7_iter4880            60   0.37    0.051    0.106   2.07x
+frozen_recv_0912                   60   0.42    0.043    0.075   1.76x
+frozen_final_v2r7_iter26100        60   0.48    0.051    0.070   1.38x
+frozen_sub_cand_ladder5220         60   0.52    0.051    0.062   1.21x
+frozen_final_v2r6_iter3200         60   0.43    0.034    0.056   1.66x
+frozen_ext_v7_iter0140             60   0.57    0.043    0.041   0.97x
+frozen_recv_snap9980               60   0.53    0.034    0.038   1.12x
+frozen_sub_cand_peak3100           60   0.68    0.043    0.022   0.52x
+frozen_ext_v8_iter0080             60   0.73    0.043    0.016   0.37x
+cutoff_bt                          60   0.92    0.068    0.010   0.15x

@@ -72,6 +72,10 @@ def _opponent_name(entry: dict) -> str:
     mode = str(entry.get("mode", "?"))
     if mode == "aggressor":
         return f"aggressor_{entry.get('level', '?')}"
+    # [MOD-CUTOFFBT] 번들이 없는 룰베이스 상대 — 이름이 빈 문자열로 나가 지표에서
+    #   "?" 로 뭉쳤다(실측 24판 중 4판). 고정 이름을 준다.
+    if mode == "cutoffbt":
+        return "cutoff_bt"
     if mode == "policy":
         parts = Path(str(entry.get("bundle", ""))).parts
         # ...\<run-tag>\<stage-dir>est_bundle -> "frozen_<run-tag>"
@@ -313,7 +317,11 @@ class DogFightEnv(gym.Env):
                 if mt != getattr(self, "_lt_mtime", None):
                     with open(lt, encoding="utf-8") as _f:
                         data = _json.load(_f)
-                    for key in ("target_pool", "ownship_hp_deficit"):
+                    # [2026-09-05] deck_guard / deck_guard_penalty 를 화이트리스트에 추가.
+                    #   가드 벌점은 판당 -540 까지 갔던 큰 항인데 env_overrides 라서
+                    #   조정할 때마다 재기동해야 했다. 이제 핫리로드로 조정된다.
+                    for key in ("target_pool", "ownship_hp_deficit",
+                                "deck_guard", "deck_guard_penalty"):
                         if key in data:
                             self.config[key] = data[key]
                     if isinstance(data.get("reward"), dict):
@@ -341,6 +349,7 @@ class DogFightEnv(gym.Env):
         # [MOD-OPPONENT] draw this episode's opponent FIRST: pool entries may
         # carry their own spawn geometry, and the scatter below reads it. The
         # draw uses only config and its own rng, so hoisting it is safe.
+        self._crash_buf = []        # [MOD-CRASHDUMP] 판마다 궤적 버퍼 초기화
         self._sample_opponent()
         self._apply_entry_spawn()   # [MOD-OPPONENT] target-side geometry
 
@@ -367,6 +376,40 @@ class DogFightEnv(gym.Env):
                 r_pitch=float(rand.get("r_pitch", 0)),
                 r_heading=float(rand.get("r_heading", 0)),
             )
+            # [MOD-TGTRAND 2026-09-03 사용자 지시] 적기에도 같은 산포를 건다.
+            # 이전에는 ownship 만 흩어지고 적기는 _apply_entry_spawn 이 풀 항목
+            # 좌표에 정확히 고정해, 매 판 적기의 자리·기수가 같았다(실측: 코드
+            # 경로 확인). add_random_init_position 은 flight="target" 과 풀 항목
+            # 스폰 기준 오프셋을 이미 지원하므로 호출만 추가한다.
+            # target_randomization 이 있으면 그 값을, 없으면 ownship 과 같은 값을 쓴다.
+            trand = rand if self.config.get("target_randomization") is None                 else self.config.get("target_randomization")
+            if trand.get("enabled", False):
+                self.add_random_init_position(
+                    "target",
+                    radius=float(trand.get("radius", 0)),
+                    r_roll=float(trand.get("r_roll", 0)),
+                    r_pitch=float(trand.get("r_pitch", 0)),
+                    r_heading=float(trand.get("r_heading", 0)),
+                )
+
+        # [MOD-SPAWNRAND 사용자 지시 2026-09-04] 판마다 스폰 고도와 초기속도를 뽑는다.
+        #   spawn_alt_m   [최소,최대] : 고도를 균일 추첨. 서버 Alt 입력칸이 하나라
+        #     양측이 같은 고도로 뜨므로 두 기체에 같은 값을 준다(수평 배치 유지).
+        #   spawn_speed_mps [최소,최대] : 초기속도도 같은 이유로 양측 동일.
+        _sa = self.config.get("spawn_alt_m")
+        if _sa:
+            _alt = float(self.np_random.uniform(float(_sa[0]), float(_sa[1])))
+            for _name, _f in (("ownship", self._sim), ("target", self._target_sim)):
+                self.change_init_position(
+                    _name, init_n=_f._init_pos_n, init_e=_f._init_pos_e,
+                    init_d=-_alt,                      # env 는 D(아래 양수)
+                    init_roll=_f._init_roll, init_pitch=_f._init_pitch,
+                    init_heading=_f._init_heading, init_speed=_f._init_speed)
+        _ss = self.config.get("spawn_speed_mps")
+        if _ss:
+            _v = float(self.np_random.uniform(float(_ss[0]), float(_ss[1])))
+            for _f in (self._sim, self._target_sim):
+                _f._init_speed = _v
 
         # [MOD-PURSUIT] per-episode teacher randomization
         if self.config.get("target_mode") == "pursuit":
@@ -481,6 +524,38 @@ class DogFightEnv(gym.Env):
 
     def step(self, action) -> Tuple[np.ndarray, float, bool, bool, Dict]:
         action = np.asarray(action, dtype=np.float32)
+        # [MOD-DECKGUARD 사용자 지시 2026-09-04] 제출 경로에만 있던 GCAS 를 학습에도 건다.
+        #   student/deck_guard.py 와 같은 함수를 쓴다(롤 수평 우선 -> 당김, 스로틀 강제).
+        #   발동한 스텝에만 deck_guard_penalty 만큼 벌점을 준다(가드에 기대지 않게).
+        #   주의: 완전 예방이 아니다 — deck_guard.py 주석의 실측 ep9(-165 m/s 급강하,
+        #   뱅크 -65~-85도)에서는 발동 고도를 457/785/966 m 어디로 잡아도 바닥 ~301 m 추락.
+        self._deck_guard_fired = False
+        if bool(self.config.get("deck_guard", False)):
+            from student.deck_guard import guard_step
+            _st = self._ownship_state
+            _alt = float(_st[StateIndex.ALT])
+            _t = float(_st[StateIndex.SIM_TIME])
+            _pa, _pt = getattr(self, "_dg_alt", None), getattr(self, "_dg_t", None)
+            _vz = (_alt - _pa) / (_t - _pt) if (_pa is not None and _t > (_pt or 0.0)) else 0.0
+            # [MOD-GUARDPHYS] 피치 변화율(°/s) — 숙이는 중이면 가드가 0.5 s 뒤 강하각으로 판단한다.
+            _pitch = float(_st[StateIndex.PITCH])
+            _pp = getattr(self, "_dg_pitch", None)
+            _q = ((((_pitch - _pp + 180.0) % 360.0) - 180.0) / (_t - _pt)
+                  if (_pp is not None and _pa is not None and _t > (_pt or 0.0)) else 0.0)
+            self._dg_alt, self._dg_t, self._dg_pitch = _alt, _t, _pitch
+            _d = float(np.linalg.norm(np.asarray(self._target_state[0:3], dtype=np.float64)
+                                      - np.asarray(_st[0:3], dtype=np.float64)))
+            # [MOD-GUARDPHYS 2026-09-05] 속도(동체속도 크기)를 넘겨 실제 비행경로각으로 판단한다.
+            _spd = float(np.linalg.norm(np.asarray(_st[6:9], dtype=np.float64)))
+            action, _fired = guard_step(
+                action, _alt, _vz, float(_st[StateIndex.ROLL]), float(_st[StateIndex.PITCH]),
+                # env 원시 행동은 [-1, 1] 이라 최소 추력은 -1.0 (제출 래퍼는 [0,1] 변환 뒤라 (0,1)).
+                _d, getattr(self, "_dg_active", 0), throttle_range=(-1.0, 1.0),
+                enemy_alt_m=float(self._target_state[StateIndex.ALT]), speed_mps=_spd,
+                pitch_rate_dps=_q)
+            self._dg_active = _fired
+            self._deck_guard_fired = bool(_fired)
+            action = np.asarray(action, dtype=np.float32)
         failure = self._advance_simulation_step_ratio(action)
         if failure is not None:
             return failure
@@ -501,6 +576,15 @@ class DogFightEnv(gym.Env):
 
         ownship_health = float(self._ownship_state[StateIndex.HEALTH])
         target_health = float(self._target_state[StateIndex.HEALTH])
+        # [MOD-ENDONHIT 사용자 지시 2026-09-04] 한 대라도 맞으면 그 판을 즉시 끝낸다.
+        #   보상이 "무피해 승리만 점수"(my_reward [MOD-VOID])로 바뀌면서, 맞은 뒤의 스텝은
+        #   무슨 행동을 하든 전부 0 이라 기울기가 없다. 실측: 쫓기는 스폰에서 3.6초에 맞고
+        #   107초를 0 으로 흘렸고, 딜 0.49 를 넣어 판정승한 판도 122초의 피격 한 번으로 0 이었다.
+        #   그 구간을 굴리는 대신 판을 끝내 표본을 아끼고 신호를 선명하게 만든다.
+        if (not terminated and not truncated
+                and bool(self.config.get("end_on_hit", False))
+                and ownship_health < 1.0):
+            terminated, end_condition = True, "ownship hit"
         outcome = self._classify_outcome(
             terminated,
             truncated,
@@ -509,11 +593,37 @@ class DogFightEnv(gym.Env):
             target_health,
             hp_deficit=getattr(self, "_hp_deficit_applied", 0.0),
         )
+        # [MOD-CRASHDUMP 사용자 지시 2026-09-04] 추락은 0.13%(3,011판 중 4판)라
+        #   25 iteration 주기 리플레이 샘플링에는 절대 안 걸린다(실측: 4판 모두 기록 없음).
+        #   그래서 env 가 궤적을 들고 있다가 추락한 판만 CSV 로 떨군다.
+        if self.config.get("crash_dump_dir"):
+            _b = getattr(self, "_crash_buf", None)
+            if _b is None:
+                _b = self._crash_buf = []
+            _o, _t = self._ownship_state, self._target_state
+            _b.append((float(_o[StateIndex.SIM_TIME]),
+                       float(_o[StateIndex.N]), float(_o[StateIndex.E]), float(_o[StateIndex.ALT]),
+                       float(_o[StateIndex.ROLL]), float(_o[StateIndex.PITCH]), float(_o[StateIndex.YAW]),
+                       float(ownship_health),
+                       float(_t[StateIndex.N]), float(_t[StateIndex.E]), float(_t[StateIndex.ALT]),
+                       float(target_health),
+                       float(action[0]), float(action[1]), float(action[2]), float(action[3]),
+                       1.0 if getattr(self, "_deck_guard_fired", False) else 0.0))
+            if len(_b) > 2400:
+                del _b[:len(_b) - 2400]
+            if terminated and "ownship altitude" in str(end_condition or ""):
+                self._dump_crash(_b, end_condition)
         reward, components = self._compute_step_reward(
             terminated,
             truncated,
             end_condition,
         )
+        if getattr(self, "_deck_guard_fired", False):
+            _p = float(self.config.get("deck_guard_penalty", 0.0))
+            if _p:
+                reward = float(reward) - _p       # [MOD-DECKGUARD] 발동 스텝 벌점
+                components = dict(components)
+                components["deck_guard"] = -_p
 
         ep_mean_dist, ep_min_dist = self._update_episode_metrics(
             action,
@@ -556,6 +666,7 @@ class DogFightEnv(gym.Env):
 
         if terminated or truncated:
             self._note_opponent_result(outcome)   # [MOD-OPPONENT] PFSP history
+            self._append_opponent_log(outcome)    # [MOD-OPPLOG] 상대별 전적 디스크 기록
         self._append_logs()
         self.pre_obs = copy.deepcopy(cur_obs)
         self.current_timestep += 1
@@ -661,6 +772,8 @@ class DogFightEnv(gym.Env):
             # Label and reward now agree.
             if ownship_health <= 0.0 and target_health <= 0.0:
                 return "draw"   # [MOD-TIE 2026-08-29] 동시격추는 지표상 무승부로 분리 (보상은 loss=draw=0 으로 동일)
+            if end_condition == "ownship hit":
+                return "hit"        # [MOD-ENDONHIT] 승리가 아니므로 win_rate 에서 빠진다
             if end_condition in ("ownship altitude below min", "FDM Update Fail"):
                 return "crash"
             # [MOD-JUDGE] rulebook (Top Gun Challenge deck, slide 11): below
@@ -797,6 +910,12 @@ class DogFightEnv(gym.Env):
         if _entry_mode == "aggressor":
             self._step_aggressor()
             return
+        # [MOD-CUTOFFBT 2026-09-04] 컷오프(EasyModeCutoff) 행동트리 복원본을 적기로 쓴다.
+        #   복원 근거·수식은 docs/cutoff_decompile/. 실서버 대조: 꼬리잡기에서 상대 HP
+        #   원본 91.7 / 복원본 90.1 (200초 완주·무피해 동일).
+        if _entry_mode == "cutoffbt":
+            self._step_cutoff_bt()
+            return
         if self._target_action_provider is not None:
             context = self._build_action_context(
                 self._target_sim,
@@ -849,6 +968,39 @@ class DogFightEnv(gym.Env):
             )
         else:
             self._target_sim.step_fix()
+
+    # [MOD-CRASHDUMP] ----------------------------------------------------
+    def _dump_crash(self, buf, end_condition):
+        """추락한 판의 궤적을 CSV 로 남긴다. 러너·시각으로 파일명을 나눠 충돌을 피한다."""
+        try:
+            import csv as _csv
+            d = Path(self.config["crash_dump_dir"])
+            d.mkdir(parents=True, exist_ok=True)
+            ent = getattr(self, "_episode_opponent", None) or {}
+            name = f"crash_{datetime.datetime.now():%m%d_%H%M%S}_{self._runner_index}_{self._env_index}.csv"
+            with (d / name).open("w", newline="", encoding="utf-8") as f:
+                w = _csv.writer(f)
+                w.writerow(["# end", end_condition, "opponent", ent.get("_name", "?"),
+                            "spawn", ent.get("pair", "?"), ent.get("side", "?")])
+                w.writerow(["t", "own_n", "own_e", "own_alt", "roll", "pitch", "yaw", "own_hp",
+                            "tgt_n", "tgt_e", "tgt_alt", "tgt_hp",
+                            "a_roll", "a_pitch", "a_yaw", "a_thr", "guard"])
+                w.writerows(buf)
+        except Exception as exc:
+            print(f"[DogFightEnv][CrashDump] skipped: {exc}")
+
+    # [MOD-CUTOFFBT] -----------------------------------------------------
+    def _step_cutoff_bt(self):
+        """컷오프 BT 복원본으로 적기를 한 substep 굴린다(러너당 1개 재사용)."""
+        prov = getattr(self, "_cutoff_bt", None)
+        if prov is None:
+            from student.cutoff_bt import CutoffBTProvider
+            prov = CutoffBTProvider(step_ratio=self._step_ratio)
+            self._cutoff_bt = prov
+        context = self._build_action_context(
+            self._target_sim, self._sim, self._target_state,
+            self._ownship_state, self.pre_obs)
+        self._target_sim.step(prov.compute_action(context).action)
 
     # [MOD-TEACHER] ------------------------------------------------------
     def _ensure_teacher(self):
@@ -934,9 +1086,28 @@ class DogFightEnv(gym.Env):
         weights = np.array([float(e.get("weight", 1.0)) for e in pool], dtype=float)
         weights = self._prioritise(pool, weights)
         weights = weights / weights.sum()
-        entry = dict(pool[int(self._opponent_rng().choice(len(pool), p=weights))])
+        # [MOD-PAIR 2026-08-30] slot pairing: when env_config["pair_slots"] is on, an entry drawn by weight is
+        # followed next reset by its mirror (same "pair" key, other "side") so every opponent/altitude is played
+        # once from the Blue slot and once from the Red slot back-to-back instead of a 50:50 coin flip.
+        # Entries without pair/side (older stages) fall through to the plain weighted draw. Per env instance.
+        pending = getattr(self, "_pair_pending", None)
+        entry = None
+        if self.config.get("pair_slots") and pending:
+            for e in pool:
+                if e.get("pair") == pending[0] and e.get("side") and e.get("side") != pending[1]:
+                    entry = dict(e); break
+            self._pair_pending = None
+        if entry is None:
+            entry = dict(pool[int(self._opponent_rng().choice(len(pool), p=weights))])
+            if self.config.get("pair_slots") and entry.get("pair") and entry.get("side"):
+                # first side of a pair = whichever entry the weighted draw returned (Blue/Red 50:50); the
+                # mirror always follows. A fixed Blue-first order made every replay Blue-only, because the
+                # engagement logger records fresh envs' first episodes (8/30 final_v2r7 iter 0-50: 18/18 Blue).
+                self._pair_pending = (entry["pair"], entry["side"])
         entry["_name"] = _opponent_name(entry)
         self._episode_opponent = entry
+        if entry.get("mode") == "cutoffbt" and getattr(self, "_cutoff_bt", None) is not None:
+            self._cutoff_bt.reset()   # [MOD-CUTOFFBT] 머지 래치·링버퍼·리드배율 재추첨
         # [MOD-OPPMODE] margin play is the right lesson against a mirror
         # policy (no kill key exists between competent policies) and the
         # wrong lesson against a teacher (league training took ace kill
@@ -960,6 +1131,34 @@ class DogFightEnv(gym.Env):
                 self._teacher = make_teacher(entry["teacher"])
                 self._teacher_spec = entry["teacher"]
                 self._teacher_rng = np.random.default_rng()
+
+    # [MOD-OPPLOG 2026-09-06 사용자 지시 "못 이기는 상대 더 만나게"] 상대별 전적을 디스크에 남긴다.
+    #   기존 PFSP 는 손대지 않는다. 이 로그는 외부 도구(student/tools/pool_autotune.py)가 읽어
+    #   live_tune.json 의 target_pool 비중을 조정하는 데만 쓴다.
+    #   러너 16개가 각자 자기 파일(pid 별)에 쓰므로 경합이 없다. 요약(summary_json)은 25 iter 마다
+    #   6판뿐이라 17종 풀에서는 표본이 안 쌓인다 — 그래서 판마다 한 줄씩 남긴다.
+    def _append_opponent_log(self, outcome: str) -> None:
+        path = self.config.get("opponent_log_dir")
+        if not path:
+            return
+        entry = getattr(self, "_episode_opponent", None) or {}
+        name = entry.get("_name", "?")
+        try:
+            import os as _os
+            _os.makedirs(path, exist_ok=True)
+            f = getattr(self, "_opp_log_file", None)
+            if f is None:
+                f = open(_os.path.join(path, "opp_%d.csv" % _os.getpid()), "a",
+                         encoding="utf-8", buffering=1)
+                self._opp_log_file = f
+            f.write("%d,%s,%s,%s,%.4f,%.4f,%s" % (
+                int(self.current_timestep), name, outcome,
+                str(self.info.get("end_condition", "")).replace(",", " "),
+                float(self.info.get("ownship_health", 0.0) or 0.0),
+                float(self.info.get("target_health", 0.0) or 0.0),
+                (entry.get("pair", "") or "").split("|")[-1]) + chr(10))
+        except Exception:
+            pass
 
     def _note_opponent_result(self, outcome: str) -> None:
         entry = getattr(self, "_episode_opponent", None)
@@ -1232,6 +1431,29 @@ class DogFightEnv(gym.Env):
             init_roll=float(arr[3]), init_pitch=float(arr[4]),
             init_heading=float(arr[5]),
             init_speed=float(arr[6]) if len(arr) > 6 else float(base[6]),
+            target_type=getattr(self, "_target_type", 2),
+        )
+
+        # [MOD-OWNSPAWN 2026-09-04] 풀 항목의 spawn.ownship 도 적용한다.
+        #   이 함수는 원래 적기만 세웠다. 그래서 자리 교대(blue/red)나 거리별 슬롯처럼
+        #   **아군 좌표가 슬롯마다 다른** 구성에서는 아군이 스테이지 기본값에 고정돼
+        #   기하가 깨졌다(실측 iter 825: 같은 기수 +90/+90, 거리 14~325 m).
+        #   적기와 같은 규약 — 스테이지 기본을 한 번 스냅샷하고, 항목이 있으면 그 값으로,
+        #   없으면 기본으로 되돌려 다음 판에 새지 않게 한다.
+        own = self._sim
+        obase = getattr(own, "_dogfight_stage_spawn", None)
+        if obase is None:
+            obase = [own._init_pos_n, own._init_pos_e, own._init_pos_d,
+                     own._init_roll, own._init_pitch, own._init_heading,
+                     own._init_speed]
+            own._dogfight_stage_spawn = obase
+        oarr = (entry.get("spawn") or {}).get("ownship") or obase
+        self.change_init_position(
+            "ownship",
+            init_n=float(oarr[0]), init_e=float(oarr[1]), init_d=float(oarr[2]),
+            init_roll=float(oarr[3]), init_pitch=float(oarr[4]),
+            init_heading=float(oarr[5]),
+            init_speed=float(oarr[6]) if len(oarr) > 6 else float(obase[6]),
             target_type=getattr(self, "_target_type", 2),
         )
 

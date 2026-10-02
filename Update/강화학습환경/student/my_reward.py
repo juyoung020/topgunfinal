@@ -23,27 +23,35 @@ M_TO_FT = 1.0 / 0.3048
 # ── 보상 크기 (0 = 그 항 꺼짐). 값 = stage 35 = final_sp/live_tune.json — 바꾸면 live_tune 도 같이. 순서 = 효과(배치 간 std) 큰 순.
 MY_REWARD_WEIGHTS: dict[str, float] = {
     # 종단 (승리만 양수; 패배·동시격추·시간종료 0)
-    "win_reward": 600.0,
-    "win_time_bonus": 200.0,
+    "win_reward": 300.0,
+    "win_time_bonus": 0.0,   # [2026-09-05 사용자 지시] 200 -> 0 (빠른 결착 보너스 제거)
     "crash_reward": -700.0,
     # 딜
     "w_damage": 300.0,
+    "w_damage_taken": 50.0,  # 피딜(맞은 HP) 벌점 (8/29 0 -> 50)
     "w_precision_mult": 1.0,  # 정밀 조준 배수: 내 ATA 0도 x2 -> precision_ata_deg(1도)에서 x1 (선형)
     # 저고도선
-    "w_deck": 4.0,
+    "w_deck": 12.0,
+    # [MOD-TAILSLOW 2026-09-09] 후방에서 감속하면 주는 항. 기본 0 (live_tune 로 켠다).
+    "w_tailslow": 0.0,
+    "tailslow_rear_deg": 120.0,      # 적 기수각이 이보다 크면 후방 점유
+    "tailslow_aim_deg": 5.0,         # 내 조준 5도 이내
+    "tailslow_range_m": 1500.0,      # 사거리 근방까지
+    "tailslow_target_mps": 30.0,     # 이 접근율 이하면 만점, 두 배 넘으면 0
     # 미스거리
     "w_nmd": 8.0,
     # 거리
     "w_range": 0.1,
-    # 멀어짐
-    "w_far": 0.12,
+    # 멀어짐 — [2026-09-05 사용자 지시] 제거.
+    #   접근 포텐셜과 같은 일(붙으라고 미는 것)을 하는데 상쇄가 없어 더 강했다.
+    "w_far": 0.0,
     # 조준각
     "w_aim": 0.16,
     "w_aim_wide": 0.08,
     # 최근접점
     "w_cpa": 1.5,
-    # 접근 포텐셜
-    "w_close_pot": 15.0,
+    # 접근 포텐셜 — [2026-09-05 사용자 지시] 제거
+    "w_close_pot": 0.0,
     # 천장
     "w_ceil": 1.0,
 
@@ -51,20 +59,32 @@ MY_REWARD_WEIGHTS: dict[str, float] = {
     "loss_reward": 0.0,  # 패배 (먼저 격추당함)
     "draw_reward": 0.0,  # 시간종료 기본값
     "draw_health_scale": 0.0,  # 시간종료 시 x(내HP-적HP)
-    "target_crash_reward": 0.0,  # 적이 스스로 추락
+    "target_crash_reward": 300.0,  # 적이 스스로 추락 = 대회 규칙상 승리 (2026-09-05 사용자 지시)
     "timeout_penalty": 0.0,  # 시간종료 벌점(HP 무관)
     "step_penalty": 0.0,  # 매 스텝 고정 벌점
-    "w_damage_taken": 0.0,  # 피딜(맞은 HP) 벌점
     "w_headon_mult": 0.0,  # 정면 배수: 적 기수가 나를 향할 때 딜 배수
     "w_high": 0.0,  # 고고도 벌점 (high_floor_m 위)
     "w_overspeed": 0.0,  # 과속 벌점 (overspeed_ref_mps 초과)
-    "w_wez": 0.0,  # WEZ 콘 안 체류 보상
+    # [2026-09-05 사용자 지시] WEZ 원뿔 안 체류 보상 0 -> 1.0.
+    #   실측(v4 114판) w_wez=1 일 때 판당 적분 중앙 1.75 / 상위10% 12.66.
+    #   이긴 판 2.94 vs 진 판 0.43 으로 승패와 갈리는 신호다. 분산이 커서
+    #   (중앙 대비 상위10% 가 7배) 크게 잡으면 배치 간 표준편차가 딜을 덮는다 —
+    #   작게 시작한다.
+    "w_wez": 1.0,  # WEZ 콘 안 체류 보상
     "w_snap": 0.0,  # snap_ata_deg 안 정밀 조준 보너스
     "w_perch": 0.0,  # 적 후방 perch 위치 보상
+    # [MOD-SIX 2026-09-05 사용자 지시] 후방 포지션 유지 (rear x near, 조준 없음). 2c 주석 참조.
+    # [2026-09-06] 0.17 은 판당 6(옆구리 중앙) = 딜의 2% 로 "부적" 수준이라 딜과 경쟁이 안 됐다.
+    #   리플레이 108판 실측으로 크기를 잡았다(옆구리 71 / 꼬리잡기 37 분리):
+    #     w0.17 gate0.25       옆구리  5.7 ( 2%) · 꼬리 12.6 ( 4%)
+    #     w0.80 gain1.5 gate.45 옆구리 30.9 (11%) · 꼬리 63.8 (22%)   <- 채택
+    #     w1.00                 옆구리 38.6 (13%) · 꼬리 79.8 (28%)   꼬리가 과하다
+    #   gate 0.45 를 쓰는 이유: 0.25 면 꼬리/옆구리 비가 3.7배(거저 먹음), 0.45 면 2.1배.
+    "w_six": 0.80,
     "w_alt": 0.0,  # 고도 유지 포텐셜
     "w_nodmg": 0.0,  # nodmg_deadline_s 까지 무딜이면 벌점
-    "w_sink": 0.0,  # 강하율 벌점 (sink_free_mps 초과)
-    "w_recover": 0.0,  # 저고도 회복 기동 보상
+    "w_sink": 0.05,   # 2026-08-31 0.03 -> 0.05 (final_v2r7 iter ~2360)  # 강하율 벌점 (sink_free_mps 초과) x 저고도 게이트(sink_gate_ft 아래), 2026-08-29
+    "w_recover": 0.0,  # 5G 회복 불가에 가까운 강하 벌점 — 2026-08-29 final_v2r1 에서 5 로 30 iter 시험 후 0 (무효)
     "w_tti": 0.0,  # 격추까지 남은 시간 추정 보상
     "w_turnalt": 0.0,  # 선회 고도 turnalt_pref_m 유지 보상
     "w_idle": 0.0,  # 교전 회피(멀리서 배회) 벌점
@@ -79,9 +99,10 @@ MY_REWARD_PARAMS: dict[str, float] = {
     "damage_near_gate_m": 250.0,
     "damage_near_floor": 0.15,
     # 저고도선
-    "deck_ft": 2500.0,
+    "deck_ft": 1640.42,       # [2026-09-05 사용자 지시] 2,500 ft -> 500 m
+    "deck_floor_ft": 1000.0,  # 선형 deck 의 최대점(추락선), 2026-08-29
     # 미스거리
-    "nmd_half_m": 10.0,
+    "nmd_half_m": 5.0,   # 2026-08-30 10 -> 5 (final_v2r7 부터; 이전 실행 번들 metadata 는 10)
     # 멀어짐
     "far_start_m": 1800.0,
     "far_ramp_m": 1000.0,
@@ -109,10 +130,90 @@ MY_REWARD_PARAMS: dict[str, float] = {
     "perch_ata_deg": 10.0,
     "perch_near_m": 700.0,
     "perch_far_m": 1800.0,
+    # [MOD-SIX] 후방 포지션 — 2c 주석 참조
+    "six_rear_start_deg": 90.0,    # 적ATA 여기서 0
+    "six_rear_full_deg": 180.0,    # 여기서 1 (꼬리)
+    "six_near_far_m": 1800.0,      # 거리 여기서 0
+    "six_near_flat_m": 700.0,      # 여기서 1, 안쪽 평탄 (추월 방지)
+    # [MOD-SIXMERGE] 머지 초반 가중 — 2c 주석 참조
+    "six_merge_boost": 1.0,        # 0초에 x(1+이 값)
+    "six_merge_window_s": 30.0,    # 이 시각 이후 배수 1
+    # [MOD-POSPOT 2026-09-06 사용자 지시 "기존 보상 잔재보다 새롭게 만들어라"]
+    #   후방 포지션을 **포텐셜 셰이핑**으로 다시 설계한다. six(비포텐셜)의 문제 셋을 한 번에 푼다:
+    #     (1) 뒤에 있기만 하면 계속 줘서 파밍 가능      -> 텔레스코프(총합 = Φ끝 − Φ시작)라 불가
+    #     (2) 놓쳐도 벌점이 없어 추월을 안 막음          -> 놓치면 Φ 가 떨어져 자동으로 음수
+    #     (3) 판당 48~161 로 편차가 큼(정체 원인)        -> 크기가 W 로 유계
+    #   그리고 포텐셜 정리로 **최적정책이 안 바뀐다**(벌점 4개 전패 전례를 피한다).
+    #     Φ = w_pos x rear(적ATA) x range(d)
+    #       rear  = clip((적ATA − 90)/90, 0, 1)          정측 0, 순수 꼬리 1
+    #       range = 원거리감쇠 x 근접감쇠
+    #         원거리 clip((1800 − d)/1100, 0, 1)          700 m 안에서 1
+    #         근접   clip((d − 120)/230, 0, 1)            350 m 위에서 1, 120 m 에서 0
+    #       -> Φ 는 350~700 m 에서 최대. WEZ(152~914 m) 안이면서 추월권 밖이다.
+    #   실측 근거(36_34): 378 m 까지 파고들어 추월했다. 근접감쇠가 그 구간에서 Φ 를 깎아
+    #   파고들 유인을 없앤다. 별도 벌점이 필요 없다.
+    #   "계속 패는" 유인은 딜이 맡는다 — 포텐셜은 자리로 **밀어주기만** 하고, 머무를 이유는
+    #   딜에서 나온다. 그래서 딜이 최우선인 구조가 유지된다.
+    "w_pos": 50.0,                 # Φ 최대값(판당 기여는 |Φ끝 − Φ시작| 이라 이보다 작다)
+    "pos_rear_start_deg": 90.0,
+    "pos_rear_full_deg": 180.0,
+    "pos_far_m": 1800.0,           # 여기서 원거리감쇠 0
+    "pos_flat_m": 700.0,           # 여기 안쪽 원거리감쇠 1
+    "pos_close_zero_m": 120.0,     # 이보다 가까우면 Φ 0 (추월권)
+    "pos_close_full_m": 350.0,     # 여기 위에서 근접감쇠 1
+    # [MOD-TAILHOLD 2026-09-06 사용자 지시 "상대 꼬리를 계속 따라가면 보상 · 기존 보상 지우고"]
+    #   앞선 두 항([MOD-SIX] 비포텐셜, [MOD-POSPOT] 포텐셜)이 모두 실패해서 성격을 바꾼다.
+    #   실패 이유가 서로 달랐다:
+    #     six    "적 뒤쪽 어딘가"(ATA>90, 1800 m)면 줬다 -> 사격 불가 자리에서도 벌어 신호가 흐렸다
+    #     pospot 텔레스코프라 **머무는 시간에 값을 안 준다**. 사용자가 원한 "계속 따라감"이 무보상
+    #   이번 항은 정반대다: **사격 가능한 꼬리 자리에 있는 매 스텝** 준다. 머물수록 쌓인다.
+    #   파밍 걱정이 적은 이유: 게이트가 WEZ 사거리(152~914 m)와 꼬리각(150도)이라
+    #   보상을 버는 자리가 곧 딜이 들어가는 자리다. "뒤에서 뭉개기"로는 못 번다.
+    #   실측 근거(리플레이 3판 36_34/46_16/2_3): 완벽 조준을 잡고도 2~3초 만에 속도차로 놓친다.
+    #   사격 자리 체류가 판당 1.1~1.8초뿐인데 격추엔 1.56초가 필요하다. 체류 자체에 값을 매긴다.
+    "w_tail": 0.0,                 # 스텝당 보상 (live_tune 으로 켠다)
+    "tail_rear_start_deg": 130.0,  # 적ATA 여기서 0
+    "tail_rear_full_deg": 165.0,   # 여기서 1 (꼬리)
+    "tail_near_m": 152.4,          # WEZ 최소 사거리 — 이보다 가까우면 0 (추월권)
+    "tail_far_m": 914.4,           # WEZ 최대 사거리
+    "tail_edge_m": 200.0,          # 사거리 경계에서 이만큼 완만하게 감쇠
+    # [MOD-TAILSPD 2026-09-06 사용자 지적 "뒤에서 속도관리를 안 해"] 꼬리 보상에 곱하는 속도 정합.
+    #   실측(리플레이 3판): 완벽 조준을 잡고도 2~3초 만에 놓치는데, 그때 우리가 상대보다
+    #     36_34 +49 m/s · 46_16 +38 m/s · 2_3 +30 m/s 빨랐다. 감속을 안 해 안쪽으로 밀려
+    #     조준선을 넘어간다. 격추엔 1.56초 연속 조준이 필요한데 딱 그 언저리에서 놓친다.
+    #   사거리 안에서만 건다 — 멀리서 접근할 때는 빨라야 맞다. 게이트가 152~914 m 라 자동으로 그렇다.
+    #   벌점이 아니라 **배수**다. 붙어 있어도 과속하면 덜 받는다. 비포텐셜 벌점 전패 전례를 피한다.
+    "tail_spd_tol_mps": 10.0,      # 이만큼 빠른 건 봐준다(접근에 필요)
+    "tail_spd_span_mps": 60.0,     # tol 초과분이 이만큼이면 배수 0
+    # [MOD-POSDEF 2026-09-06 03:30 실측 판정 후 추가] 포텐셜의 빠진 조각.
+    #   pospot 만으로는 실패 모드를 못 건드린다 — 옆구리 스폰 교전의 **91~100% 가 정면 맞교환**인데
+    #   정면에서는 양쪽 rear 항이 둘 다 0 이라 Φ 가 침묵한다(실측: 후방점유 42.9->42.5,
+    #   추월 0.59->0.68, 동시도달 91->100%, 우리선취 6->2%. 개선 항목 0).
+    #   그래서 "상대의 총구 앞에 있는 것"을 Φ 에서 뺀다:
+    #     danger = clip((def_cone_deg − 적이우리를겨눈각)/def_cone_deg, 0, 1) x 사거리안
+    #     Φ = w_pos x 후방이득 − w_pos x w_def x danger
+    #   정면 머지로 들어가면 danger 1 -> Φ 하락 -> 음수. 우리가 뒤를 잡으면 적ATA 가 커져 danger 0.
+    #   쫓길 때도 danger 가 커서 음수 — 방어까지 같은 항으로 덮인다.
+    #   **포텐셜이라 최적정책 불변**(회피 학습으로 굳을 위험이 비포텐셜 벌점보다 훨씬 낮다).
+    #   기본 0 — live_tune 으로 켠다. 재기동은 이 설치 1회로 끝이다.
+    "w_def": 0.0,                  # Φ 에서 빼는 위험 항의 배수 (1.0 이면 후방이득과 같은 크기)
+    "def_cone_deg": 30.0,          # 적이 우리를 이 각 안에서 겨누면 위험
+    "def_far_m": 1200.0,           # 이보다 멀면 위험 0 (사거리 914 + 여유)
+    # [MOD-SIXHOLD 2026-09-06 사용자 지시 "후방 선점하고 안 놔주는 걸 배우면 다 이긴다"]
+    #   연속 유지 시간에 비례해 배수를 키운다. 놓치면 누적이 0 으로 끊기므로
+    #   **추월이 자동으로 벌받는다**(별도 벌점 없이). 비포텐셜 벌점을 안 쓰는 이유:
+    #   벌점 4개가 전부 실패한 전례가 있다.
+    #   실측 근거(리플레이 36_34): 7.5초에 622 m·ATA 0.4도로 완벽 선점 -> 12초 추월(4.5초만 유지).
+    #   옆구리 스폰 유지시간 중앙 3.2~3.7초. full_s 6초면 그 위로 갈 이유가 생긴다.
+    "six_hold_gain": 1.5,          # 배수 1 -> 2.5 (6초 유지). 2.0 은 꼬리잡기가 과해진다
+    "six_hold_full_s": 6.0,        # 이 시간 유지하면 배수 최대 (옆구리 유지 중앙 3.2~3.7초)
+    "six_hold_gate": 0.45,         # rear x near 임계. 0.25 는 느슨해 "뒤쪽 어딘가"도 세어준다
     "alt_ceiling_m": 6300.0,
     "nokill_hp_thresh": 0.0,
     "nodmg_deadline_s": 30.0,
     "sink_free_mps": 15.0,
+    "sink_gate_ft": 3000.0,   # 2026-08-31 2000 -> 3000 ft (5000 은 과하다는 사용자 판단): 추락 6판 전부 1,000~1,500 m 에서 -130~-190 m/s 강하 시작 -> 게이트를 결정 지점 위로       # 침하율 벌점이 온전히 붙는 고도 (아래), 2026-08-29
+    "sink_gate_ramp_ft": 1000.0,   # 2026-08-31 200 -> 1000   # 그 위 200 ft 에서 0 으로 램프
     "recover_g": 5.0,
     "recover_ratio_k": 3.0,
     "recover_min_gamma_deg": 5.0,
@@ -133,10 +234,13 @@ _PREV_ALT_PHI: dict = {}
 # 접근 포텐셜(3i)의 직전 값 — 같은 규약.
 _PREV_CLOSE_PHI: dict = {}
 _NODMG_STATE: dict = {}          # [MOD-NODMG] 판별 1회 부과용 (러너별 프로세스 전역)
+_SIXHOLD_STATE: dict = {}        # [MOD-SIXHOLD] 후방 연속 유지 타이머 (판 시작 시 되감기로 초기화)
 # 고공 벌점 포텐셜(4c)의 직전 값 — 같은 규약.
 _PREV_HIGH_PHI: dict = {}
 # 선회 최적고도 선호(4d)의 직전 값 — 같은 규약.
 _PREV_TURNALT_PHI: dict = {}
+# [MOD-POSPOT] 후방 포지션 포텐셜의 직전 값 — 같은 규약.
+_PREV_POS_PHI: dict = {}
 # 무교전 벌점(4e)의 "마지막 교전 시각" — 같은 규약.
 _PREV_IDLE: dict = {}
 
@@ -270,6 +374,109 @@ def compute_reward(
         ang = max(0.0, 1.0 - ata / C("perch_ata_deg"))
         comp["perch"] = w_perch * window * ang
 
+    # 2c. [MOD-SIX 2026-09-05 사용자 지시] 적 후방 포지션 유지 보상.
+    #   six = w_six x rear x near   (조준 인자 없음)
+    #     rear = clip((적ATA - six_rear_start_deg) / (six_rear_full_deg - start), 0, 1)
+    #            옆(90도)에서 0 -> 꼬리(180도)에서 1. 원형(120도 포화)보다 꼬리를 더 우대.
+    #     near = clip((six_near_far_m - d) / (far - six_near_flat_m), 0, 1)
+    #            1,800 m 에서 0 -> 700 m 에서 1, 그 안쪽은 평탄.
+    #            **평탄인 이유**: 더 파고들수록 커지면 추월(오버슛)을 부추긴다.
+    #            가까울수록 큰 보상은 damage 가 이미 준다.
+    #   조준을 안 보는 이유: 기수 방향은 aim/wez/nmd/damage 네 항이 맡는다. 곱하면
+    #     신호가 희박해지고(실측 v4 185판: 조준 포함 시 중앙 0.14, 제외 시 10.3),
+    #     더하면 살아난다. 상태 변수(연속 체류 카운터)는 관측에 없어 안 쓴다 —
+    #     스텝당 기하만 쓰면 오래 유지할수록 자연히 누적된다.
+    #   크기(실측 v5 iter 0~39, w_six=1): 판당 평균 113 = 딜(179)의 63%.
+    #     사전 추정(리플레이 적분 16)은 CSV 가 이미 10 Hz 인데 6배 솎아 계산한 오류였다.
+    #     합의한 목표 "딜의 ~9%" 에 맞춰 w_six 0.17 (판당 ~19). 승패 구분 6.5배,
+    #     신호>0 인 판 92% 는 비율이라 유효.
+    # 2b-0. [MOD-TAILHOLD] 사격 가능한 꼬리 자리 체류 보상. 파라미터 주석은 위 정의부 참조.
+    w_tail = C("w_tail")
+    if w_tail:
+        _trs, _trf = C("tail_rear_start_deg"), C("tail_rear_full_deg")
+        _ta = _ata_deg(target_state, ownship_state)          # 적이 우리를 겨눈 각(크면 우리가 꼬리)
+        _tr = min(max((_ta - _trs) / max(_trf - _trs, 1e-3), 0.0), 1.0)
+        _lo, _hi, _ed = C("tail_near_m"), C("tail_far_m"), max(C("tail_edge_m"), 1.0)
+        if d_m < _lo:
+            _tg = max(0.0, 1.0 - (_lo - d_m) / _ed)          # 너무 붙으면 감쇠(추월권)
+        elif d_m > _hi:
+            _tg = max(0.0, 1.0 - (d_m - _hi) / _ed)
+        else:
+            _tg = 1.0
+        # [MOD-TAILSPD] 속도 정합 배수. 상대보다 과속한 만큼 깎는다.
+        _su = math.sqrt(sum(float(ownship_state[k]) ** 2 for k in (6, 7, 8)))
+        _st_ = math.sqrt(sum(float(target_state[k]) ** 2 for k in (6, 7, 8)))
+        _tol, _span = C("tail_spd_tol_mps"), max(C("tail_spd_span_mps"), 1.0)
+        _excess = max(0.0, (_su - _st_) - _tol)
+        _sm = min(max(1.0 - _excess / _span, 0.0), 1.0)
+        comp["tail"] = w_tail * _tr * _tg * _sm
+
+    # 2b-1. [MOD-POSPOT] 후방 포지션 포텐셜. 파라미터 주석은 위 정의부 참조.
+    w_pos = C("w_pos")
+    if w_pos:
+        _prs, _prf = C("pos_rear_start_deg"), C("pos_rear_full_deg")
+        _tata = _ata_deg(target_state, ownship_state)   # 적이 우리를 겨눈 각(크면 우리가 적 뒤)
+        _r = min(max((_tata - _prs) / max(_prf - _prs, 1e-3), 0.0), 1.0)
+        _far = min(max((C("pos_far_m") - d_m) / max(C("pos_far_m") - C("pos_flat_m"), 1.0), 0.0), 1.0)
+        _cz, _cf = C("pos_close_zero_m"), C("pos_close_full_m")
+        _cl = min(max((d_m - _cz) / max(_cf - _cz, 1.0), 0.0), 1.0)
+        phi_p = w_pos * _r * _far * _cl
+        # [MOD-POSDEF] 상대 총구 앞에 있는 위험을 뺀다. 정면 맞교환이 Φ 를 떨어뜨린다.
+        _wd = C("w_def")
+        if _wd:
+            _cone = max(C("def_cone_deg"), 1e-3)
+            # 주의: `ata` 는 **우리가** 적을 겨눈 각이다. 위험은 **적이 우리를** 겨눈 각으로 재야 한다.
+            _dang = min(max((_cone - _tata) / _cone, 0.0), 1.0)
+            _dang *= min(max((C("def_far_m") - d_m) / max(C("def_far_m") - 200.0, 1.0), 0.0), 1.0)
+            phi_p -= w_pos * _wd * _dang
+        t_p = float(ownship_state[StateIndex.SIM_TIME])
+        prev_p = _PREV_POS_PHI.get("v")
+        if prev_p is None or t_p < _PREV_POS_PHI.get("t", 0.0):
+            prev_p = phi_p                       # 새 판 첫 스텝은 0
+        # 종료 스텝에는 셰이핑을 주지 않는다. Φ(종료)=0 규약을 그대로 쓰면
+        # 뒤를 잡은 채 격추했을 때 −Φ 를 물어 승리를 벌하게 된다.
+        comp["pospot"] = 0.0 if (terminated or truncated) else (phi_p - prev_p)
+        _PREV_POS_PHI["v"] = phi_p
+        _PREV_POS_PHI["t"] = t_p
+        if terminated or truncated:
+            _PREV_POS_PHI.clear()
+
+    w_six = C("w_six")
+    if w_six:
+        _rs, _rf = C("six_rear_start_deg"), C("six_rear_full_deg")
+        _rear = min(max((_ata_deg(target_state, ownship_state) - _rs) / max(_rf - _rs, 1e-3), 0.0), 1.0)
+        _nf, _nn = C("six_near_far_m"), C("six_near_flat_m")
+        _near = min(max((_nf - d_m) / max(_nf - _nn, 1.0), 0.0), 1.0)
+        _v = w_six * _rear * _near
+        # [MOD-SIXHOLD] 연속 유지 시간 배수. rear x near 가 gate 아래로 떨어지면 0 으로 끊긴다.
+        _hg = C("six_hold_gain")
+        if _hg:
+            _now = float(ownship_state[StateIndex.SIM_TIME])
+            if _now < _SIXHOLD_STATE.get("t", 0.0):     # 시간이 되감기면 새 판
+                _SIXHOLD_STATE.clear()
+            _dt = max(0.0, _now - _SIXHOLD_STATE.get("t", _now))
+            _SIXHOLD_STATE["t"] = _now
+            if _rear * _near >= C("six_hold_gate"):
+                _SIXHOLD_STATE["hold"] = _SIXHOLD_STATE.get("hold", 0.0) + _dt
+            else:
+                _SIXHOLD_STATE["hold"] = 0.0            # 놓치면 누적 소멸 = 추월 벌점
+            _full = max(C("six_hold_full_s"), 1e-3)
+            _v *= 1.0 + _hg * min(_SIXHOLD_STATE["hold"] / _full, 1.0)
+        # [MOD-SIXMERGE 2026-09-05 사용자 지시] 머지 초반 가중.
+        #   같은 후방 점유라도 **먼저** 잡는 쪽이 이긴다 — 실측(vs 25100): 첫 딜이 19.5초,
+        #   그 구간 내 ATA 76.3도 vs 적 64.4도로 12도 밀렸다. 그런데 six 는 200초 내내
+        #   같은 크기라 초반에 서두를 이유가 없었다.
+        #   boost = 1 + w_merge * max(0, 1 - t/window). window 30초·w_merge 1.0 이면
+        #   0초 x2.0 / 15초 x1.5 / 30초 이후 x1.0.
+        #   대회 WEZ 페이즈(0~100초 배율 1.0, 이후 0.3/0.1)와 같은 방향이다.
+        #   MDP 유효: 경과시간(time_norm)이 관측 16차원에 있어 정책이 t 를 안다.
+        _wm = C("six_merge_boost")
+        if _wm:
+            _win_s = max(C("six_merge_window_s"), 1e-3)
+            _t = float(ownship_state[StateIndex.SIM_TIME])
+            _v *= 1.0 + _wm * max(0.0, 1.0 - _t / _win_s)
+        comp["six"] = _v
+
     # 2d. 콘-게이트 WEZ 셰이핑 — 3g 주석 참조. cone(ATA) x prox(d) 곱이라
     #     콘 밖 근접은 0. prox 는 실제 데미지 곡선 모양(914 m 0 → best 평탄역).
     w_wez = C("w_wez")
@@ -324,6 +531,30 @@ def compute_reward(
                 d_cpa = math.sqrt(sum(m * m for m in miss))
                 comp["cpa"] = w_cpa / (1.0 + d_cpa / max(C("cpa_half_m"), 1e-3))
 
+    # 2h. [MOD-TAILSLOW 2026-09-09 사용자 지시] 후방에서 속도를 줄이면 준다.
+    #
+    # 왜: 뒤를 잡는 순간 우리는 상대보다 +62 m/s 빠르고(실측), 선회 반경이 848 m 대
+    # 205~1,230 m 라 밖으로 밀려난다. 뒤를 잡아도 3.3초만 유지하고 놓친다.
+    # 규칙 가드로 스로틀을 직접 줄여봤더니 접근율은 내려갔지만 못 붙어서 격추가
+    # 줄었다(aimangle 상대 승률 0.88 -> 0.56). 그래서 강제하지 않고 보상으로 준다.
+    #
+    # 발동: 적의 후방 반구(적 기수각 > 120도) + 내 조준 5도 이내 + 사거리 근방.
+    # 크기: 접근율이 목표(기본 30 m/s) 이하면 1, 그 두 배를 넘으면 0 으로 선형.
+    # 주의: 비포텐셜 항이라 최적정책을 바꾼다. 그게 목적이지만 파밍 위험이 있어
+    # 조준·후방·사거리 세 조건을 동시에 걸어 좁혔다. 기본 가중치 0 (live_tune 로 켠다).
+    w_ts = C("w_tailslow")
+    if w_ts:
+        _tail_ata = _ata_deg(target_state, ownship_state)
+        if (_tail_ata >= C("tailslow_rear_deg") and ata <= C("tailslow_aim_deg")
+                and d_m <= C("tailslow_range_m")):
+            _vo = _ned_velocity(ownship_state)
+            _vt = _ned_velocity(target_state)
+            _rel = [float(target_state[i]) - float(ownship_state[i]) for i in range(3)]
+            _dn = max(math.sqrt(sum(x * x for x in _rel)), 1e-6)
+            _cl = -sum((_vt[i] - _vo[i]) * _rel[i] / _dn for i in range(3))
+            _tgt = max(C("tailslow_target_mps"), 1e-3)
+            comp["tailslow"] = w_ts * min(max(1.0 - (_cl - _tgt) / _tgt, 0.0), 1.0)
+
     # 3. 데미지 — 격추 그 자체. 총량이 w x HP 로 유계
     comp["damage"] = (C("w_damage") * float(target_damage)
                       - C("w_damage_taken") * float(ownship_damage))
@@ -362,7 +593,9 @@ def compute_reward(
 
 
     # 4. 지면
-    comp["deck"] = -C("w_deck") * (1.0 - _S(alt_ft, 1.0 / 20.0, C("deck_ft")))
+    # [2026-08-29 사용자 지시] 계단(로지스틱 폭 +-50 ft, 2,450 ft 아래 정액) -> 선형: deck_ft 에서 0, deck_floor_ft(추락선 1,000 ft)에서 -w_deck.
+    #   이전: -w_deck * (1 - _S(alt_ft, 1/20, deck_ft))  — 2,400 ft 와 1,000 ft 가 같은 값이라 저고도에서 기울기 0 이었음
+    comp["deck"] = -C("w_deck") * min(max((C("deck_ft") - alt_ft) / max(C("deck_ft") - C("deck_floor_ft"), 1.0), 0.0), 1.0)
 
     # 4b. [MOD-SINK] 2026-08-22 — 침하율 벌점. 기본값 0 이라 켜기 전엔 무동작.
     #
@@ -390,7 +623,9 @@ def compute_reward(
         # 동체 -> NED 의 D 성분 (아래가 양수) = 침하율
         _d = (-_sp) * _u + (_sr * _cp) * _v + (_cr * _cp) * _w
         _free = C("sink_free_mps")
-        comp["sink"] = -w_sink * max(0.0, _d - _free)
+        # [2026-08-29 사용자 지시] 저고도에서만: sink_gate_ft(2,000 ft) 아래 1.0, 그 위 sink_gate_ramp_ft 구간에서 0 으로 (고고도 정상 강하는 벌점 없음)
+        _gate = min(max((C("sink_gate_ft") + C("sink_gate_ramp_ft") - alt_ft) / max(C("sink_gate_ramp_ft"), 1.0), 0.0), 1.0)
+        comp["sink"] = -w_sink * max(0.0, _d - _free) * _gate
 
     # 3c-3. [MOD-RECOVER] 회복 여유고도 — 2026-08-22 실측으로 신설.
     #

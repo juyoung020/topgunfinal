@@ -1,0 +1,414 @@
+<root main_tree_to_execute = "MainTree">
+
+
+  <BehaviorTree ID="MainTree">
+    <Sequence>
+       <!-- 여기에는 쿨타임이랑 EF SF 판별기 일단 학습환경 구성이 어떤식인지 모르니 쿨타임 기능만 적용 예정 -->
+       
+      <SelectEFSF name="SelectEFSF" BB="{BB}"/>
+      <CoolTimer name="CoolTimer" BB="{BB}"/>
+      <Fallback>
+        <!-- EF 부분 트리-->
+        <Sequence>
+          
+          <DECO_EFSFCheck name="DECO_EFSFCheck" InputACM="EF" BB="{BB}"/>
+          
+          <DirectionVectorUpdate name="DirectionVectorUpdate" BB="{BB}"/>
+          <DistanceUpdate name="DistanceUpdateService" BB="{BB}"/>
+          <CheckSight name="Check39Line" BB="{BB}"/>          
+          <AngleOffUpdate name="AngleOffUpdate" BB="{BB}"/>
+          <AspectAngleUpdate name="AspectAngleUpdate" BB="{BB}"/>
+          <Superior name="Superior" BB="{BB}"/>
+          <WeaponSelect name="WeaponSelect" BB="{BB}"/>
+          <LunchMSL name="LunchMSL" BB="{BB}"/>
+          <LunchFlare name="LunchFlare" BB="{BB}"/>
+
+          <Fallback>
+
+
+            <!-- OBFM 부분-->
+            <Sequence>
+              
+              <DECO_BFMCheck name="DECO_BFMCheck" BB="{BB}" CheckBFM="OBFM"/>
+              <Sequence>
+                <!-- SQ1-->
+                <SpeedControl name="SpeedControlService" BB="{BB}"/>
+                <TurnCheck name="TurnCheck" BB="{BB}"/>
+                <Fallback>
+                  <!-- FB1-->
+
+
+                  <!-- ////////////////////////////////////Distance 2000 이상///////////////////////////////////// -->
+                  <Sequence>
+                    <!--SQ2-->
+                    <DECO_DistanceCheck name="DistanceCheck" UpDown="Greater"  Distance="2000" BB="{BB}"/>
+                    <Fallback>
+                      <!--FB2-->
+                      <Sequence>
+                        <!--SQ4-->
+                        <!-- <DECO_LOSCheck name="LOSCheck" UpDown="Greater" InputLOS="20" BB="{BB}"/> -->
+                        <DECO_AngleOffCheck name="AngleOffCheck" UpDown="Greater"  InputAO="30" BB="{BB}"/>
+                        <Lead name="Lead" BB="{BB}"/> <!-- Lead 였는데 pure로 테스트중-->
+                        
+                      </Sequence>
+                      <!--SQ4-->
+
+                      <Sequence>
+                        <!--SQ5-->
+                        <!--DECO_LOSCheck name="LOSCheck" UpDown="Less" InputLOS="20" BB="{BB}"/-->
+                        <DECO_AngleOffCheck name="AngleOffCheck" UpDown="Less"  InputAO="30" BB="{BB}"/>
+                        <Pure name="Pure" BB="{BB}"/>
+                      </Sequence>
+                      <!--SQ5-->
+
+                    </Fallback>
+                    <!--FB2-->
+                  </Sequence>
+                  <!--SQ2-->
+                  <!-- ///////////////////////////////////Distance 2000 이상////////////////////////////////////// -->
+
+                  <!-- ///////////////////////////////////Distance 2000 이하////////////////////////////////////// -->
+                  <Sequence>
+                    <!--SQ1-->
+                    <DECO_DistanceCheck name="DistanceCheck" UpDown="Less"  Distance="2000" BB="{BB}"/>
+                    <Fallback>
+                      <Sequence>
+                        <!--LOS가 15도 이상일때-->
+                        <DECO_LOSCheck name="LOSCheck" UpDown="Greater" InputLOS="15" BB="{BB}"/>
+
+                        <Fallback>
+                          <Sequence>
+                            <!-- 오버슛 가능성 있음 -->
+                            <SpeedDifCheck name="SpeedDifCheck" BB="{BB}"/>
+                            <!--ReducePower name="ReducePower" BB="{BB}"/-->
+                            <HighYoYoUp name="HighYoYoUp" BB="{BB}"/>
+                          </Sequence>
+
+                          <Sequence>
+                            <!-- 오버슛 가능성 없음 -->
+                            <Inverter>
+                              <SpeedDifCheck name="SpeedDifCheck" BB="{BB}"/>
+                            </Inverter>
+                            <!--Pure name="Pure" BB="{BB}"/-->
+                            
+                            <Fallback>
+                              <Sequence>
+                                <!-- <DECO_LOSCheck name="LOSCheck" UpDown="Greater" InputLOS="17" BB="{BB}"/> -->
+                                <DECO_AngleOffCheck name="AngleOffCheck" UpDown="Greater"  InputAO="30" BB="{BB}"/>
+                                <Lead name="Lead" BB="{BB}"/> <!-- Lead 였는데 pure로 테스트중-->
+                                
+                              </Sequence>
+
+                              <Sequence>
+                                <!--DECO_LOSCheck name="LOSCheck" UpDown="Less" InputLOS="17" BB="{BB}"/-->
+                                <DECO_AngleOffCheck name="AngleOffCheck" UpDown="Less"  InputAO="30" BB="{BB}"/>
+                                <Pure name="Pure" BB="{BB}"/>
+                              </Sequence>
+                            </Fallback>
+                            
+                          </Sequence>
+
+                        </Fallback>
+                      </Sequence>
+                      <!-- LOS가 15도 이상일때-->
+
+                      <Sequence>
+                        <!--LOS가 15도 이하일때-->
+                        <DECO_LOSCheck name="LOSCheck" UpDown="Less" InputLOS="15" BB="{BB}"/>
+                        <Fallback>
+                          <Sequence>
+                            <Inverter>
+                              <VerticalCheck name="VerticalCheck"  BB="{BB}"/>
+                            </Inverter>
+                            <Fallback>
+                              <Sequence>
+                                <!-- 오버슛 가능성 있음 -->
+                                <SpeedDifCheck name="SpeedDifCheck" BB="{BB}"/>
+                                <HighYoYoUp name="HighYoYoUp" BB="{BB}"/>
+                              </Sequence>
+
+                              <Sequence>
+                                <!-- 오버슛 가능성 없음 -->
+                                <Inverter>
+                                  <SpeedDifCheck name="SpeedDifCheck" BB="{BB}"/>
+                                </Inverter>
+                                <Pure name="Pure" BB="{BB}"/>
+                              </Sequence>
+
+                            </Fallback>
+                          </Sequence>
+
+                          <Sequence>
+                            
+                            <VerticalCheck name="VerticalCheck"  BB="{BB}"/>
+                            
+                            <Pure name="Pure" BB="{BB}"/> <!-- 원래 lag 였음 -->
+                          </Sequence>
+                        </Fallback>
+                      </Sequence>
+                      <!--LOS가 15도 이하일때-->
+
+                    </Fallback>
+                  </Sequence>
+                  <!--SQ1-->
+                  <!-- ///////////////////////////////////Distance 2000 이하////////////////////////////////////// -->
+
+
+                </Fallback>
+                <!--FB1-->
+
+              </Sequence>
+              <!-- SQ1-->
+            </Sequence>
+
+            <!-- HABFM 부분-->
+            <Sequence>
+              <DECO_BFMCheck name="DECO_BFMCheck" BB="{BB}" CheckBFM="HABFM"/>
+              <SpeedControl_HABFM name="SpeedControl_HABFM_Service" BB="{BB}"/>
+              <Fallback>
+                <Sequence>
+                  <Inverter>
+                    <DECO_MergeCheck name="DECO_MergeCheck" BB="{BB}"/>
+                  </Inverter>
+                  <Fallback>
+                    <Sequence>
+                      <DECO_FriendlyCheck name="DECO_FriendlyCheck" BB="{BB}"/>
+                      <Split name="Split" BB="{BB}"/>
+                    </Sequence>
+
+                    <Sequence>
+                      <Inverter>
+                        <DECO_FriendlyCheck name="DECO_FriendlyCheck" BB="{BB}"/>
+                      </Inverter>
+                      <Pure name="Pure" BB="{BB}"/>
+                    </Sequence>
+                  </Fallback>
+                  
+                </Sequence>
+
+                <Sequence>
+                  <DECO_MergeCheck name="DECO_MergeCheck" BB="{BB}"/>
+                  <Fallback>
+                    <Sequence>
+                      <DECO_MergeDistanceCheck name="DECO_MergeDistanceCheck" UpDown="Greater"  Distance="1000" BB="{BB}"/>
+                      <MergeTurn name="MergeTurn" Reverse ="No" InputRoll="0" Angle="45" BB="{BB}"/>
+                    </Sequence>
+
+                    <Sequence>
+                      <DECO_MergeDistanceCheck name="DECO_MergeDistanceCheck" UpDown="Less"  Distance="1000" BB="{BB}"/>
+
+                      <Fallback>
+                        <Sequence>
+                          <SpeedDifCheck name="SpeedDifCheck" BB="{BB}"/>
+                          <MergeTurn name="MergeTurn" Reverse ="Yes" InputRoll="0" Angle="45" BB="{BB}"/>
+                        </Sequence>
+
+                        <Sequence>
+                          <Inverter>
+                            <SpeedDifCheck name="SpeedDifCheck" BB="{BB}"/>
+                          </Inverter>
+                          <MergeTurn name="MergeTurn" Reverse ="No" InputRoll="0" Angle="45" BB="{BB}"/>
+                        </Sequence>
+                        
+                      </Fallback>
+                    </Sequence>
+                  </Fallback>
+                </Sequence>
+                
+              </Fallback>
+            </Sequence>
+
+          
+
+
+  <!-- w/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+
+            <!-- DETECTING 부분 -->
+            <Sequence>
+              <DECO_BFMCheck name="DECO_BFMCheck" BB="{BB}"  CheckBFM="DETECTING"/>
+              <!-- <MaxThrottle name="MaxThrottle" BB="{BB}"/> -->
+              <SpeedControl_HABFM name="SpeedControl_HABFM_Service" BB="{BB}"/>
+             
+              <Fallback>
+                <Sequence>
+                  <Inverter>
+                    <DECO_MergeCheck name="DECO_MergeCheck" BB="{BB}"/>
+                  </Inverter>
+                  <Fallback>
+                    <Sequence>
+                      <DECO_AngleOffCheck name="AngleOffCheck" UpDown="Less"  InputAO="120" BB="{BB}"/>
+                      <Pure name="Pure" BB="{BB}"/>
+                    </Sequence>
+
+                    <Sequence>
+                      <DECO_AngleOffCheck name="AngleOffCheck" UpDown="Greater"  InputAO="120" BB="{BB}"/>
+                      <MergeTurn name="MergeTurn" Reverse ="No" InputRoll="0" Angle="45" BB="{BB}"/>
+                    </Sequence>
+                  </Fallback>
+                </Sequence>
+
+                <Sequence>
+                  <DECO_MergeCheck name="DECO_MergeCheck" BB="{BB}"/>
+                  <Fallback>
+                    <Sequence>
+                      <DECO_MergeDistanceCheck name="DECO_MergeDistanceCheck" UpDown="Less"  Distance="350" BB="{BB}"/>
+                      <MergeTurn name="MergeTurn" Reverse ="No" InputRoll="0" Angle="45" BB="{BB}"/>
+                    </Sequence>
+
+                    <Sequence>
+                      <DECO_MergeDistanceCheck name="DECO_MergeDistanceCheck" UpDown="Greater"  Distance="350" BB="{BB}"/>
+                      <Fallback>
+                        <Sequence>
+                          <DECO_MergeSpeedDifCheck name="DECO_MergeSpeedDifCheck" UpDown="Less" Speed="0" BB="{BB}"/>
+                          <MergeTurn name="MergeTurn" Reverse ="Yes" InputRoll="0" Angle="45" BB="{BB}"/>
+                        </Sequence>
+
+                        <Sequence>
+                          <Inverter>
+                           <DECO_MergeSpeedDifCheck name="DECO_MergeSpeedDifCheck" UpDown="Greater" Speed="0" BB="{BB}"/>
+                          </Inverter>
+                          <MergeTurn name="MergeTurn" Reverse ="No" InputRoll="0" Angle="45" BB="{BB}"/>
+
+                        </Sequence>
+                      </Fallback>
+                      
+                    </Sequence>
+                  </Fallback>
+
+                   
+                </Sequence>
+
+              </Fallback>
+              
+            </Sequence>
+
+            <!-- SCISSORS 부분 -->
+            <Sequence>
+              <DECO_BFMCheck name="DECO_BFMCheck" BB="{BB}" CheckBFM="SCISSORS"/>
+              <ReducePower name="ReducePower" BB="{BB}"/>
+              <Fallback>
+                <Sequence>
+                  <DECO_SpeedCheck name="DECO_SpeedCheck" UpDown="Greater" Speed="220" BB="{BB}"/>
+                  <Pure name="Pure" BB="{BB}"/>
+                </Sequence>
+
+                <Sequence>
+                  <DECO_SpeedCheck name="DECO_SpeedCheck" UpDown="Less" Speed="220" BB="{BB}"/>
+                  <Maintain name="Maintain" BB="{BB}"/>
+                </Sequence>
+              </Fallback>
+              <!--Pure name="Pure" BB="{BB}"/ -->
+
+            </Sequence>
+
+            <!-- DBFM 부분 -->
+            <Sequence>
+              <DECO_BFMCheck name="DECO_BFMCheck" BB="{BB}" CheckBFM="DBFM"/>
+              <SpeedControll_DBFM name="SpeedControll_DBFM" BB="{BB}"/>
+              
+              <Pure name="Pure" BB="{BB}"/>
+        
+            </Sequence>
+
+          </Fallback>
+
+        </Sequence>
+        
+        
+        <!-- SF 부분 트리-->
+        <Sequence>
+          <DECO_EFSFCheck name="DECO_EFSFCheck" InputACM="SF" BB="{BB}"/>
+          <Support_BF_Update name="Support_BF_Update" BB="{BB}"/>
+
+          <DistanceUpdate name="DistanceUpdateService" BB="{BB}"/>
+          <DirectionVectorUpdate name="DirectionVectorUpdate" BB="{BB}"/>
+          <CheckSight name="Check39Line" BB="{BB}"/>          
+          <AngleOffUpdate name="AngleOffUpdate" BB="{BB}"/>
+          <AspectAngleUpdate name="AspectAngleUpdate" BB="{BB}"/>
+          <CollisionAvoidance name="CollisionAvoidance" BB="{BB}"/>
+          <WeaponSelect name="WeaponSelect" BB="{BB}"/>
+          <LunchMSL name="LunchMSL" BB="{BB}"/>
+          <LunchFlare name="LunchFlare" BB="{BB}"/>
+
+
+          <!-- S_BFM Selector -->
+          <Fallback>
+            <!-- S_OBFM -->
+            <Sequence>
+              <DECO_SBFMCheck name="DECO_SBFMCheck" BB="{BB}" CheckBFM="S_OBFM"/>
+              <SpeedControl name="SpeedControlService" BB="{BB}"/>
+              <Support_OBFM name="Support_OBFM" BB="{BB}"/>
+
+            </Sequence>
+
+            <!-- S_HABFM -->
+            <Sequence>
+              <DECO_SBFMCheck name="DECO_SBFMCheck" BB="{BB}" CheckBFM="S_HABFM"/>
+              <SpeedControl name="SpeedControlService" BB="{BB}"/>
+              <Fallback>
+                <Sequence>
+                  <DECO_FriendlyCheck name="DECO_FriendlyCheck" BB="{BB}"/>
+                  <Split name="Split" BB="{BB}"/>
+                </Sequence>
+
+                <Sequence>
+                  <Inverter>
+                    <DECO_FriendlyCheck name="DECO_FriendlyCheck" BB="{BB}"/>
+                  </Inverter>
+                  <Support_HABFM name="Support_HABFM" BB="{BB}"/>
+                </Sequence>
+              </Fallback>
+
+            </Sequence>
+
+            <!-- S_DBFM -->
+            <Sequence>
+              <DECO_SBFMCheck name="DECO_SBFMCheck" BB="{BB}" CheckBFM="S_DBFM"/>
+              <SpeedControl name="SpeedControlService" BB="{BB}"/>
+              <Support_DBFM name="Support_DBFM" BB="{BB}"/>
+
+            </Sequence>
+
+            <!-- S_Others -->
+            <Sequence>
+              <DECO_SBFMCheck name="DECO_SBFMCheck" BB="{BB}" CheckBFM="S_Others"/>
+              <SpeedControl name="SpeedControlService" BB="{BB}"/>
+
+              <Fallback>
+               <Sequence>
+                 <DECO_LOSCheck name="LOSCheck" UpDown="Less" InputLOS="90" BB="{BB}"/>
+                 <Pure name="Pure" BB="{BB}"/>
+               </Sequence>
+
+               <Sequence>
+                <DECO_LOSCheck name="LOSCheck" UpDown="Greater" InputLOS="100" BB="{BB}"/>
+                <Fallback>
+
+                  <Sequence>
+                    <DECO_MergeEnemyLRCheck name = "DECO_MergeEnemyLRCheck" BB="{BB}"/>
+                    <Turn name="Turn" Angle="-60" BB="{BB}"/>
+                  </Sequence>
+
+                  <Sequence>
+                    <Inverter>
+                      <DECO_MergeEnemyLRCheck name = "DECO_MergeEnemyLRCheck" BB="{BB}"/>
+                    </Inverter>
+                    <Turn name="Turn" Angle="60" BB="{BB}"/>
+                  </Sequence>
+                
+                </Fallback>
+               </Sequence>
+              </Fallback>
+
+              <!--Support_HABFM name="Support_HABFM" BB="{BB}"/-->
+            </Sequence>
+
+          </Fallback>
+          
+        </Sequence>
+      </Fallback>
+    </Sequence>
+  </BehaviorTree>
+
+
+</root>

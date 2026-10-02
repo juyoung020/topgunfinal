@@ -60,11 +60,14 @@ from dogfight.sim.state_schema import StateIndex
 
 
 OBSERVATION_MODE = "student16"
-OBSERVATION_SIZE = 16
+OBSERVATION_SIZE = 17
 OBSERVATION_LOW = -1.0
 OBSERVATION_HIGH = 1.0
 
 _D2R = math.pi / 180.0
+ALT_CLIFF_M = 2000.0 * 0.3048   # 저고도 램프 시작 (2,000 ft = 609.6 m), 2026-08-29
+ALT_FLOOR_M = 1000.0 * 0.3048   # 램프 끝 = 추락선 (1,000 ft = 304.8 m)
+ALT_FLOOR_VAL = -1.5            # 추락선에서의 채널값 (정상 범위 [-1, 1] 밖)
 
 # 9/9 패킷 안의 동체속도 인덱스 (StateIndex 에 이름이 없다)
 IDX_U, IDX_V, IDX_W = 6, 7, 8
@@ -290,7 +293,17 @@ def build_observation(ownship_state, target_state, geo_info, wez_config=None,
     add("sin_roll", math.sin(float(own[StateIndex.ROLL]) * _D2R))
     add("cos_roll", math.cos(float(own[StateIndex.ROLL]) * _D2R))
     add("pitch", normalize(float(own[StateIndex.PITCH]), -90.0, 90.0))
-    add("alt", normalize(-float(own[StateIndex.D]), 0.0, 14000.0))
+    # [2026-08-29 사용자 지시] 저고도 램프: ALT_CLIFF_M(2,000 ft) 위는 종전 선형(0~14,000 m, 610 m 에서 -0.913),
+    #   아래는 610 m -0.913 -> 추락선 ALT_FLOOR_M(1,000 ft) 에서 ALT_FLOOR_VAL(-1.5) 로 선형(해상도 13배), 그 밑은 -1.5 클립.
+    #   (같은 날 앞서 쓴 절벽 -1.0 고정은 깊이 정보가 없어 램프로 교체.) 원래 선형은 305~914 m 가 폭 4.4% 뿐이었음.
+    #   학습·제출·고정 상대(rl_opponent) 모두 이 파일을 쓴다. 이전 번들은 610 m 아래를 다르게 읽는다.
+    _alt_m = -float(own[StateIndex.D])
+    if _alt_m < ALT_CLIFF_M:
+        _top = normalize(ALT_CLIFF_M, 0.0, 14000.0)
+        _t = min(max((ALT_CLIFF_M - _alt_m) / (ALT_CLIFF_M - ALT_FLOOR_M), 0.0), 1.0)
+        add("alt", _top + (ALT_FLOOR_VAL - _top) * _t)
+    else:
+        add("alt", normalize(_alt_m, 0.0, 14000.0))
     # 내 속도. 선회율이 속도에 반비례한다: omega = g*sqrt(n^2-1)/V.
     # 빠르면 크게 돌고 느리면 작게 돈다 — 자기 선회 능력을 알아야 한다.
     add("speed", normalize(
@@ -303,6 +316,19 @@ def build_observation(ownship_state, target_state, geo_info, wez_config=None,
 
     # ⑥ 시간 -----------------------------------------------------------
     add("time_norm", normalize(_elapsed_s(own, observer), 0.0, 200.0))
+
+    # ④b [MOD-TAILASPECT 2026-09-09 사용자 지시] 후방 점유 각도.
+    #
+    # 왜: 적 자세를 담은 채널은 `threat_ata` 하나뿐인데 0~30도로 클립돼
+    # 30도 초과가 전부 +1 로 포화된다(실측 76.8%). 후방은 정의상 그 구간이라
+    # "비스듬히 뒤(90~120)"와 "완전 정후방(150~180)"이 정책 눈에 같은 값이었다
+    # (실측: 두 구간의 접근율 131 vs 133, 거리 1336 vs 1244 로 다른 채널로도 안 갈림).
+    #
+    # cos 이 아니라 선형 램프인 이유: cos 은 90도 근처가 가장 민감하고 180도
+    # 근처가 가장 둔한데, 해상도가 필요한 곳은 정후방 쪽이라 반대다.
+    # 주의: 반드시 **맨 뒤**여야 한다. 가운데 끼우면 뒤 채널이 밀려
+    #       16차원 상대 번들(앞 16개를 잘라 씀)과 0-확장한 가중치가 동시에 깨진다.
+    add("tail_aspect", min(max((threat_ata - 90.0) / 90.0, 0.0), 1.0))
 
     assert len(feats) == OBSERVATION_SIZE, (
         f"OBSERVATION_SIZE({OBSERVATION_SIZE}) != 활성 특징 개수({len(feats)})"
@@ -321,6 +347,10 @@ FEATURE_NAMES: tuple[str, ...] = (
     "distance", "sin_ata2d", "cos_ata2d", "los_az", "los_el",
     "closure_rate", "los_rate_az", "los_rate_el", "threat_ata",
     "sin_roll", "cos_roll", "pitch", "alt", "speed", "delta_alt", "time_norm",
+    # [2026-09-09 정정] tail_aspect 는 build_observation 의 add() 순서상 **맨 뒤**다.
+    # 이 목록에는 9번 자리에 적혀 있었는데, assert 가 길이만 보므로 조용히 통과했다.
+    # 16차원 상대 번들이 앞 16개를 잘라 쓰므로 런타임 순서가 기준이다.
+    "tail_aspect",
 )
 assert len(FEATURE_NAMES) == OBSERVATION_SIZE, (
     f"FEATURE_NAMES({len(FEATURE_NAMES)}) != OBSERVATION_SIZE({OBSERVATION_SIZE})"

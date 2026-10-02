@@ -31,10 +31,11 @@ function Launch($role) {
     'trainer'   { Start-Process powershell '-NoExit','-Command',("& " + (Short 'launch_final_selfplay.bat')) }
     'round2'    { Start-Process powershell '-NoExit','-Command',("& " + (Short 'launch_final_round2.bat')) }
     'resume'    { Start-Process powershell '-NoExit','-Command',("& " + (Short 'launch_final_resume.bat')) }
+    'bundle'    { Start-Process powershell '-NoExit','-Command',("& " + (Short 'launch_final_bundle.bat')) }
     'dashboard' { Start-Process cmd '/k',(Short 'launch_dashboard.bat') }
     default     { throw "unknown: $role (sidecar|trainer|round2|resume|dashboard)" }
   }
   "launched $role (FINAL_SP_TAG=$tag)"
 }
-if (-not $SkipPreflight -and $what -in 'sidecar','trainer','round2','resume') { Preflight ($what -in 'trainer','round2') }
+if (-not $SkipPreflight -and $what -in 'sidecar','trainer','round2','resume','bundle') { Preflight ($what -in 'trainer','round2','bundle') }
 Launch $what

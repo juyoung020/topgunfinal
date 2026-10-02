@@ -62,8 +62,8 @@ class _BundleModule:
 
         obs_dim = int(md["observation_size"])
         self.obs_dim = obs_dim
-        if obs_dim != 16:
-            raise ValueError(f"opponent bundle is {obs_dim}-dim; only 16 (student16) is supported: {bundle_dir}")
+        if obs_dim not in (16, 17):
+            raise ValueError(f"opponent bundle is {obs_dim}-dim; only 16/17 supported: {bundle_dir}")
         # 번들이 저장한 model_config 를 그대로 쓴다. 손으로 다시 적으면
         # 활성함수 하나만 어긋나도 가중치가 조용히 안 맞는다.
         model_config = dict(md.get("model_config") or {})
@@ -98,7 +98,12 @@ class _BundleModule:
         t = self._torch
         from ray.rllib.core.columns import Columns
 
-        ob = t.as_tensor(np.asarray(obs, dtype=np.float32)).view(1, 1, -1)
+        # [MOD-TAILASPECT] 우리 관측이 17채널이 된 뒤에도 16차원 상대 번들을 쓴다.
+        # 앞 16채널은 의미가 그대로라 잘라서 주면 된다.
+        _o = np.asarray(obs, dtype=np.float32)
+        if _o.shape[-1] != self.obs_dim:
+            _o = _o[..., : self.obs_dim]
+        ob = t.as_tensor(_o).view(1, 1, -1)
         with t.no_grad():
             out = self.module.forward_inference(
                 {Columns.OBS: ob, Columns.STATE_IN: self._state}

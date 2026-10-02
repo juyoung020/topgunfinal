@@ -6,6 +6,8 @@
 
 | 폴더 | 정체 |
 |---|---|
+| `champion_v2r6_iter7200` | **현 챔피언(2026-08-30)** = final_v2r6 iter 7200 (v2r5 iter_1000 복원 + 혼합 고정 풀 s52 .35/aimcur .15/aimangle .15/sp3_iter0400 .15/s48 .10/league_v4 .10, iter 7400 에서 정지). 실서버 2000ft Blue/Red 1판씩 26판 **20승 4무 2패**: 컷오프 21 s 격추 ×2, champion_v2r5 ×2, s52 ×2, 회피형 3종 ×2 전승 / 패·무 = s48·peak3100·scrim(정면 25~29 s 맞교환). 교전 기하: `docs/교전기하_7200_20260830/`. 원본 `Update/강화학습환경/artifacts/models/AeroFlyer/final_v2r6_iter7200` |
+| `prev_champion_v2r5_iter1000` | 전 챔피언(2026-08-29, 폴더명 champion_v2r5_iter1000 이었음) = final_v2r5 iter 1000 (v2 iter_5220 → v2r4 iter_0200 → lr 2e-4·kl 0.02, 상대 final_sp3_iter0400 고정, 관측 램프·deck 선형·sink 게이트). 학습 리플레이 24/24 격추승. 실서버 2000ft: 컷오프 판정승 2/2(99:76, 96:63) · ladder5220 격추승 2/2(23 s) · final_sp3_iter0400 격추승(22 s, 무피해). 원본 `Update/강화학습환경/artifacts/models/AeroFlyer/final_v2r5_iter1000` |
 | `final_sp_iter0160` | 본선 학습 1차 (v1 베이스, 상대 v1사본 70%+v2 30%, iter 160) — 체크포인트 final_sp/.../iter_0160 에서 추출 |
 | `v1_s48_snap12241` | v1 = s48 (0824_r48 stage48). 실서버 8승2무1패. 후방 공방 우수, 선회전 약함 |
 | `v2_ladder5220` | v2 = ladder5220 (0815_ladder iter 5,220). 제출본. 정면·선회전 무패, 후방 방어 약함 |

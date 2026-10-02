@@ -1,0 +1,28 @@
+[LTPATH] 상대 풀을 여기에 쓴다: C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\final_v10\live_tune.json
+watching C:\topgunfinal\Update\강화학습환경\artifacts\curriculum\AeroFlyer\final_v10\stage_35_selfplay_final\killfloor_probe.json
+self entries at pool indices [26, 27, 28, 29, 30, 31]
+이력 복원: 3개 (snap_0000 ~ snap_12000)
+[22:13:06] snapshot -> snap_12068
+[22:13:06] pool_weights 적용 (20종)
+[22:13:06] live_tune updated: picks=['snap_12068', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=4)
+[22:18:06] snapshot -> snap_12101
+[22:18:06] pool_weights 적용 (20종)
+[22:18:06] live_tune updated: picks=['snap_12101', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=5)
+[22:33:06] snapshot -> snap_12203
+[22:33:06] pool_weights 적용 (13종)
+[22:33:06] live_tune updated: picks=['snap_12203', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=6)
+[22:47:36] snapshot -> snap_12301
+[22:47:36] pool_weights 적용 (13종)
+[22:47:36] live_tune updated: picks=['snap_12301', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=7)
+[23:02:36] snapshot -> snap_12403
+[23:02:36] pool_weights 적용 (13종)
+[23:02:36] live_tune updated: picks=['snap_12403', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=8)
+[23:17:06] snapshot -> snap_12501
+[23:17:06] pool_weights 적용 (13종)
+[23:17:06] live_tune updated: picks=['snap_12501', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=9)
+[23:32:06] snapshot -> snap_12603
+[23:32:06] pool_weights 적용 (13종)
+[23:32:06] live_tune updated: picks=['snap_12603', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=10)
+[23:46:36] snapshot -> snap_12703
+[23:46:36] pool_weights 적용 (13종)
+[23:46:36] live_tune updated: picks=['snap_12703', 'snap_0000', 'snap_0000'] (lag_steps=[0, 20, 60], history=11)
